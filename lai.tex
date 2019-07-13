@@ -1,0 +1,2143 @@
+% layout and global options
+\documentclass
+[
+  draft    = true,
+  fontsize = 11pt,
+  parskip  = half-,
+  BCOR     = 0pt,
+  DIV      = 11,
+  ngerman
+]
+{scrartcl}
+
+% default packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{babel}
+% extra packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{siunitx}
+\usepackage{url}
+\usepackage{xcolor}
+
+% use comma as decimal separator
+\sisetup{locale=DE, group-minimum-digits=4}
+
+% -----
+% defeq
+% -----
+%
+% A vertically centered version of ':='
+%
+\newcommand{\defeq}{\mathrel{\mathop:}=}
+
+% ---
+% imp
+% ---
+%
+% This macro typesets the imaginary part 'bi' of a complex number 'a+bi'.
+%
+% #1  b
+%
+\newcommand{\imp}[1]
+{%
+  % no b given
+  \ifthenelse{\equal{#1}{}}
+  {%
+    \mathrm{i}%
+  }%
+  % b given
+  {%
+    #1\mskip0.5\thinmuskip\mathrm{i}%
+  }%
+}
+
+% ------
+% answer
+% ------
+%
+% This environment typesets answers.
+%
+\newif{\ifanswers}
+\newcommand{\hideanswers}{\answersfalse}
+\newcommand{\showanswers}{\answerstrue}
+%
+\newenvironment{answer}
+{%
+  \begingroup
+    \color{blue}%
+    \sffamily
+    \small
+    \ifanswers
+      \par
+      \hrulefill
+      \par
+    \else
+      \setbox0\vbox
+      \bgroup
+    \fi
+}%
+{%
+    \ifanswers
+      \relax
+    \else
+      \egroup
+    \fi
+  \endgroup
+}%
+
+% ------------------------------------------------------------------------------
+\begin{document}
+% ------------------------------------------------------------------------------
+
+%\hideanswers
+\showanswers
+\allowdisplaybreaks
+
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{\fill}
+  \normalsize
+  \normalfont
+  Aufgaben zur Veranstaltung\par
+  \vspace{\baselineskip}
+  \LARGE
+  \bfseries
+  Lineare Algebra für Informatiker\par
+  \vspace{2\baselineskip}
+  \normalsize
+  \normalfont
+  SS 2019\par
+  \vspace*{\fill}
+  \vspace*{\fill}
+  \url{https://github.com/usishare/LAI_SS19_Aufgaben.git}
+\end{center}
+
+\clearpage
+\pagenumbering{arabic}
+
+% ---------------------
+\paragraph{Aufgabe 1.1} \textit{(Mengen)}\par
+% ---------------------
+Sei $A=\{2,3\}$, $B=\{3,4\}$ und $C=\{2,3,4,5\}$. Bilden Sie folgende Mengen:
+\begingroup
+  \newcommand{\alg}{&\;}%
+  \newcommand{\sep}{\;&\;}%
+  \begin{align*}
+        \text{a)}\sep A\cup B
+    \alg\text{b)}\sep A\cap B
+    \alg\text{c)}\sep (A\cup B)\cup C
+    \alg\text{d)}\sep (A\cap B)\cap C
+    \\
+        \text{e)}\sep (A\cup B)\cap C
+    \alg\text{f)}\sep (A\cap B)\cup C
+    \alg\text{g)}\sep A\setminus B
+    \alg\text{h)}\sep B\setminus A
+    \\
+        \text{i)}\sep (A\setminus B)\setminus C
+    \alg\text{j)}\sep A\setminus(B\setminus C)
+    \alg\text{k)}\sep A\times A
+    \alg\text{l)}\sep A\times B
+  \end{align*}
+\endgroup
+
+% ---------------------
+\paragraph{Aufgabe 1.2} \textit{(Wahrheitstafeln)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Stellen Sie jeweils die Wahrheitstafel auf:
+        \begin{equation*}
+          \text{a) } A\land(B\lor C)
+          \qquad
+          \text{b) } (A\land B)\lor(A\land C)
+          \qquad
+          \text{c) } A\lor(\lnot A)
+        \end{equation*}
+  \item Beweisen Sie -- falls möglich -- jeweils die Äquivalenz durch Vergleich
+        der Wahrheitstafeln beider Seiten:
+        \begin{alignat*}{2}
+          &\text{a)}\quad & A\land(B\land C)&\Leftrightarrow(A\land B)\lor(A\land C)\\
+          &\text{b)}\quad & A\lor(B\land(\lnot B))&\Leftrightarrow A
+        \end{alignat*}
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 1.3} \textit{(Reihen)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Schreiben Sie die folgenden Reihen in der Form $\sum_{n=0}^{\infty}c_n$
+        \begin{equation*}
+          \begin{split}
+            \text{a)}&\quad 3^4+5^5+7^6+9^7+\cdots \\[2ex]
+            \text{b)}&\quad \frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\frac{1}{6}+\cdots+\frac{1}{n+3} \\[2ex]
+            \text{c)}&\quad \frac{1}{4}-\frac{1}{8}+\frac{1}{16}-\frac{1}{32}+\cdots
+          \end{split}
+        \end{equation*}
+  \item Geben Sie jeweils den Zahlenwert der Summe an:
+        \begin{alignat*}{2}
+          \text{a)}&\quad\sum_{n=0}^{3}n^2
+                   &\qquad\qquad
+          \text{b)}&\quad\sum_{k=1}^{6}\frac{1}{k}-\frac{1}{k+1}
+          \\[2ex]
+          \text{c)}&\quad\sum_{n=1}^{2024}42
+                   &\qquad\qquad
+          \text{d)}&\quad\sum_{i=101}^{101}\ln(10^i)
+        \end{alignat*}
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 1.4} \textit{(Funktionen)}\par
+% ---------------------
+Gegeben seien folgende Funktionen:
+\begin{equation*}
+  \begin{split}
+    f:\;&\mathbb{R}\to\mathbb{R}\;,\;x\mapsto3x-3\\
+    g:\;&\mathbb{R}\to\mathbb{R}\;,\;x\mapsto(x+1)^2
+  \end{split}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Bestimmen Sie die Abbildungsvorschriften für $g\circ f$ und $f\circ g$.
+        Geben Sie die Werte-, und Definitionsmengen von $f$, $g$, $f\circ g$ und $g\circ f$ an.
+  \item Nachdem Sie die Definitions- und Zielmenge sinnvoll eingeschränkt haben,
+        bestimmen Sie die Abbildungsvorschriften für $f^{-1}$ und $g^{-1}$.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 1.5} \textit{(Injektivität, Surjektivität und Bijektivität)}\par
+% ---------------------
+Untersuchen Sie $f$ jeweils auf Injektivität, Surjektivität und Bijektivität:
+\begin{alignat*}{5}
+  \text{a)}&\;\; & f:\;\mathbb{R}\to\mathbb{R}\;&,\;x\mapsto 3x-2
+  &\quad&\qquad&
+  \text{b)}&\;\; & f:\;\mathbb{Z}\to\mathbb{Z}\;&,\;x\mapsto 3x-2 
+  \\[2ex]
+  \text{c)}&\;\; & f:\;[0,\infty)\to\mathbb{R}\;&,\;x\mapsto x^2-2
+  &\quad&\qquad&
+  \text{d)}&\;\; & f:\;(1,\infty)\to[-1,\infty)\;&,\;x\mapsto x^2-2
+  \\[1ex]
+  \text{e)}&\;\; & f:\;(0,\infty)\to[2,\infty)\;&,\;x\mapsto\frac{x^2+1}{x}
+  &\quad&\qquad&
+  \text{f)}&\;\; & f:\;(\mathbb{R}\times\mathbb{R})\to\mathbb{R}\;&,\;(x,y)\mapsto x+y
+\end{alignat*}
+
+% ---------------------
+\paragraph{Aufgabe 2.1} \textit{(Zahlenbereiche)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Zeigen Sie, dass es keine rationale $x\in\mathbb{Q}$ gibt, sodass $x^2=2$ gilt.
+  \item Für welche $n\in\mathbb{N}$ gilt $\sqrt{n}\in\mathbb{Q}$\,?
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 2.2} \textit{(Körper)}\par
+% ---------------------
+Konstruieren Sie einen Körper aus den vier Elementen $\{0,1,a,b\}$.\par
+{\itshape
+Hinweis: Stellen Sie die Additions- und Multiplikationstafel auf,
+und prüfen Sie die Körperaxiome.}
+
+% ---------------------
+\paragraph{Aufgabe 2.3} \textit{(Wiederholung Gruppen)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Zeigen Sie, dass die Menge $G\defeq\mathbb{R}\setminus\{1\}$ mit der durch
+        \begin{equation*}
+          a\circ b\defeq a+b-ab\quad\forall a,b\in G
+        \end{equation*}
+        definierten Verknüpfung eine Gruppe ist.
+  \item Lösen Sie in $G$ die Gleichung $a\circ x\circ6=-49$\,.\par
+        {\itshape
+        Hinweis: Falls $G$ eine Gruppe ist, müssen folgende Bedingungen gelten:}
+        \begin{enumerate}[({G}1)]
+          \item $\forall\;a,b\;:\;a,b\in G\;\Rightarrow\;a\circ b\in G$
+          \item $\forall\;a,b,c\in G\;:\;(a\circ b)\circ c=a\circ(b\circ c)$
+          \item $\exists\;e\in G\;:\;\forall\;a\in G\;:\;e\circ a=a$
+          \item $\forall\;a\in G\;:\;\exists\;a^{-1}\in G\;:\;a^{-1}\circ a=e$
+        \end{enumerate}
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 2.4} \textit{(Komplexe Zahlen)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Stellen Sie folgende komplexe Zahlen in der Form $x+\imp{y}$ mit
+        $x,y\in\mathbb{R}$ dar:
+        \begin{alignat*}{3}
+          \text{a)}\;\;&(1-\imp{})^3+(1+\imp{})^3
+          &\quad&\quad&
+          \text{b)}\;\;&\frac{1}{1+\imp{3}}+\frac{1}{1-\imp{3}}
+          \\[1ex]
+          \text{c)}\;\;&\frac{1-\imp{}}{1+\imp{}}
+          &\quad&\quad&
+          \text{d)}\;\;&\left(\frac{1}{2}+\frac{\sqrt{3}}{2}\cdot\imp{}\right)^2
+        \end{alignat*}
+  \item Zeichnen Sie folgende komplexe Zahlen als Punkt der Ebene und
+        berechnen Sie deren Beträge:
+        \begin{equation*}
+          \text{a)}\;\;z_1=7-\imp{9}
+          \qquad
+          \text{b)}\;\;z_2=1+\imp{}+\imp{}^2+\imp{}^3+\imp{}^4
+          \qquad
+          \text{c)}\;\;z_3=\frac{2+\sqrt{3}\cdot5}{2}
+        \end{equation*}
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 2.5} \textit{(Komplexe Zahlen)}\par
+% ---------------------
+Zeigen Sie, dass für alle komplexen Zahlen $x,y\in\mathbb{C}$ folgende
+Zusammenhänge gelten:
+\begin{equation*}
+  \begin{split}
+    |x+y|&\leq|x|+|y|\\
+    |x\cdot y|&=|x|\cdot|y|
+  \end{split}
+\end{equation*}
+
+% ---------------------
+\paragraph{Aufgabe 3.1} \textit{(Ringe)}\par
+% ---------------------
+Stellen Sie die Additions- und Multiplikationstafeln der Ringe
+$\mathbb{Z}_7$ und $\mathbb{Z}_4$ auf.
+\begin{enumerate}[a)]
+  \item Begründen Sie, ob es sich jeweils um einen Körper handelt oder nicht.
+  \item Sind die Ringe jeweils Nullteilerfrei?
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 3.2} \textit{(Polynomringe)}\par
+% ---------------------
+\begingroup
+  \newcommand{\addop}{\oplus}%
+  \newcommand{\mulop}{\otimes}%
+  Sei $(R,\addop,\mulop)$ ein Ring und $f,g\in R[X]$ die folgenden zwei Polynome:
+  \begin{equation*}
+    \begin{split}
+      f&=x^3+2x^2-4x-1\\
+      g&=-2x^2+5
+    \end{split}
+  \end{equation*}
+  Bestimmen Sie:
+  \begin{equation*}
+    \text{a)}\;\;f\addop g
+    \qquad
+    \text{b)}\;\;f\mulop g
+    \qquad
+    \text{c)}\;\;q,r\in R[X]\;\;\text{sodass}\;\;f=g\mulop q\addop r\text{ gilt}
+  \end{equation*}
+\endgroup
+
+% ---------------------
+\paragraph{Aufgabe 3.3} \textit{(Linearfaktoren)}\par
+% ---------------------
+Zerlegen Sie $f_1$ und $f_2$ in Linearfaktoren:
+\begin{equation*}
+  \begin{split}
+    f_1&=x^2+\frac{100}{3}x+\frac{100}{3}\\[1ex]
+    f_2&=x^3+\frac{3}{2}x^2-\frac{3}{2}x-1
+  \end{split}
+\end{equation*}
+{\itshape
+Hinweis: $-1$ ist eine Nullstelle von $f_1$
+und $1$ bzw. $2$ sind Nullstellen von $f_2$.}
+
+% ---------------------
+\paragraph{Aufgabe 3.4} \textit{(Geradengleichung)}\par
+% ---------------------
+Es seien $t\in\mathbb{R}$ und $P\defeq(2\mid\frac{1}{4}\sqrt{2})$. Außerdem
+\begin{equation*}
+  \begin{split}
+    G_1&\defeq\left\{(x,y)\in\mathbb{R}^2\mid2x+ty=4\right\}\\
+    G_2&\defeq\left\{(x,y)\in\mathbb{R}^2\mid2x+4y=5\right\}
+  \end{split}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Für welche $t\in\mathbb{R}$ gilt $P\in G_1$\,?
+  \item Bestimmen Sie in Abhängigkeit von $t$ den Schnittpunkt von $G_1$ und $G_2$.
+        Schneiden sich $G_1$ und $G_2$ für jeden Wert von $t$?
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 3.5} \textit{(Gruppen und Geraden)}\par
+% ---------------------
+Sei $G$ ist die Menge aller reeller Funktionen der Form $f(x)=ax+b$
+mit $a\neq0$, also:
+\begin{equation*}
+  G\defeq
+  \big\{
+    f:\mathbb{R}\to\mathbb{R}
+    \mid
+    a,b\in\mathbb{R},a\neq0
+    \;:\;
+    f(x)=ax+b\quad\forall\;x\in\mathbb{R}
+  \big\}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Zeigen Sie, dass $G$ zusammen mit der Operation
+        \begin{equation*}
+          \circ:G\times G\to G
+          \;,\;
+          (f,g)\mapsto f\circ g
+          \quad\text{mit}\quad
+          (f\circ g)(x)=f(g(x))
+        \end{equation*}
+        eine Gruppe ist.
+  \item Für welche $s,t\in\mathbb{R}$ gilt $sx+t=(ax+b)\circ(cx+d)$\,?
+  \item Ist $G$ abelsch?
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 4.1} \textit{(Gleichungssysteme)}\par
+% ---------------------
+Lösen Sie die folgenden Gleichungssysteme:
+\begin{equation*}
+  \begin{aligned}
+    \text{a)}\quad x+y+z&=100\\
+                   3x-2z&=4\\
+                      5y&=4z
+  \end{aligned}
+  \qquad
+  \qquad
+  \begin{aligned}
+    \text{b)}\quad x\sqrt{a}-y\sqrt{b}&=a+b\\
+                                   x+y&=2\sqrt{a}\\
+                                 \quad&\quad
+  \end{aligned}
+\end{equation*}
+
+% ---------------------
+\paragraph{Aufgabe 4.2} \textit{(Hähne, Hennen und Küken)}\par
+% ---------------------
+Wie viele Hähne, Hennen und Küken kann man für 100 Münzen kaufen, wenn
+man insgesamt 100 Vögel haben will und ein Hahn 3 Münzen, eine Henne 5
+Münzen und drei Küken eine Münze kosten? Die 100 Münzen sollen hierbei
+vollständig verbraucht werden.
+\begin{enumerate}[a)]
+  \item Stellen Sie ein passendes lineares Gleichungssystem auf und
+        geben Sie eine Lösung dieses Systems an, die das Problem löst.
+  \item Ermitteln Sie die Menge aller Lösungen des Systems.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 4.3} \textit{(Gleichungssystem)}\par
+% ---------------------
+Gegeben sei das inhomogene lineare Gleichungssystem
+\begin{equation*}
+  \newcommand{\+}{&{}+{}&}%
+  \renewcommand{\-}{&{}-{}&}%
+  \renewcommand{\=}{&{}={}&}%
+  \renewcommand{\.}{&{}~{}&}%
+  \renewcommand{\|}{\text{\;\;}&}%
+  \setlength{\arraycolsep}{0pt}%
+  \begin{array}{|crcrcrcrcrcr}
+  \|   a \+  3b \+ 2c \-   d \+ 4e \= 1 \\
+  \|  4a \.     \+ 7c \+ 11d \+ 4e \= 2 \\
+  \| -2a \+  8b \+ 3c \+  6d \+ 6e \= 3 \\
+  \| 12a \- 18b \+ 2c \-  9d \- 6e \= 4
+  \end{array}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Bestimmen Sie den Lösungsraum des zugehörigen homogenen
+        Gleichungssystems. Geben Sie insbesondere dessen Dimension und
+        Rang an.
+  \item Bestimmen Sie die Lösungsmenge dieses (unveränderten)
+        Gleichungssystems.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 4.4} \textit{(Gleichung mit einer Variablen)}\par
+% ---------------------
+Bestimmen Sie in Abhängigkeit von $t\in\mathbb{R}$ die Lösungsmenge des
+folgenden Gleichungssystems:
+\begin{equation*}
+  \newcommand{\+}{&{}+{}&}%
+  \renewcommand{\-}{&{}-{}&}%
+  \renewcommand{\=}{&{}={}&}%
+  \renewcommand{\.}{&{}~{}&}%
+  \renewcommand{\|}{\text{\;\;}&}%
+  \setlength{\arraycolsep}{0pt}%
+  \begin{array}{|crcrcrcrcrcr}
+  \| ta \+  b \+  c \+  d \+  e \= 1 \\
+  \|  a \+ tb \+  c \+  d \+  e \= 1 \\
+  \|  a \+  b \+ tc \+  d \+  e \= 1 \\
+  \|  a \+  b \+  c \+ td \+  e \= 1 \\
+  \|  a \+  b \+  c \+  d \+ te \= 1
+  \end{array}
+\end{equation*}
+
+% ---------------------
+\paragraph{Aufgabe 4.5} \textit{(Dreh' am Rad)}\par
+% ---------------------
+Drei Zahnräder eines Getriebes haben zusammen 80 Zähne. Bei 10 Umdrehungen
+des ersten Rades dreht sich das zweite Zahnrad 18 und das dritte 45 mal.\par
+Wie viele Zähne hat jedes Rad?
+
+% ---------------------
+\paragraph{Aufgabe 5.1} \textit{(Matrizen)}\par
+% ---------------------
+Berechnen Sie jeweils die Matrix $C=A\cdot B$:
+\begin{align*}
+  \text{a)}\quad A_1&=
+  \begin{pmatrix}
+    2 &  5 & 3 \\
+    1 & -2 & 0 \\
+    0 &  1 & 4
+  \end{pmatrix}
+  &
+  B_1&=
+  \begin{pmatrix}
+    1 & -3 \\
+    2 &  4 \\
+    0 &  2
+  \end{pmatrix}
+  \\[1ex]
+  \text{b)}\quad A_2&=
+  \begin{pmatrix}
+    5 & 2 & 1 \\
+    3 & 0 & 2
+  \end{pmatrix}
+  &
+  B_2&=
+  \begin{pmatrix}
+    1 & 3 & 0 \\
+    1 & 1 & 4 \\
+    3 & 0 & 0
+  \end{pmatrix}
+  \\[1ex]
+  \text{c)}\quad A_3&=
+  \begin{pmatrix}
+    2 & 1 & 2 & 1
+  \end{pmatrix}
+  &
+  B_3&=
+  \begin{pmatrix}
+        4 \\
+        3 \\
+       -2 \\
+        2
+  \end{pmatrix}
+  \\
+  \text{d)}\quad A_4&=
+  \begin{pmatrix}
+        4 \\
+        3 \\
+       -2 \\
+        2
+  \end{pmatrix}
+  &
+  B_4&=
+  \begin{pmatrix}
+    2 & 1 & 2 & 1
+  \end{pmatrix}
+  \\
+  \text{e)}\quad A_5&=
+  \begin{pmatrix}
+    2 & 7 & 6 \\
+    4 & 8 & 2
+  \end{pmatrix}^\text{t}
+  &
+  B_5&=
+  \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{pmatrix}
+  \\[1ex]
+  \text{f)}\quad A_6&=
+  \begin{pmatrix}
+    2
+  \end{pmatrix}
+  &
+  B_6&=
+  \begin{pmatrix}
+    6
+  \end{pmatrix}
+  \\[1ex]
+  \text{g)}\quad A_7&=
+  \begin{pmatrix}
+       \sqrt{5} &        0 &  -6 & \frac{3}{111} \\
+             -2 &        3 &   8 &             2 \\
+              0 & \sqrt{4} & 400 &            10 \\
+    \frac{1}{2} &        1 &  -1 &             5
+  \end{pmatrix}
+  &
+  B_7&=
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\end{align*}
+
+% ---------------------
+\paragraph{Aufgabe 5.2} \textit{(Rechenregeln für Matrizen)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Welche Eigenschaften müssen zwei beliebige Matrizen $A$ und $B$
+        erfüllen um diese addieren zu können?
+  \item Welche Eigenschaften müssen zwei beliebige Matrizen $C$ und $D$
+        erfüllen um diese miteinander multiplizieren zu können?
+  \item Welche Eigenschaften müssen erfüllt sein um eine Matrix $M$
+        invertieren zu können?
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 5.3} \textit{(Erweiterte Zeilenstufenform)}\par
+% ---------------------
+Formen Sie folgende Matrizen in die erweiterte Zeilenstufenform um:
+\begin{equation*}
+  \begin{split}
+    R&=
+    \begin{pmatrix}
+       1 & 0 &  1 & -1 &  1 \\
+       1 & 1 &  1 &  1 &  0 \\
+      -1 & 1 & -1 &  1 & -1 \\
+       0 & 1 & -1 &  0 &  1
+    \end{pmatrix}
+    \in M_{4\times5}(\mathbb{R})
+    \\[1ex]
+    S&=
+    \begin{pmatrix}
+      1+\imp{} &       0 &  5 \\
+             5 &  \imp{} & 10 \\
+            -1 & \imp{2} & -3
+    \end{pmatrix}
+    \in M_{3\times3}(\mathbb{C})
+    \\[1ex]
+    T&=
+    \begin{pmatrix}
+       1 & 6 & 3 \\
+      14 & 3 & 1 \\
+       2 & 5 & 1
+    \end{pmatrix}
+    \in M_{3\times3}(\mathbb{Z}_5)
+  \end{split}
+\end{equation*}
+
+% ---------------------
+\paragraph{Aufgabe 5.4} \textit{(Ring)}\par
+% ---------------------
+Sei $R=\big(M_{2\times2}(\mathbb{R}),\oplus,\otimes\big)$,
+wobei die Verknüpfungen $\oplus$ und $\otimes$ jeweils für die kanonische
+Addition bzw. Multiplikation von Matrizen stehen.\par
+Zeigen Sie, dass $R$ ein Ring ist. Dabei kann davon ausgegangen werden,
+dass die Distributivität und Assoziativität bei beiden Verknüpfungen
+erfüllt ist.
+
+% ---------------------
+\paragraph{Aufgabe 6.1} \textit{(Linearkombinationen)}\par
+% ---------------------
+Stellen Sie den Vektor $w=(1,0,0)^\text{t}\in\mathbb{R}^3$ jeweils als
+Linearkombination der drei Vektoren $v_1$, $v_2$ und $v_3$ dar.
+\begin{alignat*}{3}
+    \text{a)}\quad
+    v_1&=
+    \begin{pmatrix}
+      1 \\
+      0 \\
+      1
+    \end{pmatrix}
+    \qquad&
+    v_2&=
+    \begin{pmatrix}
+      7 \\
+      3 \\
+      1
+    \end{pmatrix}
+    \qquad&
+    v_3&=
+    \begin{pmatrix}
+       4 \\
+       3 \\
+      -1
+    \end{pmatrix}
+    \\[1ex]
+    \text{b)}\quad
+    v_1&=
+    \begin{pmatrix}
+      2 \\
+      1 \\
+      0
+    \end{pmatrix}
+    \qquad&
+    v_2&=
+    \begin{pmatrix}
+      3 \\
+      0 \\
+      5
+    \end{pmatrix}
+    \qquad&
+    v_3&=
+    \begin{pmatrix}
+      -1 \\
+       4 \\
+      -1
+    \end{pmatrix}
+\end{alignat*}
+
+% ---------------------
+\paragraph{Aufgabe 6.2} \textit{(Lineare Un- bzw. Abhängigkeit)}\par
+% ---------------------
+Gegeben seien folgende vier Vektoren des $\mathbb{R}^3$:
+\begin{equation*}
+  v_1=
+  \begin{pmatrix}
+    1 \\
+    1 \\
+    0
+  \end{pmatrix}
+  \qquad
+  v_2=
+  \begin{pmatrix}
+    3 \\
+    0 \\
+    2
+  \end{pmatrix}
+  \qquad
+  v_3=
+  \begin{pmatrix}
+    -3 \\
+    -3 \\
+    -4
+  \end{pmatrix}
+  \qquad
+  v_4=
+  \begin{pmatrix}
+    1 \\
+    1 \\
+    1
+  \end{pmatrix}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Sind $v_1$, $v_2$, $v_3$ und $v_4$ linear unabhängig?
+  \item Welche dreielementigen Teilmengen von $\{v_1,v_2,v_3,v_4\}$ sind linear unabhängig?
+  \item Stellen Sie $w=(3,6,2)^\text{t}$ als Linearkombination von $v_1$, $v_2$ und $v_4$ dar.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 6.3} \textit{(Vektorraum)}\par
+% ---------------------
+Sei $V$ ein Vektorraum über einem Körper $K$.
+Zeigen Sie, dass wenn für $\lambda\in K$ und $v\in V$ die Gleichung
+$\lambda v=0$ gilt, dann auch $\lambda=0$ oder $v=0$ gelten muss.
+
+% ---------------------
+\paragraph{Aufgabe 6.4} \textit{(Gleichungssysteme)}\par
+% ---------------------
+Bestimmen Sie die Lösungsmengen der folgenden Gleichungssysteme:
+\begingroup
+  \newcommand{\exnum}[1]{\text{\makebox[2em][r]{#1)}\quad}}%
+  \newcommand{\LGSA}
+  {%
+    \begingroup
+      \setlength{\arraycolsep}{1pt}
+      \begin{array}{l|rcrcrcrl}
+         \exnum{a}&\; -19x & + & 19y & + &  z & = & 0 & \\
+                  &\;    x &   &     & + & 7z & = & 0 & \\
+                  &\;  -2x & + &  7y & + & 3z & = & 0 &   
+      \end{array}
+    \endgroup
+  }%
+  \newcommand{\LGSB}
+  {%
+    \begingroup
+      \setlength{\arraycolsep}{1pt}
+      \begin{array}{l|rcrcrl}
+         \exnum{b}&\;       2x & + &             (4+\imp{})y & = & 10       & \\
+                  &\; \imp{3}x & + & (-\frac{3}{2}+\imp{6})y & = & \imp{15} &
+      \end{array}
+    \endgroup
+  }%
+  \newcommand{\LGSC}
+  {%
+    \begingroup
+      \setlength{\arraycolsep}{1pt}
+      \begin{array}{l|rcrcrcrcrl}
+         \exnum{c}&\; 2x_{1} & + &  x_{2} & - & 2x_{3} & + & 3x_{4} & = & 1 & \\
+                  &\; 3x_{1} & + & 2x_{2} & - &  x_{3} & + & 2x_{4} & = & 4 & \\
+                  &\; 3x_{1} & + & 3x_{2} & + & 3x_{3} & - & 3x_{4} & = & 5 &   
+      \end{array}
+    \endgroup
+  }%
+  \begin{equation*}
+    \begin{array}{ll}
+      \LGSA & \LGSC \\
+            &       \\
+      \LGSB &
+    \end{array}
+  \end{equation*}
+\endgroup
+
+% ---------------------
+\paragraph{Aufgabe 6.5} \textit{(Lösungsmengen)}\par
+% ---------------------
+Entscheiden und begründen Sie ob folgende Aussagen wahr oder falsch sind:
+\begin{enumerate}[a)]
+  \item Jedes lineare Gleichungssystem hat eine Lösungsmenge.
+  \item Jedes homogene Gleichungssystem mit mehr Unbekannten als Gleichungen
+        hat mindestens 2 Lösungen.
+  \item Jedes inhomogene lineare Gleichungssystem mit mehr Gleichungen
+        als Unbekannten ist unlösbar.
+  \item Wenn das inhomogene Gleichungssystem mehrere Lösungsmöglichkeiten
+        hat, hat auch das dazugehörige homogene Gleichungssystem mehrere
+        Lösungen.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 6.6} \textit{(Modelleisenbahn)}\par
+% ---------------------
+Auf einer geschlossenen Bahn von \SI{440}{\centi\metre} Länge treffen
+sich zwei Körper mit einer gleichgerichteter Bewegung alle \SI{20}{\minute},
+bei entegegengesetzter Bewegung alle \SI{5}{\minute}. Wie groß sind die
+Geschwindigkeiten beider Körper?
+
+% ---------------------
+\paragraph{Aufgabe 7.1} \textit{(Erzeugendensystem)}\par
+% ---------------------
+Mit $e_i$ seien im Folgenden die Einheisvektoren des $\mathbb{R}^n$ bezeichnet, also:
+\begin{equation*}
+  \begin{split}
+    e_1&=(1,0,0,\ldots,0,0)^\text{t}\\
+    e_2&=(0,1,0,\ldots,0,0)^\text{t}\\
+ \vdots&                            \\
+    e_n&=(0,0,0,\ldots,0,1)^\text{t}
+  \end{split}
+\end{equation*}
+Welche der folgenden Teilmengen des $\mathbb{R}^n$ sind Erzeugendensysteme?
+\begin{enumerate}[a)]
+  \item $\big\{e_1+e_2,\;e_2+e_3,\;\ldots,\;e_{n-1}+e_n\big\}$
+  \item $\big\{e_n,\;e_{n-1},\;e_{n-2},\;\ldots,\;e_2,\;e_1,\;e_1+e_2\big\}$
+  \item $\big\{e_1,\;e_2,\;e_1+e_3+e_3+e_4,\;0\big\}$ für $n=5$
+  \item $\left\{e_1+e_2+e_3,\;
+               e_2+e_3+e_4,\;
+               e_3+e_4+e_5,\;
+                   e_4+e_5,\;
+                       e_5
+               \right\}$ für $n=5$
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 7.2} \textit{(Basis)}
+% ---------------------
+\begin{enumerate}[a)]
+  \item Für welche $t\in\mathbb{R}$ bilden die Vektoren $u$, $v$ und $w$ eine
+        Basis des $\mathbb{R}^3$\,?
+        \begin{equation*}
+          u=
+          \begin{pmatrix}
+              1 \\
+              2 \\
+            t+2
+          \end{pmatrix}
+          \qquad
+          v=
+          \begin{pmatrix}
+             -1 \\
+            t+1 \\
+              t
+          \end{pmatrix}
+          \qquad
+          w=
+          \begin{pmatrix}
+            0 \\
+            t \\
+            1
+          \end{pmatrix}
+        \end{equation*}
+  \item Es sei $\{v_1,v_2\}$ eine Basis eines zweidimensionalen Vektorraums $V$.
+        Untersuchen Sie, für welche Zahlen $s,t\in\mathbb{R}$ auch die beiden Vektoren
+        $w_1=sv_1+v_2$ und $w_2=v_1+tv_2$ eine Basis von $V$ bilden.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 7.3} \textit{(Basis)}\par
+% ---------------------
+Konstruiere für die folgenden Vektorräume jeweils eine Basis:
+\begin{equation*}
+  \begin{split}
+    U_1&=\left\{(x,y,z)\in\mathbb{R}^3\mid x+2y+z=0\right\}\\
+    U_2&=\left\{(x_1,x_2,x_3,x_4)\in\mathbb{R}^4\mid x_1+x_2+x_3=0\;\land\; x_1+x_3+x_4=0\right\}
+  \end{split}
+\end{equation*}
+
+% ---------------------
+\paragraph{Aufgabe 7.4} \textit{(Austauschsatz)}\par
+% ---------------------
+Im Folgenden sei $B$ eine Basis eines Vektorraums $V$ und $C$ eine Menge
+linear unabhängiger Vektoren in $V$.
+\begin{equation*}
+  B=
+  \left\{
+    \begin{pmatrix}
+      1 \\
+      2 \\
+      0 \\
+      1
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      1 \\
+      1 \\
+      0 \\
+      1
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      -2 \\
+      10 \\
+       0 \\
+       3
+    \end{pmatrix}
+  \right\}
+  \qquad
+  C=
+  \left\{
+    \begin{pmatrix}
+      -2 \\
+      25 \\
+       0 \\
+       8
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      -8 \\
+      28 \\
+       0 \\
+       7
+    \end{pmatrix}
+  \right\}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Ersetzen Sie einen Vektor aus $B$ durch einen Vektor aus $C$.
+  \item Ergänzen Sie die neue Basis $B$ zu einer Basis des $\mathbb{R}^4$.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 7.5} \textit{(Begriffe)}\par
+% ---------------------
+Definieren Sie folgende Begriffe in eigenen Worten:
+\begin{itemize}
+  \item linear abhängig
+  \item linear unabhngig
+  \item Erzeugendensystem
+  \item Basis
+\end{itemize}
+
+% ---------------------
+\paragraph{Aufgabe 8.1} \textit{(Untervektorräume)}\par
+% ---------------------
+Untersuchen Sie, welche der folgenden Mengen Untervektorräume des
+$\mathbb{R}^2$ sind:
+\begin{alignat*}{3}
+  U_1&=\left\{(x,y)\in\mathbb{R}^2\mid y=2x\right\}
+  \qquad&\qquad
+  U_2&=\left\{(x,y)\in\mathbb{R}^2\mid x^4+y^4=0\right\}
+  \\
+  U_3&=\left\{(x,y)\in\mathbb{R}^2\mid y=2+x\right\}
+  \qquad&\qquad
+  U_4&=\left\{(x,y)\in\mathbb{R}^2\mid x\geq y\right\}
+\end{alignat*}
+
+% ---------------------
+\paragraph{Aufgabe 8.2} \textit{(Untervektorräume)}\par
+% ---------------------
+Untersuchen Sie, für welche $c\in\mathbb{R}$ die Menge
+$U_c$ ein Untervektorraum des $\mathbb{R}^4$ ist:
+\begin{equation*}
+  U_c=\left\{(x_1,x_2,x_3,x_4)\in\mathbb{R}^4\mid x_1+x_2+x_3+x_4=c\right\}
+\end{equation*}
+
+% ---------------------
+\paragraph{Aufgabe 8.3} \textit{(Rang)}\par
+% ---------------------
+Gegeben sei folgende lineare Abbildung:
+\begin{equation*}
+  \varphi:\mathbb{R}^3\to\mathbb{R}^4\;,\;x\mapsto Ax
+  \quad
+  \text{mit}
+  \quad
+  A=
+  \begin{pmatrix}
+    1 & 0 & 2 \\
+    1 & 1 & 1 \\
+    0 & 1 & 1 \\
+    1 & 0 & 2
+  \end{pmatrix}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Berechnen Sie den Rang von $A$.
+  \item Ist $\varphi$ injektiv oder surjektiv?
+  \item Zeigen Sie, dass der Vektor $b=(2,1,3,2)^\text{t}$ im Bild von
+        $\varphi$ liegt.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 8.4} \textit{(Komplement)}\par
+% ---------------------
+Gegeben seien folgende Vektoren des $\mathbb{R}^3$:
+\begin{equation*}
+  v_1=
+  \begin{pmatrix}
+     1 \\
+    -2 \\
+     0
+  \end{pmatrix}
+  \qquad
+  v_2=
+  \begin{pmatrix}
+    0 \\
+    0 \\
+    2
+  \end{pmatrix}
+  \qquad
+  v_3=
+  \begin{pmatrix}
+    -2 \\
+     4 \\
+     2
+  \end{pmatrix}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Geben Sie eine Basis für den von $v_1$, $v_2$ und $v_3$
+        erzeugten Untervektorraum $U$ von $\mathbb{R}^3$ an.
+  \item Bestimmen Sie eine Basis des Komplements $U_c$ von $U$.
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 8.5} \textit{(Lineare Abbildungen)}\par
+% ---------------------
+Welche der folgenden Abbildungen sind $\mathbb{R}$-linear?
+\begin{alignat*}{4}
+  f_1:&\;\; & \mathbb{R}^2&\to\mathbb{R}   & \quad&,\quad & (x,y)&\mapsto3x+y             \\
+  f_2:&\;\; & \mathbb{R}^2&\to\mathbb{R}^3 & \quad&,\quad & (x,y)&\mapsto(x^2,\;y^2,\;xy) \\
+  f_3:&\;\; &   \mathbb{R}&\to\mathbb{R}^2 & \quad&,\quad &     x&\mapsto(0,0)
+\end{alignat*}
+
+% ---------------------
+\paragraph{Aufgabe 8.6} \textit{(Kern und Bild)}\par
+% ---------------------
+Es sei folgende $\mathbb{R}$-lineare Abbildung $f$ definiert durch:
+\begin{equation*}
+  f:\;\mathbb{R}^3\to\mathbb{R}^3\;,\quad
+  \begin{pmatrix}
+    x \\
+    y \\
+    z
+  \end{pmatrix}
+  \mapsto
+  \begin{pmatrix}
+    -1 & 0 &  2 \\
+     1 & 6 &  4 \\
+     3 & 3 & -3
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    x \\
+    y \\
+    z
+  \end{pmatrix}
+\end{equation*}
+Konstruieren Sie jeweils eine Basis von $\ker(f)$ und
+$\operatorname{bild}(f)$.
+
+% ---------------------
+\paragraph{Aufgabe 9.1} \textit{(Dimensionssatz)}\par
+% ---------------------
+Gegeben seien folgende Unterräume des $\mathbb{R}^3$:
+\begin{equation*}
+  S=
+  \left\{
+    \begin{pmatrix}
+      1 \\
+      3 \\
+      4
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+                0 \\
+      \frac{1}{2} \\
+               10
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      -10 \\
+      -28 \\
+        0
+    \end{pmatrix}
+  \right\}
+  \qquad
+  T=
+  \left\{
+    \begin{pmatrix}
+      -2 \\
+       0 \\
+       3
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      7 \\
+      1 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      1 \\
+      1 \\
+      9
+    \end{pmatrix}
+  \right\}
+\end{equation*}
+Berechnen Sie $\dim(S)$, $\dim(T)$, $\dim(S+T)$ und $\dim(S\cap T)$.
+
+% ---------------------
+\paragraph{Aufgabe 9.2} \textit{(Selbstinverse Matrizen)}\par
+% ---------------------
+Bestimmen Sie alle Matritzen der Form
+\begin{equation*}
+  F=
+  \begin{pmatrix}
+    a &  b \\
+    c & -a
+  \end{pmatrix}
+  \in M_{2\times2}(\mathbb{R})
+  \quad\text{mit}\quad
+  a\neq0\;,
+\end{equation*}
+die zu sich selbstinvers sind.\par
+{\itshape
+Hinweis: selbstinvers bedeutet, dass $A\cdot A=I$ gilt.}
+
+% ---------------------
+\paragraph{Aufgabe 9.3} \textit{(Isomorphismus)}\par
+% ---------------------
+Beschreiben Sie was ein Isomorphismus ist, und geben Sie ein Beispiel an.
+
+% ---------------------
+\paragraph{Aufgabe 9.4} \textit{(Darstellungsmatrizen)}\par
+% ---------------------
+Gegeben sei folgende $\mathbb{R}$-lineare Abbildung:
+\begin{equation*}
+  f:\;\mathbb{R}^3\to\mathbb{R}^3\;,\;
+  (
+    x_1
+    ,
+    x_2
+    ,
+    x_3
+  )^\text{t}
+  \mapsto
+  (
+    x_1-x_2+x_3
+    \;,\;
+    8x_1-4x_2
+    \;,\;
+    -2x_1+2x_2-2x_3
+  )^\text{t}
+\end{equation*}
+Berechnen Sie die Matrix $M(f,B,C)$ für
+\begin{enumerate}[a)]
+  \item $B=C=\left\{(1,0,0)^\text{t},(0,1,0)^\text{t},(0,0,1)^\text{t}\right\}$
+  \item $B=C=\left\{(-1,0,1)^\text{t},(-1,2,1)^\text{t},(2,0,-1)^\text{t}\right\}$
+\end{enumerate}
+
+% ---------------------
+\paragraph{Aufgabe 9.5} \textit{(Basistransformation)}\par
+% ---------------------
+Gegeben seien folgende Basen des $\mathbb{R}^3$ bzw. des $\mathbb{R}^2$:
+\begin{alignat*}{3}
+  B&=
+  \left\{
+    \begin{pmatrix}
+       17 \\
+      -25 \\
+        1
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      0 \\
+      1 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      16 \\
+       0 \\
+       1
+    \end{pmatrix}
+  \right\}
+  \qquad&\qquad
+  B'&=
+  \left\{
+    \begin{pmatrix}
+      1 \\
+      0 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      0 \\
+      1 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      16 \\
+       2 \\
+       1
+    \end{pmatrix}
+  \right\}
+  \\[1ex]
+  C&=
+  \left\{
+    \begin{pmatrix}
+      1 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      0 \\
+      1
+    \end{pmatrix}
+  \right\}
+  \qquad&\qquad
+  C'&=
+  \left\{
+    \begin{pmatrix}
+      3 \\
+      7
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      2 \\
+      5
+    \end{pmatrix}
+  \right\}
+\end{alignat*}
+Ferner sei $f:\mathbb{R}^3\to\mathbb{R}^2$ eine $\mathbb{R}$-lineare
+Abbildung mit der Matrix
+\begin{equation*}
+  M_B^C(f)=
+  \begin{pmatrix}
+    3 & 2 & -1 \\
+    7 & 5 &  6
+  \end{pmatrix}.
+\end{equation*}
+Berechnen Sie die Matrizen
+\begin{equation*}
+  S=M(\operatorname{id},C',C)
+  \qquad
+  T=M(\operatorname{id},B',B)
+  \qquad
+  U=M(f,B',C')
+\end{equation*}
+
+% ----------------------
+\paragraph{Aufgabe 10.1} \textit{(Permutationen)}\par
+% ----------------------
+Gegeben seien folgende Permutationen aus der Gruppe $S_{10}$:
+\begin{equation*}
+  \begin{split}
+    \sigma_1&=
+    \begin{pmatrix}
+      1 & 2 & 3 & 4 & 5 & 6 &  7 & 8 & 9 & 10 \\
+      3 & 4 & 5 & 6 & 1 & 2 & 10 & 9 & 8 &  7
+    \end{pmatrix}
+    \\
+    \sigma_2&=
+    \langle1,2,3,4,5\rangle
+    \langle3,4,5,6,7\rangle
+    \langle5,6,7,8,9,10\rangle
+  \end{split}
+\end{equation*}
+Bestimmen Sie für beide Permutationen
+\begin{enumerate}[a)]
+  \item die kanonische Zyklendarstellung
+  \item eine Darstellung durch Transpositionen
+  \item das Signum
+\end{enumerate}
+
+% ----------------------
+\paragraph{Aufgabe 10.2} \textit{(Determinanten berechnen)}\par
+% ----------------------
+Gegeben seien folgende Matrizen:
+\begin{equation*}
+  R=
+  \begin{pmatrix}
+     1 & 2 & 3 \\
+     0 & 1 & 2 \\
+    -4 & 0 & 1
+  \end{pmatrix}
+  \in M_{3\times3}(\mathbb{R})
+  \qquad
+  S=
+  \begin{pmatrix}
+     5 & 2 & 0 \\
+    -1 & 3 & 1 \\
+     2 & 0 & 1
+  \end{pmatrix}
+  \in M_{3\times3}(\mathbb{R})
+\end{equation*}
+Berechnen Sie $\det(R)$, $\det(-R)$, $\det(-S)$, $\det(S\cdot R)$,
+$\det(R\cdot S)$ und $\det(S^\text{t})$.
+
+% ----------------------
+\paragraph{Aufgabe 10.3} \textit{(Invertierbar?)}\par
+% ----------------------
+Welche der folgenden Matrizen sind invertierbar:
+\begin{alignat*}{3}
+  A&=
+  \begin{pmatrix}
+    10 &          51 \\
+     2 &         -38 \\
+     0 & \frac{1}{6}
+  \end{pmatrix}
+  \qquad&\qquad
+  B&=
+  \begin{pmatrix}
+     0 &  1 & -10 &  0 \\
+    -1 & -3 &   1 &  0 \\
+     1 &  0 &   1 &  5 \\
+    -2 &  3 &   0 & -1
+  \end{pmatrix}
+  \\[1ex]
+  C&=
+  \begin{pmatrix}
+     2 &  -2 & 2 & -2 &   2 \\
+    51 & -17 & 0 & -1 & 100 \\
+     0 &   2 & 0 &  2 &   0 \\
+     1 &   2 & 3 &  4 &   5 \\
+     1 &  -2 & 1 & -2 &   1
+  \end{pmatrix}
+  \qquad&\qquad
+  D&=
+  \begin{pmatrix}
+    0 &   0 &  2 &  1 &           -1 \\
+    1 & -17 & 21 & -1 &          100 \\
+    0 &   1 &  2 & 11 & -\frac{1}{2} \\
+    0 &   0 &  2 &  3 &            0 \\
+    0 &   0 &  1 & -2 &            1
+  \end{pmatrix}
+\end{alignat*}
+
+% ----------------------
+\paragraph{Aufgabe 10.4} \textit{(Orthogonale Matrizen)}\par
+% ----------------------
+Eine Matrix $A\in M_{n\times n}(\mathbb{R})$ heißt orthogonal,
+wenn $A^\text{t}\cdot A=I_n$ gilt.
+\begin{enumerate}[a)]
+  \item Zeigen Sie, dass für jede orthogonale Matrix $A$ die
+        Gleichung $|\det(A)=1|$ gilt.
+  \item Geben Sie mindestens vier verschiedene orthogonale Matrizen aus
+        $M_{2\times2}(\mathbb{R})$ an.
+\end{enumerate}
+
+% ----------------------
+\paragraph{Aufgabe 10.5} \textit{(Cramersche Regel)}\par
+% ----------------------
+Verwenden Sie die Cramersche Regel, um das lineare Gleichungssystem
+$Ax=b$ über $\mathbb{R}$ zu lösen. Dabei seien $A$ und $b$ wie folgt gegeben:
+\begin{equation*}
+  A=
+  \begin{pmatrix}
+    1 &  2 & 3 \\
+    2 & -1 & 1 \\
+    3 &  2 & 4
+  \end{pmatrix}
+  \qquad
+  b=
+  \begin{pmatrix}
+    1 \\
+    0 \\
+    1
+  \end{pmatrix}
+\end{equation*}
+\begin{answer}
+  \begin{equation*}
+    \begin{split}
+      x_1&=\frac{\det(A_1)}{\det(A)}\quad\text{mit}\quad
+      A_1=
+      \begin{pmatrix}
+        1 &  2 & 3 \\
+        0 & -1 & 1 \\
+        1 &  2 & 4
+      \end{pmatrix}
+      \qquad
+      x_2=\frac{\det(A_2)}{\det(A)}\quad\text{mit}\quad
+      A_2=
+      \begin{pmatrix}
+        1 & 1 & 3 \\
+        2 & 0 & 1 \\
+        3 & 1 & 4
+      \end{pmatrix}
+      \\[2ex]
+      x_3&=\frac{\det(A_3)}{\det(A)}\quad\text{mit}\quad
+      A_3=
+      \begin{pmatrix}
+        1 &  2 & 1 \\
+        2 & -1 & 0 \\
+        3 &  2 & 1
+      \end{pmatrix}
+    \end{split}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{split}
+        \det(A)&=1\cdot(-1)\cdot4+2\cdot1\cdot3+3\cdot2\cdot2-3\cdot(-1)\cdot3-2\cdot1\cdot1-4\cdot2\cdot2=5\\
+      \det(A_1)&=1\cdot(-1)\cdot4+2\cdot1\cdot1+3\cdot0\cdot2-1\cdot(-1)\cdot3-2\cdot1\cdot1-4\cdot0\cdot2=-1\\
+      \det(A_2)&=1\cdot0\cdot4+1\cdot1\cdot3+3\cdot2\cdot1-3\cdot0\cdot3-1\cdot1\cdot1-4\cdot2\cdot1=0\\
+      \det(A_3)&=1\cdot(-1)\cdot1+2\cdot0\cdot3+1\cdot2\cdot2-3\cdot(-1)\cdot1-2\cdot0\cdot1-1\cdot2\cdot2=2\\[2ex]
+               &\Rightarrow\quad x=\frac{1}{5}\cdot
+               \begin{pmatrix}
+                 -1 \\
+                  0 \\
+                  2
+               \end{pmatrix}
+    \end{split}
+  \end{equation*}
+\end{answer}
+
+% ----------------------
+\paragraph{Aufgabe 11.1} \textit{(Eigenwerte)}\par
+% ----------------------
+Gegeben seien folgende linearen Abbildungen:
+\begin{equation*}
+  \begin{split}
+    \ell&:\;\mathbb{C}^2\to\mathbb{C}^2\;,\;z\mapsto Az
+    \quad\text{mit}\quad
+    A=
+    \begin{pmatrix}
+      \imp{} & 0 \\
+           2 & 1
+    \end{pmatrix}
+    \\[1ex]
+    m&:\;\mathbb{Z}_5^4\to\mathbb{Z}_5^4\;,\;x\mapsto Bx
+    \quad\text{mit}\quad
+    B=
+    \begin{pmatrix}
+        7 & 5 & 3 & -3 \\
+        5 & 1 & 2 &  2 \\
+        4 & 0 & 1 &  2 \\
+      -10 & 5 & 0 & 13
+    \end{pmatrix}
+  \end{split}
+\end{equation*}
+Bestimmen Sie die charakteristischen Polynome, Eigenwerte und Eigenvektoren
+der beiden Abbildungen $\ell$ und $m$.
+\begin{answer}
+  \begin{equation*}
+    \det(A-\lambda I)=\det
+    \begin{pmatrix}
+      \imp{}-\lambda &         0 \\
+                   2 & 1-\lambda
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      x \\
+      y
+    \end{pmatrix}
+    =(\imp{}-\lambda)(1-\lambda)-2\cdot0=0
+    \quad\Rightarrow\quad
+    \lambda_1=\imp{}\;,\;\lambda_2=1
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{split}
+      \lambda_1=\imp{}\;&:\quad
+      \begin{pmatrix}
+        0 &        0 \\
+        2 & 1-\imp{}
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+        x \\
+        y
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        0 \\
+        0
+      \end{pmatrix}
+      \quad\Rightarrow\quad
+      v_1=t\cdot
+      \begin{pmatrix}
+        \imp{}-1 \\
+               2
+      \end{pmatrix}
+      \quad\text{mit $t\in\mathbb{C}$}
+      \\[2ex]
+      \lambda_2=1\;&:\quad
+      \begin{pmatrix}
+        \imp{}-1 & 0 \\
+               2 & 0
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+        x \\
+        y
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        0 \\
+        0
+      \end{pmatrix}
+      \quad\Rightarrow\quad
+      v_2=t\cdot
+      \begin{pmatrix}
+        0 \\
+        1
+      \end{pmatrix}
+      \quad\text{mit $t\in\mathbb{C}$}
+    \end{split}
+  \end{equation*}
+\end{answer}
+
+% ----------------------
+\paragraph{Aufgabe 11.2} \textit{(Diagonalisierbar)}\par
+% ----------------------
+Gegeben seien folgende linearen Abbildungen:
+\begin{alignat*}{4}
+  f:&\;\; & \mathbb{R}^3&\to\mathbb{R}^3 & \quad&,\quad & (a,b,c)^\text{t}&\mapsto(2a+b ,\; b-c  ,\; 2b+4c)^\text{t} \\
+  g:&\;\; & \mathbb{R}^3&\to\mathbb{R}^3 & \quad&,\quad & (a,b,c)^\text{t}&\mapsto(a+2b ,\; a+2b ,\; c)^\text{t}     \\
+  h:&\;\; & \mathbb{R}^3&\to\mathbb{R}^3 & \quad&,\quad & (a,b,c)^\text{t}&\mapsto(a    ,\; -c   ,\; b)^\text{t}
+\end{alignat*}
+\begin{enumerate}[a)]
+  \item Bestimmen Sie die charakteristischen Polynome, Eigenwerte und
+        Eigenvektoren von $f$, $g$ und $h$.
+  \item Entscheiden Sie jeweils, ob $f$, $g$ und $h$ diagonalisierbar sind.
+\end{enumerate}
+\begin{answer}
+  Abbildung $f$:
+  \begin{equation*}
+    f
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      2 & 1 &  0 \\
+      0 & 1 & -1 \\
+      0 & 2 &  4
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+  \end{equation*}
+
+  Charakteristisches Polynom und Eigenwerte:
+  \begin{equation*}
+    \begin{split}
+      \det
+      \begin{pmatrix}
+        2-\lambda & 1 &  0 \\
+        0 & 1-\lambda & -1 \\
+        0 & 2 &  4-\lambda
+      \end{pmatrix}
+      &=(2-\lambda)(1-\lambda)(4-\lambda)-2\cdot(-1)\cdot(2-\lambda)=0\\
+      &=(2-\lambda)\Big[(1-\lambda)(4-\lambda)+2\Big]\\
+      &=(2-\lambda)\Big[\lambda^2-5\lambda+6\Big]\\
+      &=(2-\lambda)\left[\lambda^2-5\lambda+\left(\frac{5}{2}\right)^2-\left(\frac{5}{2}\right)^2+6\right]\\
+      &=(2-\lambda)\left[\left(\lambda-\frac{5}{2}\right)^2-\frac{1}{4}\right]\\
+      &=(2-\lambda)(\lambda-2)(\lambda-3)\\[1ex]
+      &\Rightarrow \lambda_1=2\;,\;\lambda_2=2\;,\;\lambda_3=3
+    \end{split}
+  \end{equation*}
+
+  Eigenvektoren:
+  \begin{equation*}
+    \begin{pmatrix}
+      2-\lambda & 1 &  0 \\
+      0 & 1-\lambda & -1 \\
+      0 & 2 &  4-\lambda
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      x \\
+      y \\
+      z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 \\
+      0 \\
+      0
+    \end{pmatrix}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{split}
+      \lambda_1=\lambda_2=2\;&:\quad
+      \begin{pmatrix}
+        0 &  1 &  0 \\
+        0 & -1 & -1 \\
+        0 &  2 &  2
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+        x \\
+        y \\
+        z
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        0 \\
+        0 \\
+        0
+      \end{pmatrix}
+      \quad\Rightarrow\quad
+      v_1=v_2=t\cdot
+      \begin{pmatrix}
+        1 \\
+        0 \\
+        0
+      \end{pmatrix}
+      \quad\text{mit $t\in\mathbb{R}$}
+      \\[2ex]
+      \lambda_3=3\;&:\quad
+      \begin{pmatrix}
+        -1 &  1 &  0 \\
+         0 & -2 & -1 \\
+         0 &  2 &  1
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+        x \\
+        y \\
+        z
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        0 \\
+        0 \\
+        0
+      \end{pmatrix}
+      \quad\Rightarrow\quad
+      v_3=t\cdot
+      \begin{pmatrix}
+         1 \\
+         1 \\
+        -2
+      \end{pmatrix}
+      \quad\text{mit $t\in\mathbb{R}$}
+    \end{split}
+  \end{equation*}
+  Diagonalisierbar: Nein, zwei Vektoren können keine Basis des $\mathbb{R}^3$ bilden.
+
+  Abbildung $g$:
+  \begin{equation*}
+    g
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      1 & 2 & 0 \\
+      1 & 2 & 0 \\
+      0 & 0 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+  \end{equation*}
+
+  Charakteristisches Polynom und Eigenwerte:
+  \begin{equation*}
+    \det
+    \begin{pmatrix}
+      1-\lambda & 2 & 0 \\
+      1 & 2-\lambda & 0 \\
+      0 & 0 & 1-\lambda
+    \end{pmatrix}
+    =(1-\lambda)\cdot\lambda\cdot(\lambda-3)
+  \end{equation*}
+
+  Eigenvektoren:
+  \begin{equation*}
+    \lambda_1=1:
+    t\cdot
+    \begin{pmatrix}
+      0 \\
+      0 \\
+      1
+    \end{pmatrix}
+    \qquad
+    \lambda_2=0:
+    t\cdot
+    \begin{pmatrix}
+      -2 \\
+       1 \\
+       0
+    \end{pmatrix}
+    \qquad
+    \lambda_3=3:
+    t\cdot
+    \begin{pmatrix}
+      1 \\
+      1 \\
+      0
+    \end{pmatrix}
+    \qquad
+    \text{mit $t\in\mathbb{R}$}
+  \end{equation*}
+
+  Diagonalisierbar: Ja, weil die Eigenvektoren eine Basis des $\mathbb{R}^3$ bilden!
+
+  Abbildung $h$:
+  \begin{equation*}
+    h
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      1 & 0 &  0 \\
+      0 & 0 & -1 \\
+      0 & 1 &  0
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+  \end{equation*}
+
+  Charakteristisches Polynom und Eigenwerte:
+  \begin{equation*}
+    \det
+    \begin{pmatrix}
+      1-\lambda & 0 &  0 \\
+      0 & 0-\lambda & -1 \\
+      0 & 1 &  0-\lambda
+    \end{pmatrix}
+    =(1-\lambda)(\lambda^2+1)
+    \qquad
+    \lambda_1=1,\;\lambda_2=\imp{},\;\lambda_3=-\imp{}
+  \end{equation*}
+
+  Eigenvektoren:
+  \begin{equation*}
+    \lambda_1=1:
+    t\cdot
+    \begin{pmatrix}
+      1 \\
+      0 \\
+      0
+    \end{pmatrix}
+    \qquad
+    \lambda_2=\imp{}:
+    t\cdot
+    \begin{pmatrix}
+           0 \\
+      \imp{} \\
+           1
+    \end{pmatrix}
+    \qquad
+    \lambda_3=-\imp{}:
+    t\cdot
+    \begin{pmatrix}
+           0 \\
+           1 \\
+      \imp{}
+    \end{pmatrix}
+    \qquad
+    \text{mit $t\in\mathbb{C}$}
+  \end{equation*}
+
+  Diagonalisierbar: Nein, weil in den Eigenvektoren imaginäre Zahlen stehen, die
+  auf keinen Fall eine Basis des $\mathbb{R}^3$ bilden können.
+\end{answer}
+
+% ----------------------
+\paragraph{Aufgabe 11.3} \textit{(Matrix zu gegebenen Eigenwerten bestimmen)}\par
+% ----------------------
+Bestimmen Sie eine Matrix $A\in M_{5\times5}(\mathbb{R})$ welche folgende
+Eigenwerte besitzt:
+\begin{equation*}
+  \lambda_1=1
+  \qquad
+  \lambda_2=\lambda_3=2
+  \qquad
+  \lambda_4=20
+  \qquad
+  \lambda_5=-\frac{1}{2}
+\end{equation*}
+\begin{answer}
+  \begin{equation*}
+    \text{z.\,B.}\quad
+    M=
+    \begin{pmatrix}
+      1 & 0 & 0 &  0 &            0 \\
+      0 & 2 & 0 &  0 &            0 \\
+      0 & 0 & 2 &  0 &            0 \\
+      0 & 0 & 0 & 20 &            0 \\
+      0 & 0 & 0 &  0 & -\frac{1}{2}
+    \end{pmatrix}
+  \end{equation*}
+\end{answer}
+
+% ----------------------
+\paragraph{Aufgabe 11.4} \textit{(Matrix gesucht)}\par
+% ----------------------
+Bestimmen Sie eine Matrix $A\in M_{2\times2}(\mathbb{R})$ über die
+folgendes bekannt ist:
+\begin{equation*}
+  \begin{split}
+    \begin{pmatrix}
+      \frac{3}{2} \\
+                1
+    \end{pmatrix}
+    &\text{ ist Eigenvektor zum Eigenwert }
+    \lambda_1=3
+    \\[1ex]
+    \begin{pmatrix}
+       1 \\
+      -1
+    \end{pmatrix}
+    &\text{ ist Eigenvektor zum Eigenwert }
+    \lambda_2=-2
+  \end{split}
+\end{equation*}
+\begin{answer}
+  \begin{equation*}
+    M=
+    \begin{pmatrix}
+      a & b \\
+      c & d
+    \end{pmatrix}
+    \quad
+    \Rightarrow
+    \quad
+    \begin{cases}
+      \begin{pmatrix}
+        a & b \\
+        c & d
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+         \frac{3}{2} \\
+                   1
+      \end{pmatrix}
+      =
+      3\cdot
+      \begin{pmatrix}
+         \frac{3}{2} \\
+                   1
+      \end{pmatrix}
+      \\[2ex]
+      \begin{pmatrix}
+        a & b \\
+        c & d
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+         1 \\
+        -1
+      \end{pmatrix}
+      =
+      -2\cdot
+      \begin{pmatrix}
+         1 \\
+        -1
+      \end{pmatrix}
+    \end{cases}
+    \quad
+    \Rightarrow
+    \quad
+    M=
+    \begin{pmatrix}
+      1 & 3 \\
+      2 & 0
+    \end{pmatrix}
+  \end{equation*}
+\end{answer}
+
+% ----------------------
+\paragraph{Aufgabe 12.1} \textit{(Skalarprodukt)}\par
+% ----------------------
+Gegeben sei eine symmetrische Matrix $S\in M_{n\times n}(\mathbb{R})$.
+Zeigen Sie, dass durch
+\begin{equation*}
+  \langle x,y\rangle\defeq x^\text{t}\cdot S\cdot y
+\end{equation*}
+ein Skalarprodukt definiert wird, wenn
+$\forall x\in\mathbb{R}^n\setminus\{0\}:\langle x,x\rangle>0$.
+\begin{answer}
+  Bilinearität:
+  \begin{equation*}
+    \begin{split}
+      \langle u+v,w\rangle
+      &=(u+v)^\text{t}\cdot S\cdot w\\
+      &=u^\text{t}\cdot S\cdot w + v^\text{t}\cdot S\cdot w\\
+      &=\langle u,w\rangle+\langle v,w\rangle
+    \end{split}
+    \qquad
+    \begin{split}
+      \langle\lambda\cdot u,v\rangle
+      &=(\lambda\cdot u)^\text{t}\cdot S\cdot v\\
+      &=\lambda\cdot u^\text{t}\cdot S\cdot v\\
+      &=\lambda\cdot\langle u,v\rangle
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \langle u,v+w\rangle
+      &=u^\text{t}\cdot S\cdot(v+w)\\
+      &=u^\text{t}\cdot S\cdot v + u^\text{t}\cdot S\cdot w\\
+      &=\langle u,v\rangle+\langle u,w\rangle
+    \end{split}
+    \qquad
+    \begin{split}
+      \langle u,\lambda\cdot v\rangle
+      &=u^\text{t}\cdot S\cdot(\lambda\cdot v)\\
+      &=\lambda\cdot u^\text{t}\cdot S\cdot v\\
+      &=\lambda\cdot\langle u,v\rangle
+    \end{split}
+  \end{equation*}
+  \par
+  Symmetrie:
+  \begin{equation*}
+    \begin{split}
+      \langle u,w\rangle
+      &=u^\text{t}\cdot S\cdot w\\
+      &=\Big((u^\text{t}\cdot S\cdot w)^\text{t}\Big)^\text{t}\\
+      &=\Big((S\cdot w)^\text{t}\cdot u\Big)^\text{t}\\
+      &=\Big(w^\text{t}\cdot S^\text{t}\cdot u\Big)^\text{t}\\
+      &=\Big(w^\text{t}\cdot S\cdot u\Big)^\text{t}\qquad\text{hier gilt: $(w^\text{t}\cdot S\cdot u)\in\mathbb{R}$}\\
+      &=w^\text{t}\cdot S\cdot u\\
+      &=\langle w,u\rangle
+    \end{split}
+  \end{equation*}
+  \par
+  Positivdefinitheit: Ist laut Voraussetzungen schon gegeben.
+\end{answer}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 1} \textit{[10 Punkte]}\par
+% -------------------------------------------------------------------
+Schreiben Sie die folgenden komplexen Zahlen in der Form $a+\imp{b}$,
+mit $a,b\in\mathbb{R}$ und bestimmen Sie das multiplikative Inverse
+auch in dieser Form.
+\begin{enumerate}[a)]
+  \item $\displaystyle-\frac{1}{\imp{}}$
+  \item $\displaystyle\frac{2}{\imp{}}+\frac{\imp{}}{1}$
+  \item Finden Sie außerdem alle $x$, die die folgende Gleichung lösen
+        \begin{equation*}
+          \frac{1+x}{1-x}=\imp{}
+        \end{equation*}
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 2} \textit{[8 Punkte]}\par
+% ------------------------------------------------------------------
+Seien $f,g\in\mathbb{Q}[X]$ gegeben durch
+\begin{equation*}
+  \begin{split}
+    f(X)&=5X^4+6X^2+3X-10\quad\text{und}\\
+    g(X)&=5X+2.
+  \end{split}
+\end{equation*}
+Finden Sie mit Hilfe des Verfahrens des Beweises von Satz 6
+Polynome $q$ und $r$, sodass
+\begin{equation*}
+  f=qg+r\quad\text{und}\quad\deg(r)<\deg(g).
+\end{equation*}
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 3} \textit{[8 Punkte]}\par
+% ------------------------------------------------------------------
+Lösen Sie das folgende lineare Gleichungssystem über $\mathbb{R}$
+mit dem Verfahren von Gauß:
+\begin{equation*}
+  \left(
+  \begin{array}{rrrr|r}
+    1 & 2 & 3 & 4 & 6 \\
+    0 & 1 & 2 & 2 & 3 \\
+    2 & 1 & 0 & 1 & 2 \\
+    3 & 2 & 1 & 3 & 5 \\
+    4 & 3 & 2 & 1 & 4
+  \end{array}
+  \right)
+\end{equation*}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 4} \textit{[10 Punkte]}\par
+% -------------------------------------------------------------------
+Beweisen oder widerlegen Sie:
+Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
+\begin{equation*}
+  (A+B)^2=A^2+2AB+B^2
+\end{equation*}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 5} \textit{[10 Punkte]}
+% -------------------------------------------------------------------
+\begin{enumerate}[a)]
+  \item Seien $v_1,v_2,v_3\in V$ linear unabhängige Vektoren in einem
+        $\mathbb{R}$-Vektorraum. Zeigen Sie, dass dann auch
+        \begin{equation*}
+          w_1=v_1-v_2
+          \qquad
+          w_2=v_2-v_3
+          \qquad\text{und}\qquad
+          w_3=v_3+v_1
+        \end{equation*}
+        linear unabhängig sind.
+  \item Seien $v_1,v_2,v_3\in V$ beliebige Vektoren in einem
+        $\mathbb{R}$-Vektorraum. Zeigen Sie, dass
+        \begin{equation*}
+          w_1=v_1-v_2
+          \qquad
+          w_2=v_2-v_3
+          \qquad\text{und}\qquad
+          w_3=v_1-v_3
+        \end{equation*}
+        immer linear abhängig sind.
+\end{enumerate}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 6} \textit{[10 Punkte]}\par
+% -------------------------------------------------------------------
+Seien $U_1$ und $U_2$ Unterräume eines $K$-Vektorraumes $V$.
+Beweisen oder widerlegen Sie:
+\begin{enumerate}[a)]
+  \item $U_1\cap U_2$ ist ebenfalls Unterraum.
+  \item $U_1\cup U_2$ ist ebenfalls Unterraum.
+  \item $U_1\setminus U_2$ ist ebenfalls Unterraum.
+\end{enumerate}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 30.07.2018 -- Aufgabe 7} \textit{[10 Punkte]}\par
+% -------------------------------------------------------------------
+Sei $V$ der Vektorraum aller Funktionen $\mathbb{R}\to\mathbb{R}$.
+Welche der folgenden Teilmengen sind Unterräume? (Ohne Beweis)
+\begin{enumerate}[a)]
+  \item $M_1=\{f\in V\mid f(1)=f(-1)\}$
+  \item $M_2=\{f\in V\mid f(0)\cdot f(1)=0\}$
+  \item $M_3=\{f\in V\mid f(0)=r10\}$
+\end{enumerate}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 1} \textit{[10 Punkte]}\par
+% -------------------------------------------------------------------
+Bestimmen Sie den Rang der folgenden Matrix.
+\begin{equation*}
+  \begin{pmatrix}
+     1 &  4 &  5 & 0 \\
+    -1 &  0 & -1 & 0 \\
+     3 & -2 &  1 & 0 \\
+     2 &  3 &  5 & 1
+  \end{pmatrix}
+\end{equation*}
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 2} \textit{[6 Punkte]}\par
+% ------------------------------------------------------------------
+Bestimmen Sie mit Hilfe des Dimensionssatzes $\dim(\ker(\varphi))$ für
+\begin{enumerate}[a)]
+  \item $\varphi:K^6\to K^3$, mit $\varphi$ surjektiv
+  \item $\varphi:K^4\to K^7$, mit $\dim(\operatorname{bild}(\varphi))=3$
+  \item $\varphi:M_{2\times2}(K)\to M_{2\times2}(K)$, mit $\dim(\operatorname{bild}(\varphi))=1$
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 3} \textit{[8 Punkte]}\par
+% ------------------------------------------------------------------
+Bestimmen Sie mit Hilfe der Determinanten, für welche $k\in\mathbb{R}$
+die Matrix
+\begin{equation*}
+  \begin{pmatrix}
+    k & 1 & 0 & -k \\
+    0 & 1 & 0 &  0 \\
+    0 & 1 & 1 &  0 \\
+    k & 0 & 0 &  1
+  \end{pmatrix}
+  \in M_{4\times4}(\mathbb{R})
+\end{equation*}
+invertierbar ist.
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 4} \textit{[8 Punkte]}\par
+% ------------------------------------------------------------------
+Finden Sie das Inverse zu folgender Matrix:
+\begin{equation*}
+  \begin{pmatrix}
+    1 & 1 & 0 \\
+    1 & 1 & 1 \\
+    0 & 1 & 1
+  \end{pmatrix}
+\end{equation*}
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 5} \textit{[6 Punkte]}\par
+% ------------------------------------------------------------------
+Seien $A$, $B$ und $S$ $n\times n$ Matrizen, $S$ invertierbar und $A=S^{-1}BS$.
+Begründen Sie ausführlich, warum $\det(A)=\det(B)$ gilt.
+
+% ------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 6} \textit{[9 Punkte]}\par
+% ------------------------------------------------------------------
+Zeigen Sie:
+\begin{enumerate}[a)]
+  \item Ist $A\in M_{n\times n}(K)$ eine invertierbare Matrix und $k\in K$
+        mit $k\neq0$, so ist auch $kA$ invertierbar.
+  \item Ist $A^2=0$, so sind auch $I_n-A$ und $I_n+A$ invertierbar.
+\end{enumerate}
+Geben Sie außerdem ein Beispiel an, das zeigt, dass die folgende
+Aussage falsch ist:
+\begin{enumerate}[a)]
+  \setcounter{enumi}{2}
+  \item Sind $A,B\in M_{n\times n}(K)$ invertierbar, so ist auch $A+B$
+        invertierbar.
+\end{enumerate}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 7} \textit{[12 Punkte]}\par
+% -------------------------------------------------------------------
+Sei $\varphi:V\to W$ eine lineare Abbildung zwischen Vektorräumen.
+Beweisen oder widerlegen Sie:
+\begin{enumerate}[a)]
+  \item Sind $v_1,\ldots,v_n$ Eigenvektoren mit dem gleichen Eigenwert $k$,
+        so ist jeder nicht-triviale Vektor aus $\langle v_1,\ldots,v_n\rangle$
+        Eigenvektor zum Eigenwert $k$.
+  \item Ist $v$ ein Eigenvektor mit Eigenwert $k$ und $w$ ein Eigenvektor
+        mit Eigenwert $\ell$, so ist $v+w$ Eigenvektor mit Eigenwert $k+\ell$.
+  \item Ist $v$ ein Eigenvektor von $\varphi$ und gleichzeitig auch Eigenvektor
+        von $\psi:W\to U$, so ist $v$ auch Eigenvektor von $\psi\circ\varphi$.
+  \item Ist $k$ ein Eigenwert von $\varphi$ und gleichzeitig auch Eigenwert von
+        $\psi:W\to U$, so ist $k$ auch Eigenwert von $\psi\circ\varphi$.
+\end{enumerate}
+
+% -------------------------------------------------------------------
+\paragraph{Probeklausur 31.07.2018 -- Aufgabe 8} \textit{[16 Punkte]}\par
+% -------------------------------------------------------------------
+Finden Sie alle Eigenwerte der folgenden Matrix $A\in M_{3\times3}(\mathbb{R})$
+und bestimmen Sie zu jedem Eigenwert einen Eigenvektor.
+\begin{equation*}
+  A=
+  \begin{pmatrix}
+     1 & -1 &  0 \\
+    -1 &  2 & -1 \\
+     0 & -1 &  1
+  \end{pmatrix}
+\end{equation*}
+
+% ------------------------------------------------------------------------------
+\end{document}
+% ------------------------------------------------------------------------------

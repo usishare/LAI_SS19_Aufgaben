@@ -1,0 +1,34 @@
+\RequirePackage{tikz}
+
+% own itemize-environment with own labels and margins
+\newenvironment{mytemize}
+{%
+  \begingroup%
+    % define arrow on first level
+    \renewcommand{\labelitemi}
+    {%
+      \raisebox{0.6ex}
+      {%
+        \tikz\draw[line width=0.7pt, ->, >=latex, rounded corners=0.33ex]
+                  (0ex, 1.9ex) -- (0ex, 1ex) -- (2.4ex, 1ex);%
+      }%
+    }%
+    % use same arrow on each lavel
+    \renewcommand {\labelitemii}  {\labelitemi}%
+    \renewcommand {\labelitemiii} {\labelitemi}%
+    \renewcommand {\labelitemiv}  {\labelitemi}%
+    % set new margins
+    \setlength {\labelsep}      {1.00ex}%
+    \setlength {\labelwidth}    {2.75ex}%
+    \setlength {\leftmargini}   {3.75ex}%
+    \setlength {\leftmarginii}  {3.75ex}%
+    \setlength {\leftmarginiii} {3.75ex}%
+    \setlength {\leftmarginiv}  {3.75ex}%
+    \vspace{-0.25\topsep}%
+    \begin{itemize}%
+      \setlength{\itemsep}{-0.5ex}%
+}
+{%
+    \end{itemize}%
+  \endgroup%
+}

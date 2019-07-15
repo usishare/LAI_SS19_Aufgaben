@@ -2277,7 +2277,22 @@ Aussage falsch ist:
     \item nach Vorraussetzung ist $k\neq0$, also auch $k^n\neq0$
     \item also ist auch $\det(k\cdot A)\neq0$ und $k\cdot A$ damit invertierbar
   \end{mytemize}
-
+  \par
+  Begründung zu b)
+  \begin{equation*}
+    \begin{split}
+      A^2=0&\Rightarrow\det\big(I_n-A^2\big)\neq0\\
+           &\Rightarrow\det\big(I_n-A+A-A^2\big)\neq0\\
+           &\Rightarrow\det\big((I_n-A)\cdot I_n+(I_n-A)\cdot A\big)\neq0\\
+           &\Rightarrow\det\big((I_n-A)\cdot(I_n+A)\big)\neq0\\
+           &\Rightarrow\det(I_n-A)\cdot\det(I_n+A)\neq0\\
+           &\Rightarrow(I_n\pm A)\text{ sind invertierbar}
+    \end{split}
+  \end{equation*}
+  \begin{mytemize}
+    \item das Ausmultiplizieren von $(I_n-A)\cdot(I_n+A)$ hat zur Lösung geführt\ldots
+  \end{mytemize}
+  \par
   Gegenbeispiel zu c)
   \begin{equation*}
     A=

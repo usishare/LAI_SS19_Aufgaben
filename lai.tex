@@ -18,10 +18,12 @@
 % extra packages
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{array}
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{ifthen}
 \usepackage{siunitx}
+\usepackage{tikz}
 \usepackage{url}
 \usepackage{xcolor}
 
@@ -90,6 +92,44 @@
     \fi
   \endgroup
 }%
+
+% --------
+% mytemize
+% --------
+%
+% An itemize environment mith arrow symbols.
+%
+\newenvironment{mytemize}
+{%
+  \begingroup%
+    % define arrow on first level
+    \renewcommand{\labelitemi}
+    {%
+      \raisebox{0.6ex}
+      {%
+        \tikz\draw[line width=0.7pt, ->, >=latex, rounded corners=0.33ex]
+                  (0ex, 1.9ex) -- (0ex, 1ex) -- (2.4ex, 1ex);%
+      }%
+    }%
+    % use same arrow on each lavel
+    \renewcommand {\labelitemii}  {\labelitemi}%
+    \renewcommand {\labelitemiii} {\labelitemi}%
+    \renewcommand {\labelitemiv}  {\labelitemi}%
+    % set new margins
+    \setlength {\labelsep}      {1.00ex}%
+    \setlength {\labelwidth}    {2.75ex}%
+    \setlength {\leftmargini}   {3.75ex}%
+    \setlength {\leftmarginii}  {3.75ex}%
+    \setlength {\leftmarginiii} {3.75ex}%
+    \setlength {\leftmarginiv}  {3.75ex}%
+    \vspace{-0.25\topsep}%
+    \begin{itemize}%
+      \setlength{\itemsep}{-0.5ex}%
+}
+{%
+    \end{itemize}%
+  \endgroup%
+}
 
 % ------------------------------------------------------------------------------
 \begin{document}
@@ -2045,6 +2085,39 @@ Bestimmen Sie den Rang der folgenden Matrix.
      2 &  3 &  5 & 1
   \end{pmatrix}
 \end{equation*}
+\begin{answer}
+  \newcommand{\matnum}[1]{\makebox[0pt][r]{{\small#1}\hspace*{1.5em}}}%
+  \newcommand{\matmod}[1]{\makebox[0pt][l]{\hspace*{1.5em}\ensuremath{|{}#1}}}%
+  \newcolumntype{N}{p{0pt}}%
+  \newcolumntype{B}{>{\hspace*{\fill}}p{1em}}%
+  \newcolumntype{R}{>{\hspace*{\fill}}p{2em}}%
+  \newcolumntype{E}{p{2pt}}%
+  \setlength{\arraycolsep}{0pt}%
+  \begin{equation*}
+    \begin{split}
+      &\left(
+      \begin{array}{NBRRRE}
+        \matnum{I}   &  1 &  4 &  5 & 0 &                          \\
+        \matnum{II}  & -1 &  0 & -1 & 0 & \matmod{+\text{I}}       \\
+        \matnum{III} &  3 & -2 &  1 & 0 & \matmod{-3\cdot\text{I}} \\
+        \matnum{IV}  &  2 &  3 &  5 & 1 & \matmod{-2\cdot\text{I}}
+      \end{array}
+      \right)\\[2ex]
+      &\left(
+      \begin{array}{NBRRRE}
+        \matnum{I}   & 1 &   4 &   5 & 0 & \\
+        \matnum{II}  & 0 &   4 &   4 & 0 & \\
+        \matnum{III} & 0 & -14 & -14 & 0 & \\
+        \matnum{IV}  & 0 &  -5 &  -5 & 1 &
+      \end{array}
+      \right)
+    \end{split}
+  \end{equation*}
+  \begin{mytemize}
+    \item An dieser Stelle erkennt man schon, dass die Zeilen II und III
+          (als einzige) linear abhängig sind. Der Rang der Matrix beträgt also 3.
+  \end{mytemize}
+\end{answer}
 
 % ------------------------------------------------------------------
 \paragraph{Probeklausur 31.07.2018 -- Aufgabe 2} \textit{[6 Punkte]}\par

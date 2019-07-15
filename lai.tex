@@ -2144,6 +2144,34 @@ die Matrix
   \in M_{4\times4}(\mathbb{R})
 \end{equation*}
 invertierbar ist.
+\begin{answer}
+  \begin{mytemize}
+    \item Die Entwicklung der Determinanten nach einer Zeile erfolge gemäß der Gleichung
+          \begin{equation*}
+            \det(A)=\sum_{j=1}^n(-1)^{i+j}a_{ij}\det(A_{ij})\;,
+          \end{equation*}
+          wobei $A_{ij}$ die Matrix bezeichnet, die aus $A$ entsteht, wenn man die
+          $i$-te Zeile und die $j$-te Spalte streicht.
+    \item Die Entwicklung nach der 2. Zeile ergibt hier also:
+          \begin{equation*}
+            \begin{split}
+              \det(A)&=\sum_{j=1}^4(-1)^{2+j}a_{2j}\det(A_{2j})
+                      =(-1)^{2+2}a_{22}\det(A_{22})\\[1ex]
+              &=\det
+              \begin{pmatrix}
+                k & 0 & -k \\
+                0 & 1 &  0 \\
+                k & 0 &  1
+              \end{pmatrix}
+              =k+k^2=k(1+k)
+            \end{split}
+          \end{equation*}
+    \item Eine Matrix ist genau dann invertierbar, falls die Determinante nicht Null ist:
+          \begin{equation*}
+              0\neq k(1+k)\quad\Rightarrow\quad k\in\mathbb{R}\setminus\{0,-1\}
+          \end{equation*}
+  \end{mytemize}
+\end{answer}
 
 % ------------------------------------------------------------------
 \paragraph{Probeklausur 31.07.2018 -- Aufgabe 4} \textit{[8 Punkte]}\par

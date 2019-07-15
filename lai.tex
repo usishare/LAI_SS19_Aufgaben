@@ -2267,6 +2267,44 @@ Aussage falsch ist:
   \item Sind $A,B\in M_{n\times n}(K)$ invertierbar, so ist auch $A+B$
         invertierbar.
 \end{enumerate}
+\begin{answer}
+  Gegenbeispiel zu c)
+  \begin{equation*}
+    A=
+    \begin{pmatrix}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1
+    \end{pmatrix}
+    \quad
+    \det(A)=1
+    \qquad
+    \qquad
+    B=
+    \begin{pmatrix}
+      1 &  0 & 0 \\
+      0 & -1 & 0 \\
+      0 &  0 & 1
+    \end{pmatrix}
+    \quad
+    \det(B)=-1
+  \end{equation*}
+  \begin{mytemize}
+    \item beide Matritzen sind invertierbar, da beide Determinanten ungleich Null sind
+  \end{mytemize}
+  \begin{equation*}
+    \det(A+B)=\det
+    \begin{pmatrix}
+      2 & 0 & 0 \\
+      0 & 0 & 0 \\
+      0 & 0 & 2
+    \end{pmatrix}
+    =0
+  \end{equation*}
+  \begin{mytemize}
+    \item also ist die Matrix $C=A+B$ nicht invertierbar
+  \end{mytemize}
+\end{answer}
 
 % -------------------------------------------------------------------
 \paragraph{Probeklausur 31.07.2018 -- Aufgabe 7} \textit{[12 Punkte]}\par

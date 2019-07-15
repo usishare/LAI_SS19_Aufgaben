@@ -2240,6 +2240,16 @@ Finden Sie das Inverse zu folgender Matrix:
 % ------------------------------------------------------------------
 Seien $A$, $B$ und $S$ $n\times n$ Matrizen, $S$ invertierbar und $A=S^{-1}BS$.
 Begründen Sie ausführlich, warum $\det(A)=\det(B)$ gilt.
+\begin{answer}
+  \begin{equation*}
+    \begin{split}
+      \det(A)&=\det(S^{-1}BS)\\
+      &=\det(S^{-1})\cdot\det(B)\cdot\det(S)\qquad\text{dies sind drei reelle Zahlen}\\
+      &=\det(S)^{-1}\cdot\det(S)\cdot\det(B)\\[1ex]
+      &=\frac{\det(S)}{\det(S)}\cdot\det(B)=\det(B)
+    \end{split}
+  \end{equation*}
+\end{answer}
 
 % ------------------------------------------------------------------
 \paragraph{Probeklausur 31.07.2018 -- Aufgabe 6} \textit{[9 Punkte]}\par

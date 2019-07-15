@@ -135,8 +135,9 @@
 \begin{document}
 % ------------------------------------------------------------------------------
 
-%\hideanswers
+\hideanswers
 \showanswers
+
 \allowdisplaybreaks
 
 \thispagestyle{empty}
@@ -2184,6 +2185,55 @@ Finden Sie das Inverse zu folgender Matrix:
     0 & 1 & 1
   \end{pmatrix}
 \end{equation*}
+\begin{answer}
+  \newcommand{\matnum}[1]{\makebox[0pt][r]{{\small#1}\hspace*{1.5em}}}%
+  \newcommand{\matmod}[1]{\makebox[0pt][l]{\hspace*{1.5em}\ensuremath{|{}#1}}}%
+  \newcolumntype{N}{p{0pt}}%
+  \newcolumntype{B}{>{\hspace*{\fill}}p{0.6em}}%
+  \newcolumntype{R}{>{\hspace*{\fill}}p{1.5em}}%
+  \newcolumntype{E}{p{2pt}}%
+  \newcolumntype{S}{p{10pt}}%
+  \setlength{\arraycolsep}{0pt}%
+  \begin{equation*}
+    \begin{split}
+      &\left(
+      \begin{array}{NBRRS|RRRE}
+        \matnum{I}   & 1 & 1 & 0 && 1 & 0 & 0 &                    \\
+        \matnum{II}  & 1 & 1 & 1 && 0 & 1 & 0 & \matmod{-\text{I}} \\
+        \matnum{III} & 0 & 1 & 1 && 0 & 0 & 1 &
+      \end{array}
+      \right)\\[2ex]
+      &\left(
+      \begin{array}{NBRRS|RRRE}
+        \matnum{I}   & 1 & 1 & 0 &&  1 & 0 & 0 &                               \\
+        \matnum{II}  & 0 & 0 & 1 && -1 & 1 & 0 & \matmod{\leftarrow\text{III}} \\
+        \matnum{III} & 0 & 1 & 1 &&  0 & 0 & 1 & \matmod{\leftarrow\text{II}}
+      \end{array}
+      \right)\\[2ex]
+      &\left(
+      \begin{array}{NBRRS|RRRE}
+        \matnum{I}   & 1 & 1 & 0 &&  1 & 0 & 0 &                      \\
+        \matnum{II}  & 0 & 1 & 1 &&  0 & 0 & 1 & \matmod{-\text{III}} \\
+        \matnum{III} & 0 & 0 & 1 && -1 & 1 & 0 &
+      \end{array}
+      \right)\\[2ex]
+      &\left(
+      \begin{array}{NBRRS|RRRE}
+        \matnum{I}   & 1 & 1 & 0 &&  1 &  0 & 0 & \matmod{-\text{II}} \\
+        \matnum{II}  & 0 & 1 & 0 &&  1 & -1 & 1 &                     \\
+        \matnum{III} & 0 & 0 & 1 && -1 &  1 & 0 &
+      \end{array}
+      \right)\\[2ex]
+      &\left(
+      \begin{array}{NBRRS|RRRE}
+        \matnum{I}   & 1 & 0 & 0 &&  0 &  1 & -1 & \\
+        \matnum{II}  & 0 & 1 & 0 &&  1 & -1 &  1 & \\
+        \matnum{III} & 0 & 0 & 1 && -1 &  1 &  0 &
+      \end{array}
+      \right)\\[2ex]
+    \end{split}
+  \end{equation*}
+\end{answer}
 
 % ------------------------------------------------------------------
 \paragraph{Probeklausur 31.07.2018 -- Aufgabe 5} \textit{[6 Punkte]}\par

@@ -135,7 +135,6 @@
 \begin{document}
 % ------------------------------------------------------------------------------
 
-\hideanswers
 \showanswers
 
 \allowdisplaybreaks
@@ -1983,6 +1982,42 @@ auch in dieser Form.
           \frac{1+x}{1-x}=\imp{}
         \end{equation*}
 \end{enumerate}
+\begin{answer}
+  Berechnung des multiplikativen Inversen:
+  \begin{equation*}
+    z=a+\imp{b}
+    \quad\Rightarrow\quad
+    z^{-1}=\frac{a}{a^2+b^2}-\imp{\frac{b}{a^2+b^2}}
+  \end{equation*}
+  Darstellung in kartesischer Form:
+  \begin{alignat*}{4}
+    \text{a)}&\;\;
+    &
+    z&=-\frac{1}{\imp{}}=-\frac{\imp{}}{\imp{}^2}=\imp{}=0+\imp{1}
+    &
+    \quad&\Rightarrow\quad
+    &
+    z^{-1}=0-\imp{1}
+    \\[2ex]
+    \text{b)}&\;\;
+    &
+    z&=\frac{2}{\imp{}}+\frac{\imp{}}{1}=\frac{\imp{2}}{\imp{}^2}+\imp{}=\imp{-2}+\imp{}=0-\imp{1}
+    &
+    \quad&\Rightarrow\quad
+    &
+    z^{-1}=0+\imp{1}
+  \end{alignat*}\par\bigskip
+  Lösung der Gleichung aus c)
+  \begin{alignat*}{3}
+                     &\quad & \frac{1+x}{1-x}&=\imp{}         & \quad&|\cdot(1-x)       \\
+      \Leftrightarrow&\quad &             1+x&=\imp{(1-x)}    & \quad&                  \\
+      \Leftrightarrow&\quad &             1+x&=\imp{}-\imp{x} & \quad&|-1\quad|+\imp{x} \\
+      \Leftrightarrow&\quad &       x+\imp{x}&=-1+\imp{}      &
+  \end{alignat*}
+  \begin{mytemize}
+    \item ein \glqq Koeffizientenvergleich\grqq{} liefert: $x=\imp{}$
+  \end{mytemize}
+\end{answer}
 
 % ------------------------------------------------------------------
 \paragraph{Probeklausur 30.07.2018 -- Aufgabe 2} \textit{[8 Punkte]}\par
@@ -1999,6 +2034,11 @@ Polynome $q$ und $r$, sodass
 \begin{equation*}
   f=qg+r\quad\text{und}\quad\deg(r)<\deg(g).
 \end{equation*}
+\begin{answer}
+  \begin{equation*}
+    (5X^4+6X^2+3X-10):(5X+2)=X^3-\frac{2}{5}X^2+\frac{34}{25}X+\frac{7}{125}-\frac{1264}{625X+250}
+  \end{equation*}
+\end{answer}
 
 % ------------------------------------------------------------------
 \paragraph{Probeklausur 30.07.2018 -- Aufgabe 3} \textit{[8 Punkte]}\par
@@ -2383,9 +2423,14 @@ Beweisen oder widerlegen Sie:
       k &    0 \\
       0 & \ell
     \end{pmatrix}
-    \quad
-    \text{diese Matrix besitzt gar keinen Eigenwert $k+\ell$}
+    \qquad
+    \det(A-\lambda I)=(k-\lambda)(\ell-\lambda)=0
+    \quad\Rightarrow\quad
+    \lambda_1=k\;,\;\lambda_2=\ell
   \end{equation*}
+  \begin{mytemize}
+    \item aber diese Matrix besitzt gar keinen Eigenwert $k+\ell$
+  \end{mytemize}
   Aussage c) ist wahr:
   \begin{equation*}
     \begin{split}
@@ -2396,12 +2441,31 @@ Beweisen oder widerlegen Sie:
   \end{equation*}
   Aussage d) ist falsch:
   \begin{equation*}
-    \begin{split}
-      \varphi(v)&=k\cdot v\\
-      \psi(w)&=k\cdot w\\
-      \psi(\varphi(v))&=\psi(k v)=k\cdot\psi(v)=k^2\cdot v
-    \end{split}
+    \varphi(x)=
+    \begin{pmatrix}
+      k & 0 \\
+      0 & 1
+    \end{pmatrix}
+    \cdot x
+    \qquad
+    \psi(x)=
+    \begin{pmatrix}
+      k & 0 \\
+      0 & 2
+    \end{pmatrix}
+    \cdot x
+    \qquad
+    \big(\psi\circ\varphi\big)(x)=
+    \psi(\varphi(x))=
+    \begin{pmatrix}
+      k^2 & 0 \\
+      0   & 2
+    \end{pmatrix}
+    \cdot x
   \end{equation*}
+  \begin{mytemize}
+    \item $k$ ist also nicht automatisch auch ein Eigenwert von $\psi\circ\varphi$
+  \end{mytemize}
 \end{answer}
 
 % -------------------------------------------------------------------

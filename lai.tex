@@ -2400,6 +2400,134 @@ und bestimmen Sie zu jedem Eigenwert einen Eigenvektor.
      0 & -1 &  1
   \end{pmatrix}
 \end{equation*}
+\begin{answer}
+  Eigenwerte:
+  \begin{equation*}
+    \begin{split}
+      \det(A-\lambda I)
+      &=\det
+      \begin{pmatrix}
+        1-\lambda &        -1 &         0 \\
+               -1 & 2-\lambda &        -1 \\
+                0 &        -1 & 1-\lambda
+      \end{pmatrix}
+      =0\\[2ex]
+      &=(1-\lambda)(2-\lambda)(1-\lambda)-(-1)(-1)(1-\lambda)-(1-\lambda)(-1)(-1)\\
+      &=(1-\lambda)(2-\lambda)(1-\lambda)-(1-\lambda)-(1-\lambda)\\
+      &=(1-\lambda)\big[(2-\lambda)(1-\lambda)-2\big]\\
+      &=(1-\lambda)\big[2-2\lambda-\lambda+\lambda^2-2\big]\\
+      &=(1-\lambda)\big[\lambda^2-3\lambda\big]\\
+      &=(1-\lambda)\cdot\lambda\cdot(\lambda-3)\\[1ex]
+      \Rightarrow\quad\lambda_1&=0\;,\;\lambda_2=1\;,\;\lambda_3=3
+    \end{split}
+  \end{equation*}
+  Eigenvektor zu $\lambda_1=0$:
+  \begin{equation*}
+    \begin{pmatrix}
+       1 & -1 &  0 \\
+      -1 &  2 & -1 \\
+       0 & -1 &  1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      x \\
+      y \\
+      z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 \\
+      0 \\
+      0
+    \end{pmatrix}
+  \end{equation*}
+  \begin{mytemize}
+    \item aus Zeile I folgt: $x=y$
+    \item aus Zeile III folgt: $y=z$
+    \item also gilt insgesamt:
+  \end{mytemize}
+  \begin{equation*}
+    v_1=t\cdot
+    \begin{pmatrix}
+      1 \\
+      1 \\
+      1
+    \end{pmatrix}
+    \quad\text{mit}\quad
+    t\in\mathbb{R}\setminus\{0\}
+  \end{equation*}
+  Eigenvektor zu $\lambda_2=1$:
+  \begin{equation*}
+    \begin{pmatrix}
+       0 & -1 &  0 \\
+      -1 &  1 & -1 \\
+       0 & -1 &  0
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      x \\
+      y \\
+      z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 \\
+      0 \\
+      0
+    \end{pmatrix}
+  \end{equation*}
+  \begin{mytemize}
+    \item aus Zeile I und III folgt: $y=0$
+    \item damit folgt aus Zeile II: $x=-z$
+    \item also gilt insgesamt:
+  \end{mytemize}
+  \begin{equation*}
+    v_2=t\cdot
+    \begin{pmatrix}
+       1 \\
+       0 \\
+      -1
+    \end{pmatrix}
+    \quad\text{mit}\quad
+    t\in\mathbb{R}\setminus\{0\}
+  \end{equation*}
+  Eigenvektor zu $\lambda_3=3$:
+  \begin{equation*}
+    \begin{pmatrix}
+      -2 & -1 &  0 \\
+      -1 & -1 & -1 \\
+       0 & -1 & -2
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      x \\
+      y \\
+      z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 \\
+      0 \\
+      0
+    \end{pmatrix}
+  \end{equation*}
+  \begin{mytemize}
+    \item aus Zeile I folgt: $y=-2x$
+    \item aus Zeile III folgt: $y=-2z$
+    \item daraus folgt: $x=z$
+    \item also gilt insgesamt:
+  \end{mytemize}
+  \begin{equation*}
+    v_3=t\cdot
+    \begin{pmatrix}
+       1 \\
+      -2 \\
+       1
+    \end{pmatrix}
+    \quad\text{mit}\quad
+    t\in\mathbb{R}\setminus\{0\}
+  \end{equation*}
+\end{answer}
 
 % ------------------------------------------------------------------------------
 \end{document}

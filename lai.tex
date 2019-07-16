@@ -2102,6 +2102,74 @@ Beweisen oder widerlegen Sie:
   \item $U_1\cup U_2$ ist ebenfalls Unterraum.
   \item $U_1\setminus U_2$ ist ebenfalls Unterraum.
 \end{enumerate}
+\begin{answer}
+  Aussage a) ist wahr:
+  \begin{mytemize}
+    \item da $0\in U_1$ und $0\in U_2$ gilt: $U_1\cap U_2\neq\emptyset$
+    \item Abgeschlossenheit der skalaren Multiplikation:
+          \begin{equation*}
+            \begin{split}
+              \forall\lambda\in K:\forall x\in(U_1\cap U_2)&:\lambda x\in U_1\text{ und }\lambda x\in U_2\\
+              \Leftrightarrow\quad\forall\lambda\in K:\forall x\in(U_1\cap U_2)&:\lambda x\in(U_1\cap U_2)
+            \end{split}
+          \end{equation*}
+    \item Abgeschlossenheit der Addition:
+          \begin{equation*}
+            \begin{split}
+                                  \forall x,y\in(U_1\cap U_2)&:x,y\in U_1\text{ und }x,y\in U_2\\
+                  \Rightarrow\quad\forall x,y\in(U_1\cap U_2)&:x+y\in U_1\text{ und }x+y\in U_2\\
+              \Leftrightarrow\quad\forall x,y\in(U_1\cap U_2)&:x+y\in(U_1\cap U_2)
+            \end{split}
+          \end{equation*}
+  \end{mytemize}
+  Aussage b) ist im Allgemeinen falsch:
+  \begin{mytemize}
+    \item die Vereinigung zweier Untervektorräume ist im Allgemeinen nicht
+          abgeschlossen gegenüber der Addition von zwei Vektoren
+  \end{mytemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[line width=0.5pt, ->, >=stealth] (-2, 0) -- (2, 0);
+      \draw[line width=0.5pt, ->, >=stealth] (0, -2) -- (0, 2);
+      \draw[line width=0.3pt] (-1.5, -1.5) -- (1.5,  1.5) node[right]{$U_1=\left\langle\begin{pmatrix}1\\1\end{pmatrix}\right\rangle\subseteq\mathbb{R}^2$};
+      \draw[line width=0.3pt] (-1.5,  1.5) -- (1.5, -1.5) node[right]{$U_2=\left\langle\begin{pmatrix}1\\-1\end{pmatrix}\right\rangle\subseteq\mathbb{R}^2$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{mytemize}
+    \item das Beispiel zeigt zwei Geraden als Untervektorräume der Ebene $\mathbb{R}^2$
+    \item die Vereinigung $U_1\cup U_2=\left\{(x,y)\in\mathbb{R}^2\mid x\in U_1\;\lor\;x\in U_2\right\}$
+          besteht aus allen Vektoren, die auf beiden Geraden liegen
+    \item aber mit
+          \begin{equation*}
+            a=
+            \begin{pmatrix}
+              1 \\
+              1
+            \end{pmatrix}
+            \in U_1
+            \quad\text{und}\quad
+            b=
+            \begin{pmatrix}
+               1 \\
+              -1
+            \end{pmatrix}
+            \in U_2
+            \quad\text{gilt:}\quad
+            a+b=
+            \begin{pmatrix}
+              2 \\
+              0
+            \end{pmatrix}
+            \neq U_1\cup U_2
+          \end{equation*}
+  \end{mytemize}
+  Aussage c) ist falsch:
+  \begin{mytemize}
+    \item jeder Untervektorraum muss den Nullvektor enthalten
+    \item durch $U_1\setminus U_2$ wird also (mindestens) der Nullvektor aus $U_1$ entfernt
+    \item damit kann $U_1\setminus U_2$ kein Untervektorraum mehr sein
+  \end{mytemize}
+\end{answer}
 
 % -------------------------------------------------------------------
 \paragraph{Probeklausur 30.07.2018 -- Aufgabe 7} \textit{[10 Punkte]}\par

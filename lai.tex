@@ -3002,6 +3002,185 @@ und bestimmen Sie zu jedem Eigenwert einen Eigenvektor.
   \end{equation*}
 \end{answer}
 
+% ---------------------------
+\newsheet{Klausur 11.09.2014}
+% ---------------------------
+
+% ----------------------------------------------------
+\exercise{Klausur 11.09.2014 -- Aufgabe 1}{[7 Punkte]}
+% ----------------------------------------------------
+Wir betrachten das lineare Gleichungssystem über den reellen Zahlen:
+\begin{equation*}
+  \newcommand{\+}{&{}+{}&}%
+  \renewcommand{\-}{&{}-{}&}%
+  \renewcommand{\=}{&{}={}&}%
+  \renewcommand{\.}{&{}~{}&}%
+  \renewcommand{\|}{\text{\;\;}&}%
+  \setlength{\arraycolsep}{0pt}%
+  \begin{array}{|crcrcrcrcr}
+  \| 3x_1 \+ 4x_2 \+ 2x_3 \+  2x_4 \=  2 \\
+  \| 2x_1 \+ 2x_2 \+ 4x_3 \+  3x_4 \=  4 \\
+  \| 3x_1 \+ 3x_2 \+ 3x_3 \+ a x_4 \=  1 \\
+  \| 3x_1 \+ 6x_2 \+ 6x_3 \+  7x_4 \= 10   
+  \end{array}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Für welche Werte der Parameters $a\in\mathbb{R}$ ist das Gleichungssystem lösbar?
+  \item Berechnen Sie die Lösung für den Wert $a=1$.
+\end{enumerate}
+
+% ----------------------------------------------------
+\exercise{Klausur 11.09.2014 -- Aufgabe 2}{[7 Punkte]}
+% ----------------------------------------------------
+Im Vektorraum $\mathbb{R}^4$ seien folgende Vektoren gegeben
+\begin{equation*}
+  v_1=
+  \begin{pmatrix}
+     1 \\
+     2 \\
+    -1 \\
+     2
+  \end{pmatrix}
+  \;,\quad
+  v_2=
+  \begin{pmatrix}
+    2 \\
+    1 \\
+    2 \\
+    1
+  \end{pmatrix}
+  \;,\quad
+  v_3=
+  \begin{pmatrix}
+    -1 \\
+     2 \\
+     1 \\
+     2
+  \end{pmatrix}
+  \;,\quad
+  w_1=
+  \begin{pmatrix}
+    2 \\
+    1 \\
+    1 \\
+    2
+  \end{pmatrix}
+  \quad\text{und}\quad
+  w_2=
+  \begin{pmatrix}
+    1 \\
+    1 \\
+    2 \\
+    2
+  \end{pmatrix}
+  \;,
+\end{equation*}
+die die Unterräume $U_1=\langle v_1,v_2,v_3\rangle$ und $U_2=\langle w_1,w_2\rangle$ erzeugen.
+\begin{enumerate}[a)]
+  \item Bestimmen Sie eine lineare Gleichung für $U_1$ (d.\,h. $U_1$ soll die Lösungsmenge sein).
+  \item Bestimmen Sie eine Basis des Durchschnitts $U_1\cap U_2$ mit einer Methode Ihrer Wahl.
+\end{enumerate}
+
+% ----------------------------------------------------
+\exercise{Klausur 11.09.2014 -- Aufgabe 3}{[7 Punkte]}
+% ----------------------------------------------------
+\begin{enumerate}[a)]
+  \item Berechnen Sie die Inverse der folgenden reellen Matrix:
+        \begin{equation*}
+          A=
+          \begin{pmatrix}
+            0 & 1 & 0 & 1 \\
+            1 & 0 & 1 & 1 \\
+            0 & 1 & 1 & 0 \\
+            1 & 1 & 0 & 0
+          \end{pmatrix}
+        \end{equation*}
+  \item Begründen Sie, dass die reelle Matrix
+        \begin{equation*}
+          B=
+          \begin{pmatrix}
+            0 & 1 & 0 & 1 \\
+            1 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 1 \\
+            1 & 0 & 1 & 0
+          \end{pmatrix}
+        \end{equation*}
+        nicht invertierbar ist.
+\end{enumerate}
+
+% ----------------------------------------------------
+\exercise{Klausur 11.09.2014 -- Aufgabe 4}{[7 Punkte]}
+% ----------------------------------------------------
+\begin{enumerate}[a)]
+  \item Berechnen Sie (auf günstige Weise) die Determinante der reellen Matrix
+        \begin{equation*}
+          A=
+          \begin{pmatrix}
+             2 &  3 &  5 &  2 \\
+             3 &  2 &  3 & -2 \\
+             2 &  a &  2 &  2 \\
+            -2 & -3 & -2 & -3
+          \end{pmatrix}
+        \end{equation*}
+        mit dem Parameter $a\in\mathbb{R}$.
+  \item Für welche $a\in\mathbb{R}$ ist die Matrix nicht invertierbar?
+\end{enumerate}
+
+% ----------------------------------------------------
+\exercise{Klausur 11.09.2014 -- Aufgabe 5}{[7 Punkte]}
+% ----------------------------------------------------
+Im Vektorraum $\mathbb{R}^5$ mit dem Standard-Skalarprodukt betrachten wir die Vektoren
+\begin{equation*}
+  v_1=
+  \begin{pmatrix}
+     2 \\
+     1 \\
+    -3 \\
+    -1 \\
+    -1
+  \end{pmatrix}
+  \qquad
+  v_2=
+  \begin{pmatrix}
+    -4 \\
+     2 \\
+     2 \\
+     2 \\
+     2
+  \end{pmatrix}
+  \qquad
+  v_3=
+  \begin{pmatrix}
+    0 \\
+    5 \\
+    5 \\
+    3 \\
+    3
+  \end{pmatrix}
+\end{equation*}
+\begin{enumerate}[a)]
+  \item Berechnen Sie eine Orthonormalbasis des Unterraums $U=\langle v_1,v_2,v_3\rangle$,
+        inden Sie die gegebenen Vektoren orthonormalisieren.
+  \item Geben Sie die orthogonale Projektion $P:\mathbb{R}^5\to\mathbb{R}^5$ auf den
+        Unterraum $U$ (ohne nähere Ausrechnung) an und berechnen sie den Wert $P(1,0,0,0,0)$.
+\end{enumerate}
+
+% ----------------------------------------------------
+\exercise{Klausur 11.09.2014 -- Aufgabe 6}{[5 Punkte]}
+% ----------------------------------------------------
+Sei $V$ ein Vektorraum mit der Dimension $n\in\mathbb{N}$ und $f:V\to V$
+eine lineare Abbildung. Mit $f^i$ bezeichnen wir die Verkettung
+$f\circ\cdots\circ f$ von $i$ Faktoren $f$ (und mit $f^0$ die identische Abbildung).
+Zeigen Sie:
+\begin{enumerate}[a)]
+  \item Für $i\geq1$ gilt $\operatorname{bild}(f^{i+1})\subseteq\operatorname{bild}(f^i)$
+  \item Wenn $\operatorname{bild}(f^{i+1})=\operatorname{bild}(f^i)$ für ein $i\geq0$
+        gilt, dann gilt auch $\operatorname{bild}(f^j)=\operatorname{bild}(f^i)$
+        für alle $j\geq i$.
+  \item Es gibt ein $i\leq n$ mit $\operatorname{bild}(f^{i+1})=\operatorname{bild}(f^i)$.\par
+        {\itshape Tipp: Was könnte man andernfalls über die Dimension der Bilder sagen?}
+\end{enumerate}
+
 % ------------------------------------------------------------------------------
 \end{document}
 % ------------------------------------------------------------------------------

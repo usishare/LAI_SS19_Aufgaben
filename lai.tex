@@ -2035,8 +2035,16 @@ Polynome $q$ und $r$, sodass
   f=qg+r\quad\text{und}\quad\deg(r)<\deg(g).
 \end{equation*}
 \begin{answer}
+  Die Polynomdivision ergibt:
   \begin{equation*}
     (5X^4+6X^2+3X-10):(5X+2)=X^3-\frac{2}{5}X^2+\frac{34}{25}X+\frac{7}{125}-\frac{1264}{625X+250}
+  \end{equation*}
+  Die gesuchten Polynome $q$ und $r$ lauten also:
+  \begin{equation*}
+    \begin{split}
+      q(X)&=X^3-\frac{2}{5}X^2+\frac{34}{25}X+\frac{7}{125}\\[1ex]
+      r(X)&=-\frac{1264}{125}
+    \end{split}
   \end{equation*}
 \end{answer}
 
@@ -2056,6 +2064,115 @@ mit dem Verfahren von Gauß:
   \end{array}
   \right)
 \end{equation*}
+\begin{answer}
+  \newcommand{\matnum}[1]{\makebox[0pt][r]{{\small#1}\hspace*{1.5em}}}%
+  \newcommand{\matmod}[1]{\makebox[0pt][l]{\hspace*{1.5em}\ensuremath{|{}#1}}}%
+  \newcommand{\matimp}[1]{\makebox[0pt][l]{\hspace*{1.5em}\ensuremath{\Rightarrow\;#1}}}%
+  \newcolumntype{N}{p{0pt}}%
+  \newcolumntype{B}{>{\hspace*{\fill}}p{1em}}%
+  \newcolumntype{R}{>{\hspace*{\fill}}p{2em}}%
+  \newcolumntype{S}{p{10pt}}%
+  \newcolumntype{E}{p{2pt}}%
+  \setlength{\arraycolsep}{0pt}%
+  \begin{equation*}
+    \begin{split}
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & 1 & 2 & 3 & 4 && 6 & \\
+        \matnum{II}  & 0 & 1 & 2 & 2 && 3 & \\
+        \matnum{III} & 2 & 1 & 0 & 1 && 2 & \matmod{-2\cdot\text{I}} \\
+        \matnum{VI}  & 3 & 2 & 1 & 3 && 5 & \matmod{-3\cdot\text{I}} \\
+        \matnum{V}   & 4 & 3 & 2 & 1 && 4 & \matmod{-4\cdot\text{I}}
+      \end{array}
+      \right)\\[1ex]
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & 1 &  2 &   3 &   4 &&   6 & \\
+        \matnum{II}  & 0 &  1 &   2 &   2 &&   3 & \\
+        \matnum{III} & 0 & -3 &  -6 &  -7 && -10 & \matmod{+3\cdot\text{II}} \\
+        \matnum{VI}  & 0 & -4 &  -8 &  -9 && -13 & \matmod{+4\cdot\text{II}} \\
+        \matnum{V}   & 0 & -5 & -10 & -15 && -20 & \matmod{+5\cdot\text{II}}
+      \end{array}
+      \right)\\[1ex]
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & 1 & 2 & 3 &  4 &&  6 & \\
+        \matnum{II}  & 0 & 1 & 2 &  2 &&  3 & \\
+        \matnum{III} & 0 & 0 & 0 & -1 && -1 & \matmod{\cdot(-1)}   \\
+        \matnum{VI}  & 0 & 0 & 0 & -1 && -1 & \matmod{-\text{III}} \\
+        \matnum{V}   & 0 & 0 & 0 & -5 && -5 & \matmod{-5\cdot\text{III}}
+      \end{array}
+      \right)\\[1ex]
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & 1 & 2 & 3 & 4 && 6 & \matmod{-4\cdot\text{III}} \\
+        \matnum{II}  & 0 & 1 & 2 & 2 && 3 & \matmod{-2\cdot\text{III}} \\
+        \matnum{III} & 0 & 0 & 0 & 1 && 1 & \\
+        \matnum{VI}  & 0 & 0 & 0 & 0 && 0 & \\
+        \matnum{V}   & 0 & 0 & 0 & 0 && 0 &
+      \end{array}
+      \right)\\[1ex]
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & 1 & 2 & 3 & 0 && 2 & \matmod{\cdot(-2)+3\cdot\text{II}} \\
+        \matnum{II}  & 0 & 1 & 2 & 0 && 1 & \\
+        \matnum{III} & 0 & 0 & 0 & 1 && 1 &
+      \end{array}
+      \right)\\[1ex]
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & -2 & -1 & 0 & 0 && -1 & \matmod{\cdot(-1)} \\
+        \matnum{II}  &  0 &  1 & 2 & 0 &&  1 & \\
+        \matnum{III} &  0 &  0 & 0 & 1 &&  1 &
+      \end{array}
+      \right)\\[1ex]
+      &\left(
+      \begin{array}{NBRRRS|RE}
+        \matnum{I}   & 2 & 1 & 0 & 0 && 1 & \matimp{x_1=\frac{1}{2}(1-x_2)} \\
+        \matnum{II}  & 0 & 1 & 2 & 0 && 1 & \matimp{x_2=1-2x_3}             \\
+        \matnum{III} & 0 & 0 & 0 & 1 && 1 & \matimp{x_4=1}
+      \end{array}
+      \right)\\[1ex]
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    x=
+    \begin{pmatrix}
+      x_1 \\
+      x_2 \\
+      x_3 \\
+      x_4
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      \frac{1}{2}(1-(1-2t)) \\
+      1-2t \\
+      t \\
+      1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+         t \\
+      1-2t \\
+         t \\
+         1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 \\
+      1 \\
+      0 \\
+      1
+    \end{pmatrix}
+    +t\cdot
+    \begin{pmatrix}
+       1 \\
+      -2 \\
+       1 \\
+       0
+    \end{pmatrix}
+  \end{equation*}
+\end{answer}
 
 % -------------------------------------------------------------------
 \paragraph{Probeklausur 30.07.2018 -- Aufgabe 4} \textit{[10 Punkte]}\par
@@ -2065,6 +2182,17 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
 \begin{equation*}
   (A+B)^2=A^2+2AB+B^2
 \end{equation*}
+\begin{answer}
+  \begin{alignat*}{2}
+    &                     &       (A+B)^2&=A^2+2AB+B^2 \\
+    &\Leftrightarrow\quad & A^2+AB+BA+B^2&=A^2+2AB+B^2 \\
+    &\Leftrightarrow\quad &            BA&=AB
+  \end{alignat*}
+  \begin{mytemize}
+    \item an der letzten Zeile erkennt man, dass die Aussage im Allgemeinen
+          falsch ist, da die Multiplikation von Matrizen nicht kommutativ ist
+  \end{mytemize}
+\end{answer}
 
 % -------------------------------------------------------------------
 \paragraph{Probeklausur 30.07.2018 -- Aufgabe 5} \textit{[10 Punkte]}
@@ -2091,6 +2219,26 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
         \end{equation*}
         immer linear abhängig sind.
 \end{enumerate}
+\begin{answer}
+  a)
+  \begin{equation*}
+    \begin{split}
+      0&=a\cdot w_1+b\cdot w_2+c\cdot w_3\\
+       &=a(v_1-v_2)+b(v_2-v_3)+c(v_3+v_1)\\
+       &=av_1-av_2+bv_2-bv_3+cv_3+cv_1\\
+       &=(a+c)v_1+(b-a)v_2+(c-b)v_3
+    \end{split}
+  \end{equation*}
+  b)
+  \begin{equation*}
+    \begin{split}
+      0&=a\cdot w_1+b\cdot w_2+c\cdot w_3\\
+       &=a(v_1-v_2)+b(v_2-v_3)+c(v_1-v_3)\\
+       &=av_1-av_2+bv_2-bv_3+cv_1-cv_3\\
+       &=(a+c)v_1+(b-a)v_2+(-b-c)v_3
+    \end{split}
+  \end{equation*}
+\end{answer}
 
 % -------------------------------------------------------------------
 \paragraph{Probeklausur 30.07.2018 -- Aufgabe 6} \textit{[10 Punkte]}\par
@@ -2117,7 +2265,7 @@ Beweisen oder widerlegen Sie:
           \begin{equation*}
             \begin{split}
                                   \forall x,y\in(U_1\cap U_2)&:x,y\in U_1\text{ und }x,y\in U_2\\
-                  \Rightarrow\quad\forall x,y\in(U_1\cap U_2)&:x+y\in U_1\text{ und }x+y\in U_2\\
+              \Leftrightarrow\quad\forall x,y\in(U_1\cap U_2)&:x+y\in U_1\text{ und }x+y\in U_2\\
               \Leftrightarrow\quad\forall x,y\in(U_1\cap U_2)&:x+y\in(U_1\cap U_2)
             \end{split}
           \end{equation*}
@@ -2179,7 +2327,7 @@ Welche der folgenden Teilmengen sind Unterräume? (Ohne Beweis)
 \begin{enumerate}[a)]
   \item $M_1=\{f\in V\mid f(1)=f(-1)\}$
   \item $M_2=\{f\in V\mid f(0)\cdot f(1)=0\}$
-  \item $M_3=\{f\in V\mid f(0)=r10\}$
+  \item $M_3=\{f\in V\mid f(0)=1\}$
 \end{enumerate}
 
 % -------------------------------------------------------------------

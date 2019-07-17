@@ -59,6 +59,35 @@
   }%
 }
 
+% --------
+% newsheet
+% --------
+%
+% This command adds a section line to the table of contents.
+%
+% #1  caption
+%
+\newcommand{\newsheet}[1]
+{%
+  \clearpage
+  \addcontentsline{toc}{section}{#1}%
+}
+
+% --------
+% exercise
+% --------
+%
+% This command sets the caption of an exercise.
+%
+% #1  caption
+% #2  description
+%
+\newcommand{\exercise}[2]
+{%
+  \paragraph{#1}\textit{#2}\par
+  \addcontentsline{toc}{subsection}{#1 #2}%
+}
+
 % ------
 % answer
 % ------
@@ -136,7 +165,6 @@
 % ------------------------------------------------------------------------------
 
 \showanswers
-
 \allowdisplaybreaks
 
 \thispagestyle{empty}
@@ -159,11 +187,20 @@
 \end{center}
 
 \clearpage
+\pagenumbering{roman}
+
+\tableofcontents
+
+\clearpage
 \pagenumbering{arabic}
 
-% ---------------------
-\paragraph{Aufgabe 1.1} \textit{(Mengen)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 1}
+% ----------------------
+
+% ------------------------------
+\exercise{Aufgabe 1.1}{(Mengen)}
+% ------------------------------
 Sei $A=\{2,3\}$, $B=\{3,4\}$ und $C=\{2,3,4,5\}$. Bilden Sie folgende Mengen:
 \begingroup
   \newcommand{\alg}{&\;}%
@@ -186,9 +223,9 @@ Sei $A=\{2,3\}$, $B=\{3,4\}$ und $C=\{2,3,4,5\}$. Bilden Sie folgende Mengen:
   \end{align*}
 \endgroup
 
-% ---------------------
-\paragraph{Aufgabe 1.2} \textit{(Wahrheitstafeln)}
-% ---------------------
+% ---------------------------------------
+\exercise{Aufgabe 1.2}{(Wahrheitstafeln)}
+% ---------------------------------------
 \begin{enumerate}[a)]
   \item Stellen Sie jeweils die Wahrheitstafel auf:
         \begin{equation*}
@@ -206,9 +243,9 @@ Sei $A=\{2,3\}$, $B=\{3,4\}$ und $C=\{2,3,4,5\}$. Bilden Sie folgende Mengen:
         \end{alignat*}
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 1.3} \textit{(Reihen)}
-% ---------------------
+% ------------------------------
+\exercise{Aufgabe 1.3}{(Reihen)}
+% ------------------------------
 \begin{enumerate}[a)]
   \item Schreiben Sie die folgenden Reihen in der Form $\sum_{n=0}^{\infty}c_n$
         \begin{equation*}
@@ -230,9 +267,9 @@ Sei $A=\{2,3\}$, $B=\{3,4\}$ und $C=\{2,3,4,5\}$. Bilden Sie folgende Mengen:
         \end{alignat*}
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 1.4} \textit{(Funktionen)}\par
-% ---------------------
+% ----------------------------------
+\exercise{Aufgabe 1.4}{(Funktionen)}
+% ----------------------------------
 Gegeben seien folgende Funktionen:
 \begin{equation*}
   \begin{split}
@@ -247,9 +284,9 @@ Gegeben seien folgende Funktionen:
         bestimmen Sie die Abbildungsvorschriften für $f^{-1}$ und $g^{-1}$.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 1.5} \textit{(Injektivität, Surjektivität und Bijektivität)}\par
-% ---------------------
+% --------------------------------------------------------------------
+\exercise{Aufgabe 1.5}{(Injektivität, Surjektivität und Bijektivität)}
+% --------------------------------------------------------------------
 Untersuchen Sie $f$ jeweils auf Injektivität, Surjektivität und Bijektivität:
 \begin{alignat*}{5}
   \text{a)}&\;\; & f:\;\mathbb{R}\to\mathbb{R}\;&,\;x\mapsto 3x-2
@@ -265,25 +302,29 @@ Untersuchen Sie $f$ jeweils auf Injektivität, Surjektivität und Bijektivität:
   \text{f)}&\;\; & f:\;(\mathbb{R}\times\mathbb{R})\to\mathbb{R}\;&,\;(x,y)\mapsto x+y
 \end{alignat*}
 
-% ---------------------
-\paragraph{Aufgabe 2.1} \textit{(Zahlenbereiche)}
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 2}
+% ----------------------
+
+% --------------------------------------
+\exercise{Aufgabe 2.1}{(Zahlenbereiche)}
+% --------------------------------------
 \begin{enumerate}[a)]
   \item Zeigen Sie, dass es keine rationale $x\in\mathbb{Q}$ gibt, sodass $x^2=2$ gilt.
   \item Für welche $n\in\mathbb{N}$ gilt $\sqrt{n}\in\mathbb{Q}$\,?
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 2.2} \textit{(Körper)}\par
-% ---------------------
+% ------------------------------
+\exercise{Aufgabe 2.2}{(Körper)}
+% ------------------------------
 Konstruieren Sie einen Körper aus den vier Elementen $\{0,1,a,b\}$.\par
 {\itshape
 Hinweis: Stellen Sie die Additions- und Multiplikationstafel auf,
 und prüfen Sie die Körperaxiome.}
 
-% ---------------------
-\paragraph{Aufgabe 2.3} \textit{(Wiederholung Gruppen)}
-% ---------------------
+% --------------------------------------------
+\exercise{Aufgabe 2.3}{(Wiederholung Gruppen)}
+% --------------------------------------------
 \begin{enumerate}[a)]
   \item Zeigen Sie, dass die Menge $G\defeq\mathbb{R}\setminus\{1\}$ mit der durch
         \begin{equation*}
@@ -301,9 +342,9 @@ und prüfen Sie die Körperaxiome.}
         \end{enumerate}
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 2.4} \textit{(Komplexe Zahlen)}
-% ---------------------
+% ---------------------------------------
+\exercise{Aufgabe 2.4}{(Komplexe Zahlen)}
+% ---------------------------------------
 \begin{enumerate}[a)]
   \item Stellen Sie folgende komplexe Zahlen in der Form $x+\imp{y}$ mit
         $x,y\in\mathbb{R}$ dar:
@@ -327,9 +368,9 @@ und prüfen Sie die Körperaxiome.}
         \end{equation*}
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 2.5} \textit{(Komplexe Zahlen)}\par
-% ---------------------
+% ---------------------------------------
+\exercise{Aufgabe 2.5}{(Komplexe Zahlen)}
+% ---------------------------------------
 Zeigen Sie, dass für alle komplexen Zahlen $x,y\in\mathbb{C}$ folgende
 Zusammenhänge gelten:
 \begin{equation*}
@@ -339,9 +380,13 @@ Zusammenhänge gelten:
   \end{split}
 \end{equation*}
 
-% ---------------------
-\paragraph{Aufgabe 3.1} \textit{(Ringe)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 3}
+% ----------------------
+
+% -----------------------------
+\exercise{Aufgabe 3.1}{(Ringe)}
+% -----------------------------
 Stellen Sie die Additions- und Multiplikationstafeln der Ringe
 $\mathbb{Z}_7$ und $\mathbb{Z}_4$ auf.
 \begin{enumerate}[a)]
@@ -349,9 +394,9 @@ $\mathbb{Z}_7$ und $\mathbb{Z}_4$ auf.
   \item Sind die Ringe jeweils Nullteilerfrei?
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 3.2} \textit{(Polynomringe)}\par
-% ---------------------
+% ------------------------------------
+\exercise{Aufgabe 3.2}{(Polynomringe)}
+% ------------------------------------
 \begingroup
   \newcommand{\addop}{\oplus}%
   \newcommand{\mulop}{\otimes}%
@@ -372,9 +417,9 @@ $\mathbb{Z}_7$ und $\mathbb{Z}_4$ auf.
   \end{equation*}
 \endgroup
 
-% ---------------------
-\paragraph{Aufgabe 3.3} \textit{(Linearfaktoren)}\par
-% ---------------------
+% --------------------------------------
+\exercise{Aufgabe 3.3}{(Linearfaktoren)}
+% --------------------------------------
 Zerlegen Sie $f_1$ und $f_2$ in Linearfaktoren:
 \begin{equation*}
   \begin{split}
@@ -386,9 +431,9 @@ Zerlegen Sie $f_1$ und $f_2$ in Linearfaktoren:
 Hinweis: $-1$ ist eine Nullstelle von $f_1$
 und $1$ bzw. $2$ sind Nullstellen von $f_2$.}
 
-% ---------------------
-\paragraph{Aufgabe 3.4} \textit{(Geradengleichung)}\par
-% ---------------------
+% ----------------------------------------
+\exercise{Aufgabe 3.4}{(Geradengleichung)}
+% ----------------------------------------
 Es seien $t\in\mathbb{R}$ und $P\defeq(2\mid\frac{1}{4}\sqrt{2})$. Außerdem
 \begin{equation*}
   \begin{split}
@@ -402,9 +447,9 @@ Es seien $t\in\mathbb{R}$ und $P\defeq(2\mid\frac{1}{4}\sqrt{2})$. Außerdem
         Schneiden sich $G_1$ und $G_2$ für jeden Wert von $t$?
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 3.5} \textit{(Gruppen und Geraden)}\par
-% ---------------------
+% -------------------------------------------
+\exercise{Aufgabe 3.5}{(Gruppen und Geraden)}
+% -------------------------------------------
 Sei $G$ ist die Menge aller reeller Funktionen der Form $f(x)=ax+b$
 mit $a\neq0$, also:
 \begin{equation*}
@@ -431,9 +476,13 @@ mit $a\neq0$, also:
   \item Ist $G$ abelsch?
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 4.1} \textit{(Gleichungssysteme)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 4}
+% ----------------------
+
+% -----------------------------------------
+\exercise{Aufgabe 4.1}{(Gleichungssysteme)}
+% -----------------------------------------
 Lösen Sie die folgenden Gleichungssysteme:
 \begin{equation*}
   \begin{aligned}
@@ -450,9 +499,9 @@ Lösen Sie die folgenden Gleichungssysteme:
   \end{aligned}
 \end{equation*}
 
-% ---------------------
-\paragraph{Aufgabe 4.2} \textit{(Hähne, Hennen und Küken)}\par
-% ---------------------
+% -----------------------------------------------
+\exercise{Aufgabe 4.2}{(Hähne, Hennen und Küken)}
+% -----------------------------------------------
 Wie viele Hähne, Hennen und Küken kann man für 100 Münzen kaufen, wenn
 man insgesamt 100 Vögel haben will und ein Hahn 3 Münzen, eine Henne 5
 Münzen und drei Küken eine Münze kosten? Die 100 Münzen sollen hierbei
@@ -463,9 +512,9 @@ vollständig verbraucht werden.
   \item Ermitteln Sie die Menge aller Lösungen des Systems.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 4.3} \textit{(Gleichungssystem)}\par
-% ---------------------
+% ----------------------------------------
+\exercise{Aufgabe 4.3}{(Gleichungssystem)}
+% ----------------------------------------
 Gegeben sei das inhomogene lineare Gleichungssystem
 \begin{equation*}
   \newcommand{\+}{&{}+{}&}%
@@ -489,9 +538,9 @@ Gegeben sei das inhomogene lineare Gleichungssystem
         Gleichungssystems.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 4.4} \textit{(Gleichung mit einer Variablen)}\par
-% ---------------------
+% -----------------------------------------------------
+\exercise{Aufgabe 4.4}{(Gleichung mit einer Variablen)}
+% -----------------------------------------------------
 Bestimmen Sie in Abhängigkeit von $t\in\mathbb{R}$ die Lösungsmenge des
 folgenden Gleichungssystems:
 \begin{equation*}
@@ -510,16 +559,20 @@ folgenden Gleichungssystems:
   \end{array}
 \end{equation*}
 
-% ---------------------
-\paragraph{Aufgabe 4.5} \textit{(Dreh' am Rad)}\par
-% ---------------------
+% ------------------------------------
+\exercise{Aufgabe 4.5}{(Dreh' am Rad)}
+% ------------------------------------
 Drei Zahnräder eines Getriebes haben zusammen 80 Zähne. Bei 10 Umdrehungen
 des ersten Rades dreht sich das zweite Zahnrad 18 und das dritte 45 mal.\par
 Wie viele Zähne hat jedes Rad?
 
-% ---------------------
-\paragraph{Aufgabe 5.1} \textit{(Matrizen)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 5}
+% ----------------------
+
+% --------------------------------
+\exercise{Aufgabe 5.1}{(Matrizen)}
+% --------------------------------
 Berechnen Sie jeweils die Matrix $C=A\cdot B$:
 \begin{align*}
   \text{a)}\quad A_1&=
@@ -614,9 +667,9 @@ Berechnen Sie jeweils die Matrix $C=A\cdot B$:
   \end{pmatrix}
 \end{align*}
 
-% ---------------------
-\paragraph{Aufgabe 5.2} \textit{(Rechenregeln für Matrizen)}
-% ---------------------
+% -------------------------------------------------
+\exercise{Aufgabe 5.2}{(Rechenregeln für Matrizen)}
+% -------------------------------------------------
 \begin{enumerate}[a)]
   \item Welche Eigenschaften müssen zwei beliebige Matrizen $A$ und $B$
         erfüllen um diese addieren zu können?
@@ -626,9 +679,9 @@ Berechnen Sie jeweils die Matrix $C=A\cdot B$:
         invertieren zu können?
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 5.3} \textit{(Erweiterte Zeilenstufenform)}\par
-% ---------------------
+% ---------------------------------------------------
+\exercise{Aufgabe 5.3}{(Erweiterte Zeilenstufenform)}
+% ---------------------------------------------------
 Formen Sie folgende Matrizen in die erweiterte Zeilenstufenform um:
 \begin{equation*}
   \begin{split}
@@ -659,9 +712,9 @@ Formen Sie folgende Matrizen in die erweiterte Zeilenstufenform um:
   \end{split}
 \end{equation*}
 
-% ---------------------
-\paragraph{Aufgabe 5.4} \textit{(Ring)}\par
-% ---------------------
+% ----------------------------
+\exercise{Aufgabe 5.4}{(Ring)}
+% ----------------------------
 Sei $R=\big(M_{2\times2}(\mathbb{R}),\oplus,\otimes\big)$,
 wobei die Verknüpfungen $\oplus$ und $\otimes$ jeweils für die kanonische
 Addition bzw. Multiplikation von Matrizen stehen.\par
@@ -669,9 +722,13 @@ Zeigen Sie, dass $R$ ein Ring ist. Dabei kann davon ausgegangen werden,
 dass die Distributivität und Assoziativität bei beiden Verknüpfungen
 erfüllt ist.
 
-% ---------------------
-\paragraph{Aufgabe 6.1} \textit{(Linearkombinationen)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 6}
+% ----------------------
+
+% -------------------------------------------
+\exercise{Aufgabe 6.1}{(Linearkombinationen)}
+% -------------------------------------------
 Stellen Sie den Vektor $w=(1,0,0)^\text{t}\in\mathbb{R}^3$ jeweils als
 Linearkombination der drei Vektoren $v_1$, $v_2$ und $v_3$ dar.
 \begin{alignat*}{3}
@@ -720,9 +777,9 @@ Linearkombination der drei Vektoren $v_1$, $v_2$ und $v_3$ dar.
     \end{pmatrix}
 \end{alignat*}
 
-% ---------------------
-\paragraph{Aufgabe 6.2} \textit{(Lineare Un- bzw. Abhängigkeit)}\par
-% ---------------------
+% -----------------------------------------------------
+\exercise{Aufgabe 6.2}{(Lineare Un- bzw. Abhängigkeit)}
+% -----------------------------------------------------
 Gegeben seien folgende vier Vektoren des $\mathbb{R}^3$:
 \begin{equation*}
   v_1=
@@ -759,16 +816,16 @@ Gegeben seien folgende vier Vektoren des $\mathbb{R}^3$:
   \item Stellen Sie $w=(3,6,2)^\text{t}$ als Linearkombination von $v_1$, $v_2$ und $v_4$ dar.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 6.3} \textit{(Vektorraum)}\par
-% ---------------------
+% ----------------------------------
+\exercise{Aufgabe 6.3}{(Vektorraum)}
+% ----------------------------------
 Sei $V$ ein Vektorraum über einem Körper $K$.
 Zeigen Sie, dass wenn für $\lambda\in K$ und $v\in V$ die Gleichung
 $\lambda v=0$ gilt, dann auch $\lambda=0$ oder $v=0$ gelten muss.
 
-% ---------------------
-\paragraph{Aufgabe 6.4} \textit{(Gleichungssysteme)}\par
-% ---------------------
+% -----------------------------------------
+\exercise{Aufgabe 6.4}{(Gleichungssysteme)}
+% -----------------------------------------
 Bestimmen Sie die Lösungsmengen der folgenden Gleichungssysteme:
 \begingroup
   \newcommand{\exnum}[1]{\text{\makebox[2em][r]{#1)}\quad}}%
@@ -813,9 +870,9 @@ Bestimmen Sie die Lösungsmengen der folgenden Gleichungssysteme:
   \end{equation*}
 \endgroup
 
-% ---------------------
-\paragraph{Aufgabe 6.5} \textit{(Lösungsmengen)}\par
-% ---------------------
+% -------------------------------------
+\exercise{Aufgabe 6.5}{(Lösungsmengen)}
+% -------------------------------------
 Entscheiden und begründen Sie ob folgende Aussagen wahr oder falsch sind:
 \begin{enumerate}[a)]
   \item Jedes lineare Gleichungssystem hat eine Lösungsmenge.
@@ -828,17 +885,21 @@ Entscheiden und begründen Sie ob folgende Aussagen wahr oder falsch sind:
         Lösungen.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 6.6} \textit{(Modelleisenbahn)}\par
-% ---------------------
+% ---------------------------------------
+\exercise{Aufgabe 6.6}{(Modelleisenbahn)}
+% ---------------------------------------
 Auf einer geschlossenen Bahn von \SI{440}{\centi\metre} Länge treffen
 sich zwei Körper mit einer gleichgerichteter Bewegung alle \SI{20}{\minute},
 bei entegegengesetzter Bewegung alle \SI{5}{\minute}. Wie groß sind die
 Geschwindigkeiten beider Körper?
 
-% ---------------------
-\paragraph{Aufgabe 7.1} \textit{(Erzeugendensystem)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 7}
+% ----------------------
+
+% -----------------------------------------
+\exercise{Aufgabe 7.1}{(Erzeugendensystem)}
+% -----------------------------------------
 Mit $e_i$ seien im Folgenden die Einheisvektoren des $\mathbb{R}^n$ bezeichnet, also:
 \begin{equation*}
   \begin{split}
@@ -861,9 +922,9 @@ Welche der folgenden Teilmengen des $\mathbb{R}^n$ sind Erzeugendensysteme?
                \right\}$ für $n=5$
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 7.2} \textit{(Basis)}
-% ---------------------
+% -----------------------------
+\exercise{Aufgabe 7.2}{(Basis)}
+% -----------------------------
 \begin{enumerate}[a)]
   \item Für welche $t\in\mathbb{R}$ bilden die Vektoren $u$, $v$ und $w$ eine
         Basis des $\mathbb{R}^3$\,?
@@ -894,9 +955,9 @@ Welche der folgenden Teilmengen des $\mathbb{R}^n$ sind Erzeugendensysteme?
         $w_1=sv_1+v_2$ und $w_2=v_1+tv_2$ eine Basis von $V$ bilden.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 7.3} \textit{(Basis)}\par
-% ---------------------
+% -----------------------------
+\exercise{Aufgabe 7.3}{(Basis)}
+% -----------------------------
 Konstruiere für die folgenden Vektorräume jeweils eine Basis:
 \begin{equation*}
   \begin{split}
@@ -905,9 +966,9 @@ Konstruiere für die folgenden Vektorräume jeweils eine Basis:
   \end{split}
 \end{equation*}
 
-% ---------------------
-\paragraph{Aufgabe 7.4} \textit{(Austauschsatz)}\par
-% ---------------------
+% -------------------------------------
+\exercise{Aufgabe 7.4}{(Austauschsatz)}
+% -------------------------------------
 Im Folgenden sei $B$ eine Basis eines Vektorraums $V$ und $C$ eine Menge
 linear unabhängiger Vektoren in $V$.
 \begin{equation*}
@@ -957,9 +1018,9 @@ linear unabhängiger Vektoren in $V$.
   \item Ergänzen Sie die neue Basis $B$ zu einer Basis des $\mathbb{R}^4$.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 7.5} \textit{(Begriffe)}\par
-% ---------------------
+% --------------------------------
+\exercise{Aufgabe 7.5}{(Begriffe)}
+% --------------------------------
 Definieren Sie folgende Begriffe in eigenen Worten:
 \begin{itemize}
   \item linear abhängig
@@ -968,9 +1029,13 @@ Definieren Sie folgende Begriffe in eigenen Worten:
   \item Basis
 \end{itemize}
 
-% ---------------------
-\paragraph{Aufgabe 8.1} \textit{(Untervektorräume)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 8}
+% ----------------------
+
+% ----------------------------------------
+\exercise{Aufgabe 8.1}{(Untervektorräume)}
+% ----------------------------------------
 Untersuchen Sie, welche der folgenden Mengen Untervektorräume des
 $\mathbb{R}^2$ sind:
 \begin{alignat*}{3}
@@ -983,18 +1048,18 @@ $\mathbb{R}^2$ sind:
   U_4&=\left\{(x,y)\in\mathbb{R}^2\mid x\geq y\right\}
 \end{alignat*}
 
-% ---------------------
-\paragraph{Aufgabe 8.2} \textit{(Untervektorräume)}\par
-% ---------------------
+% ----------------------------------------
+\exercise{Aufgabe 8.2}{(Untervektorräume)}
+% ----------------------------------------
 Untersuchen Sie, für welche $c\in\mathbb{R}$ die Menge
 $U_c$ ein Untervektorraum des $\mathbb{R}^4$ ist:
 \begin{equation*}
   U_c=\left\{(x_1,x_2,x_3,x_4)\in\mathbb{R}^4\mid x_1+x_2+x_3+x_4=c\right\}
 \end{equation*}
 
-% ---------------------
-\paragraph{Aufgabe 8.3} \textit{(Rang)}\par
-% ---------------------
+% ----------------------------
+\exercise{Aufgabe 8.3}{(Rang)}
+% ----------------------------
 Gegeben sei folgende lineare Abbildung:
 \begin{equation*}
   \varphi:\mathbb{R}^3\to\mathbb{R}^4\;,\;x\mapsto Ax
@@ -1016,9 +1081,9 @@ Gegeben sei folgende lineare Abbildung:
         $\varphi$ liegt.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 8.4} \textit{(Komplement)}\par
-% ---------------------
+% ----------------------------------
+\exercise{Aufgabe 8.4}{(Komplement)}
+% ----------------------------------
 Gegeben seien folgende Vektoren des $\mathbb{R}^3$:
 \begin{equation*}
   v_1=
@@ -1048,9 +1113,9 @@ Gegeben seien folgende Vektoren des $\mathbb{R}^3$:
   \item Bestimmen Sie eine Basis des Komplements $U_c$ von $U$.
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 8.5} \textit{(Lineare Abbildungen)}\par
-% ---------------------
+% -------------------------------------------
+\exercise{Aufgabe 8.5}{(Lineare Abbildungen)}
+% -------------------------------------------
 Welche der folgenden Abbildungen sind $\mathbb{R}$-linear?
 \begin{alignat*}{4}
   f_1:&\;\; & \mathbb{R}^2&\to\mathbb{R}   & \quad&,\quad & (x,y)&\mapsto3x+y             \\
@@ -1058,9 +1123,9 @@ Welche der folgenden Abbildungen sind $\mathbb{R}$-linear?
   f_3:&\;\; &   \mathbb{R}&\to\mathbb{R}^2 & \quad&,\quad &     x&\mapsto(0,0)
 \end{alignat*}
 
-% ---------------------
-\paragraph{Aufgabe 8.6} \textit{(Kern und Bild)}\par
-% ---------------------
+% -------------------------------------
+\exercise{Aufgabe 8.6}{(Kern und Bild)}
+% -------------------------------------
 Es sei folgende $\mathbb{R}$-lineare Abbildung $f$ definiert durch:
 \begin{equation*}
   f:\;\mathbb{R}^3\to\mathbb{R}^3\;,\quad
@@ -1085,9 +1150,13 @@ Es sei folgende $\mathbb{R}$-lineare Abbildung $f$ definiert durch:
 Konstruieren Sie jeweils eine Basis von $\ker(f)$ und
 $\operatorname{bild}(f)$.
 
-% ---------------------
-\paragraph{Aufgabe 9.1} \textit{(Dimensionssatz)}\par
-% ---------------------
+% ----------------------
+\newsheet{Übungsblatt 9}
+% ----------------------
+
+% --------------------------------------
+\exercise{Aufgabe 9.1}{(Dimensionssatz)}
+% --------------------------------------
 Gegeben seien folgende Unterräume des $\mathbb{R}^3$:
 \begin{equation*}
   S=
@@ -1134,9 +1203,9 @@ Gegeben seien folgende Unterräume des $\mathbb{R}^3$:
 \end{equation*}
 Berechnen Sie $\dim(S)$, $\dim(T)$, $\dim(S+T)$ und $\dim(S\cap T)$.
 
-% ---------------------
-\paragraph{Aufgabe 9.2} \textit{(Selbstinverse Matrizen)}\par
-% ---------------------
+% ----------------------------------------------
+\exercise{Aufgabe 9.2}{(Selbstinverse Matrizen)}
+% ----------------------------------------------
 Bestimmen Sie alle Matritzen der Form
 \begin{equation*}
   F=
@@ -1152,14 +1221,14 @@ die zu sich selbstinvers sind.\par
 {\itshape
 Hinweis: selbstinvers bedeutet, dass $A\cdot A=I$ gilt.}
 
-% ---------------------
-\paragraph{Aufgabe 9.3} \textit{(Isomorphismus)}\par
-% ---------------------
+% -------------------------------------
+\exercise{Aufgabe 9.3}{(Isomorphismus)}
+% -------------------------------------
 Beschreiben Sie was ein Isomorphismus ist, und geben Sie ein Beispiel an.
 
-% ---------------------
-\paragraph{Aufgabe 9.4} \textit{(Darstellungsmatrizen)}\par
-% ---------------------
+% --------------------------------------------
+\exercise{Aufgabe 9.4}{(Darstellungsmatrizen)}
+% --------------------------------------------
 Gegeben sei folgende $\mathbb{R}$-lineare Abbildung:
 \begin{equation*}
   f:\;\mathbb{R}^3\to\mathbb{R}^3\;,\;
@@ -1185,9 +1254,9 @@ Berechnen Sie die Matrix $M(f,B,C)$ für
   \item $B=C=\left\{(-1,0,1)^\text{t},(-1,2,1)^\text{t},(2,0,-1)^\text{t}\right\}$
 \end{enumerate}
 
-% ---------------------
-\paragraph{Aufgabe 9.5} \textit{(Basistransformation)}\par
-% ---------------------
+% -------------------------------------------
+\exercise{Aufgabe 9.5}{(Basistransformation)}
+% -------------------------------------------
 Gegeben seien folgende Basen des $\mathbb{R}^3$ bzw. des $\mathbb{R}^2$:
 \begin{alignat*}{3}
   B&=
@@ -1276,9 +1345,13 @@ Berechnen Sie die Matrizen
   U=M(f,B',C')
 \end{equation*}
 
-% ----------------------
-\paragraph{Aufgabe 10.1} \textit{(Permutationen)}\par
-% ----------------------
+% -----------------------
+\newsheet{Übungsblatt 10}
+% -----------------------
+
+% --------------------------------------
+\exercise{Aufgabe 10.1}{(Permutationen)}
+% --------------------------------------
 Gegeben seien folgende Permutationen aus der Gruppe $S_{10}$:
 \begin{equation*}
   \begin{split}
@@ -1301,9 +1374,9 @@ Bestimmen Sie für beide Permutationen
   \item das Signum
 \end{enumerate}
 
-% ----------------------
-\paragraph{Aufgabe 10.2} \textit{(Determinanten berechnen)}\par
-% ----------------------
+% ------------------------------------------------
+\exercise{Aufgabe 10.2}{(Determinanten berechnen)}
+% ------------------------------------------------
 Gegeben seien folgende Matrizen:
 \begin{equation*}
   R=
@@ -1325,9 +1398,9 @@ Gegeben seien folgende Matrizen:
 Berechnen Sie $\det(R)$, $\det(-R)$, $\det(-S)$, $\det(S\cdot R)$,
 $\det(R\cdot S)$ und $\det(S^\text{t})$.
 
-% ----------------------
-\paragraph{Aufgabe 10.3} \textit{(Invertierbar?)}\par
-% ----------------------
+% --------------------------------------
+\exercise{Aufgabe 10.3}{(Invertierbar?)}
+% --------------------------------------
 Welche der folgenden Matrizen sind invertierbar:
 \begin{alignat*}{3}
   A&=
@@ -1364,9 +1437,9 @@ Welche der folgenden Matrizen sind invertierbar:
   \end{pmatrix}
 \end{alignat*}
 
-% ----------------------
-\paragraph{Aufgabe 10.4} \textit{(Orthogonale Matrizen)}\par
-% ----------------------
+% ---------------------------------------------
+\exercise{Aufgabe 10.4}{(Orthogonale Matrizen)}
+% ---------------------------------------------
 Eine Matrix $A\in M_{n\times n}(\mathbb{R})$ heißt orthogonal,
 wenn $A^\text{t}\cdot A=I_n$ gilt.
 \begin{enumerate}[a)]
@@ -1376,9 +1449,9 @@ wenn $A^\text{t}\cdot A=I_n$ gilt.
         $M_{2\times2}(\mathbb{R})$ an.
 \end{enumerate}
 
-% ----------------------
-\paragraph{Aufgabe 10.5} \textit{(Cramersche Regel)}\par
-% ----------------------
+% -----------------------------------------
+\exercise{Aufgabe 10.5}{(Cramersche Regel)}
+% -----------------------------------------
 Verwenden Sie die Cramersche Regel, um das lineare Gleichungssystem
 $Ax=b$ über $\mathbb{R}$ zu lösen. Dabei seien $A$ und $b$ wie folgt gegeben:
 \begin{equation*}
@@ -1441,9 +1514,13 @@ $Ax=b$ über $\mathbb{R}$ zu lösen. Dabei seien $A$ und $b$ wie folgt gegeben:
   \end{equation*}
 \end{answer}
 
-% ----------------------
-\paragraph{Aufgabe 11.1} \textit{(Eigenwerte)}\par
-% ----------------------
+% -----------------------
+\newsheet{Übungsblatt 11}
+% -----------------------
+
+% -----------------------------------
+\exercise{Aufgabe 11.1}{(Eigenwerte)}
+% -----------------------------------
 Gegeben seien folgende linearen Abbildungen:
 \begin{equation*}
   \begin{split}
@@ -1536,9 +1613,9 @@ der beiden Abbildungen $\ell$ und $m$.
   \end{equation*}
 \end{answer}
 
-% ----------------------
-\paragraph{Aufgabe 11.2} \textit{(Diagonalisierbar)}\par
-% ----------------------
+% -----------------------------------------
+\exercise{Aufgabe 11.2}{(Diagonalisierbar)}
+% -----------------------------------------
 Gegeben seien folgende linearen Abbildungen:
 \begin{alignat*}{4}
   f:&\;\; & \mathbb{R}^3&\to\mathbb{R}^3 & \quad&,\quad & (a,b,c)^\text{t}&\mapsto(2a+b ,\; b-c  ,\; 2b+4c)^\text{t} \\
@@ -1804,9 +1881,9 @@ Gegeben seien folgende linearen Abbildungen:
   auf keinen Fall eine Basis des $\mathbb{R}^3$ bilden können.
 \end{answer}
 
-% ----------------------
-\paragraph{Aufgabe 11.3} \textit{(Matrix zu gegebenen Eigenwerten bestimmen)}\par
-% ----------------------
+% ------------------------------------------------------------------
+\exercise{Aufgabe 11.3}{(Matrix zu gegebenen Eigenwerten bestimmen)}
+% ------------------------------------------------------------------
 Bestimmen Sie eine Matrix $A\in M_{5\times5}(\mathbb{R})$ welche folgende
 Eigenwerte besitzt:
 \begin{equation*}
@@ -1832,9 +1909,9 @@ Eigenwerte besitzt:
   \end{equation*}
 \end{answer}
 
-% ----------------------
-\paragraph{Aufgabe 11.4} \textit{(Matrix gesucht)}\par
-% ----------------------
+% ---------------------------------------
+\exercise{Aufgabe 11.4}{(Matrix gesucht)}
+% ---------------------------------------
 Bestimmen Sie eine Matrix $A\in M_{2\times2}(\mathbb{R})$ über die
 folgendes bekannt ist:
 \begin{equation*}
@@ -1908,9 +1985,13 @@ folgendes bekannt ist:
   \end{equation*}
 \end{answer}
 
-% ----------------------
-\paragraph{Aufgabe 12.1} \textit{(Skalarprodukt)}\par
-% ----------------------
+% -----------------------
+\newsheet{Übungsblatt 12}
+% -----------------------
+
+% --------------------------------------
+\exercise{Aufgabe 12.1}{(Skalarprodukt)}
+% --------------------------------------
 Gegeben sei eine symmetrische Matrix $S\in M_{n\times n}(\mathbb{R})$.
 Zeigen Sie, dass durch
 \begin{equation*}
@@ -1968,9 +2049,13 @@ $\forall x\in\mathbb{R}^n\setminus\{0\}:\langle x,x\rangle>0$.
   Positivdefinitheit: Ist laut Voraussetzungen schon gegeben.
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 1} \textit{[10 Punkte]}\par
-% -------------------------------------------------------------------
+% --------------------------------
+\newsheet{Probeklausur 30.07.2018}
+% --------------------------------
+
+% ----------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 1}{[10 Punkte]}
+% ----------------------------------------------------------
 Schreiben Sie die folgenden komplexen Zahlen in der Form $a+\imp{b}$,
 mit $a,b\in\mathbb{R}$ und bestimmen Sie das multiplikative Inverse
 auch in dieser Form.
@@ -2019,9 +2104,9 @@ auch in dieser Form.
   \end{mytemize}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 2} \textit{[8 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 2}{[8 Punkte]}
+% ---------------------------------------------------------
 Seien $f,g\in\mathbb{Q}[X]$ gegeben durch
 \begin{equation*}
   \begin{split}
@@ -2048,9 +2133,9 @@ Polynome $q$ und $r$, sodass
   \end{equation*}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 3} \textit{[8 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 3}{[8 Punkte]}
+% ---------------------------------------------------------
 Lösen Sie das folgende lineare Gleichungssystem über $\mathbb{R}$
 mit dem Verfahren von Gauß:
 \begin{equation*}
@@ -2174,9 +2259,9 @@ mit dem Verfahren von Gauß:
   \end{equation*}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 4} \textit{[10 Punkte]}\par
-% -------------------------------------------------------------------
+% ----------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 4}{[10 Punkte]}
+% ----------------------------------------------------------
 Beweisen oder widerlegen Sie:
 Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
 \begin{equation*}
@@ -2194,9 +2279,9 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
   \end{mytemize}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 5} \textit{[10 Punkte]}
-% -------------------------------------------------------------------
+% ----------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 5}{[10 Punkte]}
+% ----------------------------------------------------------
 \begin{enumerate}[a)]
   \item Seien $v_1,v_2,v_3\in V$ linear unabhängige Vektoren in einem
         $\mathbb{R}$-Vektorraum. Zeigen Sie, dass dann auch
@@ -2294,9 +2379,9 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
   \end{mytemize}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 6} \textit{[10 Punkte]}\par
-% -------------------------------------------------------------------
+% ----------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 6}{[10 Punkte]}
+% ----------------------------------------------------------
 Seien $U_1$ und $U_2$ Unterräume eines $K$-Vektorraumes $V$.
 Beweisen oder widerlegen Sie:
 \begin{enumerate}[a)]
@@ -2373,9 +2458,9 @@ Beweisen oder widerlegen Sie:
   \end{mytemize}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 30.07.2018 -- Aufgabe 7} \textit{[10 Punkte]}\par
-% -------------------------------------------------------------------
+% ----------------------------------------------------------
+\exercise{Probeklausur 30.07.2018 -- Aufgabe 7}{[10 Punkte]}
+% ----------------------------------------------------------
 Sei $V$ der Vektorraum aller Funktionen $\mathbb{R}\to\mathbb{R}$.
 Welche der folgenden Teilmengen sind Unterräume? (Ohne Beweis)
 \begin{enumerate}[a)]
@@ -2417,9 +2502,13 @@ Welche der folgenden Teilmengen sind Unterräume? (Ohne Beweis)
   \end{mytemize}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 1} \textit{[10 Punkte]}\par
-% -------------------------------------------------------------------
+% --------------------------------
+\newsheet{Probeklausur 31.07.2018}
+% --------------------------------
+
+% ----------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 1}{[10 Punkte]}
+% ----------------------------------------------------------
 Bestimmen Sie den Rang der folgenden Matrix.
 \begin{equation*}
   \begin{pmatrix}
@@ -2463,9 +2552,9 @@ Bestimmen Sie den Rang der folgenden Matrix.
   \end{mytemize}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 2} \textit{[6 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 2}{[6 Punkte]}
+% ---------------------------------------------------------
 Bestimmen Sie mit Hilfe des Dimensionssatzes $\dim(\ker(\varphi))$ für
 \begin{enumerate}[a)]
   \item $\varphi:K^6\to K^3$, mit $\varphi$ surjektiv
@@ -2490,9 +2579,9 @@ Bestimmen Sie mit Hilfe des Dimensionssatzes $\dim(\ker(\varphi))$ für
   \end{mytemize}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 3} \textit{[8 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 3}{[8 Punkte]}
+% ---------------------------------------------------------
 Bestimmen Sie mit Hilfe der Determinanten, für welche $k\in\mathbb{R}$
 die Matrix
 \begin{equation*}
@@ -2534,9 +2623,9 @@ invertierbar ist.
   \end{mytemize}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 4} \textit{[8 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 4}{[8 Punkte]}
+% ---------------------------------------------------------
 Finden Sie das Inverse zu folgender Matrix:
 \begin{equation*}
   \begin{pmatrix}
@@ -2595,9 +2684,9 @@ Finden Sie das Inverse zu folgender Matrix:
   \end{equation*}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 5} \textit{[6 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 5}{[6 Punkte]}
+% ---------------------------------------------------------
 Seien $A$, $B$ und $S$ $n\times n$ Matrizen, $S$ invertierbar und $A=S^{-1}BS$.
 Begründen Sie ausführlich, warum $\det(A)=\det(B)$ gilt.
 \begin{answer}
@@ -2611,9 +2700,9 @@ Begründen Sie ausführlich, warum $\det(A)=\det(B)$ gilt.
   \end{equation*}
 \end{answer}
 
-% ------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 6} \textit{[9 Punkte]}\par
-% ------------------------------------------------------------------
+% ---------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 6}{[9 Punkte]}
+% ---------------------------------------------------------
 Zeigen Sie:
 \begin{enumerate}[a)]
   \item Ist $A\in M_{n\times n}(K)$ eine invertierbare Matrix und $k\in K$
@@ -2691,9 +2780,9 @@ Aussage falsch ist:
   \end{mytemize}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 7} \textit{[12 Punkte]}\par
-% -------------------------------------------------------------------
+% ----------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 7}{[12 Punkte]}
+% ----------------------------------------------------------
 Sei $\varphi:V\to W$ eine lineare Abbildung zwischen Vektorräumen.
 Beweisen oder widerlegen Sie:
 \begin{enumerate}[a)]
@@ -2771,9 +2860,9 @@ Beweisen oder widerlegen Sie:
   \end{mytemize}
 \end{answer}
 
-% -------------------------------------------------------------------
-\paragraph{Probeklausur 31.07.2018 -- Aufgabe 8} \textit{[16 Punkte]}\par
-% -------------------------------------------------------------------
+% ----------------------------------------------------------
+\exercise{Probeklausur 31.07.2018 -- Aufgabe 8}{[16 Punkte]}
+% ----------------------------------------------------------
 Finden Sie alle Eigenwerte der folgenden Matrix $A\in M_{3\times3}(\mathbb{R})$
 und bestimmen Sie zu jedem Eigenwert einen Eigenvektor.
 \begin{equation*}

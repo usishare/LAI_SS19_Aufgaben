@@ -2383,6 +2383,39 @@ Welche der folgenden Teilmengen sind Unterräume? (Ohne Beweis)
   \item $M_2=\{f\in V\mid f(0)\cdot f(1)=0\}$
   \item $M_3=\{f\in V\mid f(0)=1\}$
 \end{enumerate}
+\begin{answer}
+  a) Die Menge $M_1$ bildet einen Untervektorraum von $V$:
+  \begin{equation*}
+    \begin{split}
+      f,g\in M_1\quad&\Rightarrow\quad f(1)=f(-1)\quad\text{und}\quad g(1)=g(-1)\\[2ex]
+      \big(f+g\big)(1)&=f(1)+g(1)=f(-1)+g(-1)=\big(f+g\big)(-1)\\[1ex]
+      \big(k\cdot f\big)(1)&=k\cdot f(1)=k\cdot f(-1)=\big(k\cdot f\big)(-1)
+    \end{split}
+  \end{equation*}
+  \vspace*{-\bigskipamount}%
+  \begin{mytemize}
+    \item $M_1$ ist also abgeschlossen bezüglich Addition und Multiplikation
+  \end{mytemize}\medskip
+  b) Die Menge $M_2$ bildet keinen Untervektorraum von $V$:
+  \begin{alignat*}{4}
+    f(x)&=x   & \quad&\Rightarrow\quad & f(0)\cdot f(1)&=0\cdot1=0 & \quad&\Rightarrow\quad f\in M_2 \\
+    g(x)&=1-x & \quad&\Rightarrow\quad & g(0)\cdot g(1)&=1\cdot0=0 & \quad&\Rightarrow\quad g\in M_2
+  \end{alignat*}
+  \vspace*{-\bigskipamount}%
+  \begin{mytemize}
+    \item für die Abgeschlossenheit bezüglich der Addition müsste gelten $\big(f+g\big)(0)\cdot\big(f+g\big)(1)=0$
+    \item aber: $f+g=x+1-x=1$ für alle $x\in\mathbb{R}$
+  \end{mytemize}\medskip
+  c) Die Menge $M_3$ bildet keinen Untervektorraum von $V$:
+  \begin{equation*}
+    f(x)=1 \quad\Rightarrow\quad f(0)=1 \quad\Rightarrow\quad f\in M_3
+  \end{equation*}
+  \vspace*{-\bigskipamount}%
+  \begin{mytemize}
+    \item für die Abgeschlossenheit bezüglich der Addition müsste gelten $\big(f+g\big)(0)=1$
+    \item aber: $f+f=2$ für alle $x\in\mathbb{R}$
+  \end{mytemize}
+\end{answer}
 
 % -------------------------------------------------------------------
 \paragraph{Probeklausur 31.07.2018 -- Aufgabe 1} \textit{[10 Punkte]}\par

@@ -2220,7 +2220,7 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
         immer linear abhängig sind.
 \end{enumerate}
 \begin{answer}
-  a)
+  Aufgabe a)
   \begin{equation*}
     \begin{split}
       0&=a\cdot w_1+b\cdot w_2+c\cdot w_3\\
@@ -2229,7 +2229,28 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
        &=(a+c)v_1+(b-a)v_2+(c-b)v_3
     \end{split}
   \end{equation*}
-  b)
+  \begin{mytemize}
+    \item für diese Gleichung darf es jetzt nur die triviale Lösung geben, d.\,h.
+          $a=b=c=0$
+  \end{mytemize}
+  \begin{equation*}
+    \newcommand{\+}{&{}+{}&}%
+    \renewcommand{\-}{&{}-{}&}%
+    \renewcommand{\=}{&{}={}&}%
+    \renewcommand{\.}{&{}~{}&}%
+    \renewcommand{\|}{\text{\;\;}&}%
+    \setlength{\arraycolsep}{0pt}%
+    \begin{array}{|crcrcrcrl}
+    \|  a \.   \+ c \= 0 & \quad\Rightarrow\quad a = -c \\
+    \| -a \+ b \.   \= 0 & \quad\Rightarrow\quad b = a  \\
+    \|    \- b \+ c \= 0 & \quad\Rightarrow\quad b = c
+    \end{array}
+  \end{equation*}
+  \begin{mytemize}
+    \item daraus folgt $a=-c$ und $a=c$, also $c=0$ und damit auch $a=b=0$
+    \item die drei Vektoren $w_1$, $w_2$ und $w_3$ sind also linear unabhängig
+  \end{mytemize}
+  Aufgabe b)
   \begin{equation*}
     \begin{split}
       0&=a\cdot w_1+b\cdot w_2+c\cdot w_3\\
@@ -2238,6 +2259,39 @@ Für Matrizen $A,B\in M_{n\times n}(\mathbb{R})$ mit $n\geq2$ gilt:
        &=(a+c)v_1+(b-a)v_2+(-b-c)v_3
     \end{split}
   \end{equation*}
+  \begin{mytemize}
+    \item die Vektoren $w_1$, $w_2$ und $w_3$ sind linear abhängig, wenn es für diese
+          Gleichung nicht nur die triviale Lösung gibt
+  \end{mytemize}
+  \begin{equation*}
+    \newcommand{\+}{&{}+{}&}%
+    \renewcommand{\-}{&{}-{}&}%
+    \renewcommand{\=}{&{}={}&}%
+    \renewcommand{\.}{&{}~{}&}%
+    \renewcommand{\|}{\text{\;\;}&}%
+    \setlength{\arraycolsep}{0pt}%
+    \begin{array}{|crcrcrcr}
+    \|  a \.   \+ c \= 0 \\
+    \| -a \+ b \.   \= 0 \\
+    \|    \- b \- c \= 0   
+    \end{array}
+    \qquad
+    \setlength{\arraycolsep}{3pt}%
+    \det
+    \left(
+    \begin{array}{rrr}
+       1 &  0 &  1 \\
+      -1 &  1 &  0 \\
+       0 & -1 & -1
+    \end{array}
+    \right)
+    =0
+  \end{equation*}
+  \begin{mytemize}
+    \item weil die Determinante Null wird, ist das Gleichungssystem nicht eindeutig lösbar
+    \item es gibt also neben der trivialen Lösung noch weitere Lösungen
+    \item damit sind die Vektoren $w_1$, $w_2$ und $w_3$ linear abhängig
+  \end{mytemize}
 \end{answer}
 
 % -------------------------------------------------------------------

@@ -38,6 +38,22 @@
 %
 \newcommand{\defeq}{\mathrel{\mathop:}=}
 
+% -------
+% squeeze
+% -------
+%
+% This command squeezes itemize and enumerate environments.
+%
+% [#1]  leftskip
+%
+\newcommand{\squeeze}[1][\the\leftskip]
+{%
+  % shift horizontically
+  \setlength{\leftskip}{#1}%
+  % squeeze vertically
+  \renewcommand{\itemsep}{-1ex}%
+}
+
 % ---
 % imp
 % ---
@@ -3749,6 +3765,110 @@ Es sei $V=\{ax^2+bx+c\mid a,b,c\in\mathbb{R}\}$ der Vektorraum der reellen
 Polynome vom Grad $\leq2$. Die lineare Abbildung $f:V\to\mathbb{R}^3$
 sei durch $f(p)=\big(p(-1)\;,\;p(0)\;,\;p(1)\big)$ gegeben. Zeige, dass
 $f$ ein Isomorphismus ist und bestimme das Urbild der Standardeinheitsbasis.
+\begin{answer}
+  \begin{equation*}
+    f
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      a-b+c \\
+          c \\
+      a+b+c
+    \end{pmatrix}
+    =
+    a\cdot
+    \begin{pmatrix}
+      1 \\
+      0 \\
+      1
+    \end{pmatrix}
+    +b\cdot
+    \begin{pmatrix}
+      -1 \\
+       0 \\
+       1
+    \end{pmatrix}
+    +c\cdot
+    \begin{pmatrix}
+      1 \\
+      1 \\
+      1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      1 & -1 & 1 \\
+      0 &  0 & 1 \\
+      1 &  1 & 1
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      a \\
+      b \\
+      c
+    \end{pmatrix}
+  \end{equation*}
+  \begin{mytemize}
+    \item eine lineare Abbildung ist genau dann bijektiv, wenn sie eine
+          Basis von $V$ auf eine Basis von $W$ abbildet
+  \end{mytemize}
+  \begin{equation*}
+    f\left(\left\{
+    \begin{pmatrix}
+      1 \\
+      0 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      0 \\
+      1 \\
+      0
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      0 \\
+      0 \\
+      1
+    \end{pmatrix}
+    \right\}\right)
+    =
+    \left\{
+    \begin{pmatrix}
+      1 \\
+      0 \\
+      1
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      -1 \\
+       0 \\
+       1
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+      1 \\
+      1 \\
+      1
+    \end{pmatrix}
+    \right\}
+    \qquad
+    \det
+    \begin{pmatrix}
+      1 & -1 & 1 \\
+      0 &  0 & 1 \\
+      1 &  1 & 1
+    \end{pmatrix}
+    =-2
+  \end{equation*}
+  \begin{mytemize}
+    \item das Bild der Standardeinheitsbasis sind drei linear unabhängige
+          Vektoren, also wieder eine Basis, also ist $f$ bijektiv
+  \end{mytemize}
+\end{answer}
 
 % ------------------------------------------------------
 \exercise{Klausur (ohne Datum) -- Aufgabe 3}{[6 Punkte]}
@@ -3763,6 +3883,34 @@ Für welche reellen Zahlen $a$ ist die folgende Matrix invertierbar:
     1 & 1 & 0 & 0
   \end{pmatrix}
 \end{equation*}
+\begin{answer}
+  \begin{equation*}
+    \begin{split}
+      \det(A)&=(-1)^{1+1}\cdot a\cdot\det
+      \begin{pmatrix}
+        1 & 1 & 1 \\
+        1 & 1 & 0 \\
+        1 & 0 & 0
+      \end{pmatrix}
+      +(-1)^{1+3}\cdot1\cdot\det
+      \begin{pmatrix}
+        0 & 1 & 1 \\
+        1 & 1 & 0 \\
+        1 & 1 & 0
+      \end{pmatrix}
+      +(-1)^{1+4}\cdot\det
+      \begin{pmatrix}
+        0 & 1 & 1 \\
+        1 & 1 & 1 \\
+        1 & 1 & 0
+      \end{pmatrix}
+      \\
+      &=-a-1\neq0
+      \quad\Rightarrow\quad
+      A\text{ ist invertierbar für }a\neq1
+    \end{split}
+  \end{equation*}
+\end{answer}
 
 % ------------------------------------------------------
 \exercise{Klausur (ohne Datum) -- Aufgabe 4}{[8 Punkte]}
@@ -3873,6 +4021,65 @@ Sind diese Matrizen diagonalisierbar?
     \det(A)\in\{0,1\}
   \end{equation*}
 \end{answer}
+
+\clearpage
+% -----------------------
+\section*{Formelsammlung}
+% -----------------------
+\addcontentsline{toc}{section}{Formelsammlung}%
+
+% -----------------
+\paragraph{Satz 25}\textit{(Folie 113)}\par
+% -----------------
+Eine lineare Abbildung $\varphi$ ist genau dann injektiv, wenn $\ker(\varphi)=\{0\}$ ist.
+
+% ------------------
+\paragraph{Lemma 12}\textit{(Folie 115)}\par
+% ------------------
+Sei $\varphi:V\to W$ eine lineare Abbildung und $v_1,\ldots v_n$ eine Basis von $V$.
+Dann gilt:
+\begin{enumerate}[1.]
+  \squeeze
+  \item $\{w_i=\varphi(v_i)\}$ sind genau dann linear unabhängig, wenn $\varphi$ injektiv ist.
+  \item $\{w_i=\varphi(v_i)\}$ sind genau dann ein Erzeugendensystem von $W$, wenn $\varphi$ surjektiv ist.
+  \item $\{w_i=\varphi(v_i)\}$ sind genau dann Basis von $W$, wenn $\varphi$ bijektiv ist.
+\end{enumerate}
+
+% -----------------
+\paragraph{Satz 33}\textit{(Folie 130)}\par
+% -----------------
+Ist $\varphi:V\to W$ eine lineare Abbildung und $V$ endlich-dimensional, so gilt:
+\begin{equation*}
+  \dim(V)=\dim(\ker(\varphi))+\dim(\operatorname{bild}(\varphi))
+\end{equation*}
+
+% ---------------------
+\paragraph{Korollar 12}\textit{(Folie 132)}\par
+% ---------------------
+Ist $\varphi:V\to W$ eine lineare Abbildung und $\dim(V)=\dim(W)<\infty$, so gilt:
+\begin{equation*}
+  \varphi\text{ ist injektiv}
+  \quad\Leftrightarrow\quad
+  \varphi\text{ ist surjektiv}
+  \quad\Leftrightarrow\quad
+  \varphi\text{ ist bijektiv}
+\end{equation*}
+
+% ---------------------
+\paragraph{Satz 35}\textit{(Folie 134)}\par
+% ---------------------
+Die folgenden Aussagen sind für eine Matrix $A\in M_{n\times n}(K)$ äquivalent:
+\begin{enumerate}[1.]
+  \squeeze
+  \item $\varphi_A$ ist bijektiv.
+  \item $A$ ist invertierbar.
+  \item Es existiert ein $B$, sodass $BA=I_n$ ist.
+  \item $\operatorname{rang}(A)=n$.
+  \item Die Spalten von $A$ sind linear unabhängig.
+  \item Die Zeilen von $A$ sind linear unabhängig. \textit{(steht so nicht auf der Folie)}
+  \item $Ax=0$ hat nur die triviale Lösung, also $\ker(\varphi_A)=\{0\}$.
+  \item $A$ lässt sich durch elementare Zeilenumformungen in die Einheitsmatrix überführen.
+\end{enumerate}
 
 % ------------------------------------------------------------------------------
 \end{document}

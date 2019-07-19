@@ -3491,6 +3491,24 @@ von rechts nach links ausgewertet wird.
 % ----------------------------------------------------
 \exercise{Klausur 09.03.2016 -- Aufgabe 6}{[5 Punkte]}
 % ----------------------------------------------------
+Sei $V$ ein Vektorraum der Dimension $n<\infty$ (über einem Körper,
+z.\,B. $\mathbb{R}$) und $f:V\to V$ eine lineare Abbildung. Es gelte die
+Bedingung $\operatorname{bild}(f)=\operatorname{bild}(f^2)$, wobei
+$f^2(x)=f(f(x))$ die Verkettung und $\operatorname{bild}(f)=f(V)$ ist.
+Zeigen Sie:
+\begin{enumerate}[a)]
+  \item $\ker(f)\cap\operatorname{bild}(f)=\{0\}$\par
+        {\itshape Tipp: Wenden Sie den Rangsatz auf folgende Einschränkung an:}
+        \begin{equation*}
+          g:\operatorname{bild}(f)\to \operatorname{bild}(f)\;,\;g(x)=f(x) 
+        \end{equation*}
+  \item Die Summe $\ker(f)+\operatorname{bild}(f)$ ist der Vektorraum $V$.\par
+        {\itshape Tipp: Man kann den Rangsatz für $f$ und die Dimensionsformel für Unterräume anwenden.}
+  \item Die Bedingung $\operatorname{bild}(f)=\operatorname{bild}(f^2)$
+        ist bereits dann erfüllt, wenn nur vorausgesetzt wird, dass es ein
+        $m\geq2$ mit $\operatorname{bild}(f)=\operatorname{bild}(f^m)$ gibt
+        (wobei $f^m$ die $m$-fache Verkettung von $f$ ist).
+\end{enumerate}
 
 % ------------------------------------------------------------------------------
 \end{document}

@@ -175,7 +175,7 @@ if [ "$OLDHASH" != "$NEWHASH" ] ; then
   echo "$NEWHASH" > "$HASHFILE"
 
   # update tex file
-  sed -i -re "s/^([[:space:]]*Version:).*/\1 $NEWVERSION/" "$TEXFILE"
+  echo "Version: $NEWVERSION" > "$TEXFILE"
 
 fi
 

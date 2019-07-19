@@ -25,7 +25,6 @@ all: $(FILE).$(EXT_OUT)
 
 # create pdf file from all tex files in the current directory
 $(FILE).$(EXT_OUT): *.$(EXT_IN)
-	./update
 #	$(TEX) $(FILE).$(EXT_IN)
 #	$(BIB) $(FILE)
 #	$(IDX) $(IFLAGS) $(FILE)

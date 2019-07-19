@@ -3825,6 +3825,54 @@ Sind diese Matrizen diagonalisierbar?
   \item Was besagt die Dimensionsformel für lineare Abbildungen?
   \item Welche Werte kann die Determinante einer idempotenten Matrix (d.\,h. $A^2=A$) annehmen?
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{equation*}
+    \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      1 & 2 \\
+      3 & 4
+    \end{pmatrix}
+    \neq
+    \begin{pmatrix}
+      1 & 2 \\
+      3 & 4
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+    \end{pmatrix}
+  \end{equation*}
+  Teilaufgabe b)
+  \begin{equation*}
+    \begin{pmatrix}
+      1 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 0 & 0
+    \end{pmatrix}
+  \end{equation*}
+  Teilaufgabe c)\par
+  Sei $V$ ein endlich-dimensionaler Vektorraum und $\varphi:V\to W$ eine lineare
+  Abbildung, dann gilt:
+  \begin{equation*}
+    \dim(V)=\dim(\ker(\varphi))+\dim(\operatorname{bild}(\varphi))
+  \end{equation*}
+  Teilaufgabe d)
+  \begin{equation*}
+    A^2=A
+    \quad\Rightarrow\quad
+    \det(A^2)=\det(A)
+    \quad\Rightarrow\quad
+    \det(A)\cdot\det(A)=\det(A)
+    \quad\Rightarrow\quad
+    \det(A)\in\{0,1\}
+  \end{equation*}
+\end{answer}
 
 % ------------------------------------------------------------------------------
 \end{document}

@@ -1,0 +1,182 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# settings                                                              settings
+# ------------------------------------------------------------------------------
+set -o errtrace  # any trap on ERR is inherited by shell functions,
+                 #   command substitutions, and commands executed in a subshell
+                 #   environment
+set -o nounset   # treat unset variables and parameters other than the special
+                 #   parameters "@" and "*" as an error when performing
+                 #   parameter expansion
+set -o pipefail  # the return value of a pipeline is the value of the last
+                 #   (rightmost) command to exit with a non-zero status, or
+                 #   zero if all commands in the pipeline exit successfully
+
+# set language
+export LANG="en_US.UTF-8"
+
+# use dot as decimal separator
+export LC_NUMERIC="en_US.UTF-8"
+
+# terminal colors
+readonly    NONE=$(tput sgr0)
+readonly     RED=$(tput setaf 1)
+readonly   GREEN=$(tput setaf 2)
+readonly  YELLOW=$(tput setaf 3)
+readonly    BLUE=$(tput setaf 4)
+readonly MAGENTA=$(tput setaf 5)
+readonly    CYAN=$(tput setaf 6)
+readonly   WHITE=$(tput setaf 7)
+
+# ------------------------------------------------------------------------------
+# functions                                                            functions
+# ------------------------------------------------------------------------------
+
+# -------
+# failmsg
+# -------
+#
+# This function prints a red colored message via stderr.
+#
+function failmsg()
+{
+  # push to stderr
+  echo -e "${RED}[FAIL]${NONE} $1" 1>&2
+}
+
+# -------
+# warnmsg
+# -------
+#
+# This function prints a yellow colored message via stderr.
+#
+function warnmsg()
+{
+  # push to stderr
+  echo -e "${YELLOW}[WARN]${NONE} $1" 1>&2
+}
+
+# -------
+# infomsg
+# -------
+#
+# This function prints a blue colored message via stderr.
+#
+function infomsg()
+{
+  # push to stderr
+  echo -e "${BLUE}[INFO]${NONE} $1" 1>&2
+}
+
+# -------
+# donemsg
+# -------
+#
+# This function prints a green colored message via stderr.
+#
+function donemsg()
+{
+  # push to stderr
+  echo -e "${GREEN}[DONE]${NONE} $1" 1>&2
+}
+
+# ------------------------------------------------------------------------------
+# commands                                                              commands
+# ------------------------------------------------------------------------------
+
+# set filenames once
+readonly TEXFILE="version.tex"
+readonly HASHFILE="version.hash"
+
+# set files to observe
+declare -a OBSERVABLES
+OBSERVABLES[0]="lai.tex"
+OBSERVABLES[1]="makefile"
+
+# check if hash file is missing
+if [ ! -f "$HASHFILE" ] ; then
+
+  # create initial hash-file
+  touch "$HASHFILE" &>"/dev/null"
+
+  # check if hash file is still missing
+  if [ ! -f "$HASHFILE" ] ; then
+
+    # notify user
+    error "unable to create hash file"
+
+    # signalize trouble
+    exit 1
+
+  fi
+
+fi
+
+# get last hash value from file
+OLDHASH=$(sed -nre "/^[[:space:]]*$/d ; p ; q" "$HASHFILE")
+
+# calculate current hash value
+NEWHASH=$(cat "${OBSERVABLES[@]}" | sha1sum)
+
+# check if hash value has changed
+if [ "$OLDHASH" != "$NEWHASH" ] ; then
+
+  # check if tex file is missing
+  if [ ! -f "$TEXFILE" ] ; then
+
+    # create initial tex file
+    echo "Version: 0" > "$TEXFILE"
+
+    # check if tex file is still missing
+    if [ ! -f "$TEXFILE" ] ; then
+
+      # notify user
+      error "unable to create tex file"
+
+      # signalize trouble
+      exit 1
+
+    fi
+
+  fi
+
+  # get current version
+  OLDVERSION=$(sed -nre "s/^[[:space:]]*Version:[[:space:]]+([[:digit:]]+[[:space:]]*)/\1/p ; T ; q" "$TEXFILE")
+
+  # check if current version has been missed
+  if [ -z "$OLDVERSION" ] ; then
+
+    # notify user
+    error "unable to extract current version"
+
+    # signalize trouble
+    exit 1
+
+  fi
+
+  # calculate new version
+  NEWVERSION=$(bc --quiet <<< "$OLDVERSION + 1" 2>"/dev/null")
+
+  # check if new version 
+  if [ -z "$NEWVERSION" ] ; then
+
+    # notify user
+    error "unable to calculate next version"
+
+    # signalize trouble
+    exit 1
+
+  fi
+
+  # update hash file
+  echo "$NEWHASH" > "$HASHFILE"
+
+  # update tex file
+  sed -i -re "s/^([[:space:]]*Version:).*/\1 $NEWVERSION/" "$TEXFILE"
+
+fi
+
+# signalize success
+exit 0
+

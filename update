@@ -93,6 +93,8 @@ readonly HASHFILE="version.hash"
 declare -a OBSERVABLES
 OBSERVABLES[0]="lai.tex"
 OBSERVABLES[1]="makefile"
+OBSERVABLES[2]="makefile-cygwin"
+OBSERVABLES[3]="update"
 
 # check if hash file is missing
 if [ ! -f "$HASHFILE" ] ; then

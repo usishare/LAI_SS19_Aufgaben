@@ -3048,6 +3048,79 @@ Wir betrachten das lineare Gleichungssystem über den reellen Zahlen:
   \item Für welche Werte der Parameters $a\in\mathbb{R}$ ist das Gleichungssystem lösbar?
   \item Berechnen Sie die Lösung für den Wert $a=1$.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item Entwicklung der Determinanten nach der Zeile, in der der Parameter $a$ vorkommt:
+  \end{mytemize}
+    \begin{equation*}
+      \begin{split}
+        A&=
+        \begin{pmatrix}
+          3 & 4 & 2 & 2 \\
+          2 & 2 & 4 & 3 \\
+          3 & 3 & 3 & a \\
+          3 & 6 & 6 & 7
+        \end{pmatrix}\\
+        \det(A)&=(-1)^{3+1}\cdot3\cdot\det
+        \begin{pmatrix}
+          4 & 2 & 2 \\
+          2 & 4 & 3 \\
+          6 & 6 & 7
+        \end{pmatrix}
+        +(-1)^{3+2}\cdot3\cdot\det
+        \begin{pmatrix}
+          3 & 2 & 2 \\
+          2 & 4 & 3 \\
+          3 & 6 & 7
+        \end{pmatrix}\\
+        &+(-1)^{3+3}\cdot3\cdot\det
+        \begin{pmatrix}
+          3 & 4 & 2 \\
+          2 & 2 & 3 \\
+          3 & 6 & 7
+        \end{pmatrix}
+        +(-1)^{3+3}\cdot a\cdot\det
+        \begin{pmatrix}
+          3 & 4 & 2 \\
+          2 & 2 & 4 \\
+          3 & 6 & 6
+        \end{pmatrix}\\
+        &=3\cdot(4\cdot4\cdot7+2\cdot3\cdot6+2\cdot2\cdot6-6\cdot4\cdot2-6\cdot3\cdot4-7\cdot2\cdot2)\\
+        &-3\cdot(3\cdot4\cdot7+2\cdot3\cdot3+2\cdot2\cdot6-3\cdot4\cdot2-6\cdot3\cdot3-7\cdot2\cdot2)\\
+        &+3\cdot(3\cdot2\cdot7+4\cdot3\cdot3+2\cdot2\cdot6-3\cdot2\cdot2-6\cdot3\cdot3-7\cdot2\cdot4)\\
+        &-a\cdot(3\cdot2\cdot6+4\cdot4\cdot3+2\cdot2\cdot6-3\cdot2\cdot2-6\cdot4\cdot3-6\cdot2\cdot4)\\
+        &=24a-48\neq0\quad\Rightarrow\quad a\neq2
+      \end{split}
+    \end{equation*}
+    \begin{mytemize}
+      \item das Gleichungssystem ist also für alle $a\in\mathbb{R}\setminus\{2\}$ lösbar
+    \end{mytemize}
+    Teilaufgabe b)
+    \begin{equation*}
+      \newcommand{\+}{&{}+{}&}%
+      \renewcommand{\-}{&{}-{}&}%
+      \renewcommand{\=}{&{}={}&}%
+      \renewcommand{\.}{&{}~{}&}%
+      \renewcommand{\|}{\text{\;\;}&}%
+      \setlength{\arraycolsep}{0pt}%
+      \begin{array}{|crcrcrcrcr}
+      \| 3x_1 \+ 4x_2 \+ 2x_3 \+ 2x_4 \=  2 \\
+      \| 2x_1 \+ 2x_2 \+ 4x_3 \+ 3x_4 \=  4 \\
+      \| 3x_1 \+ 3x_2 \+ 3x_3 \+  x_4 \=  1 \\
+      \| 3x_1 \+ 6x_2 \+ 6x_3 \+ 7x_4 \= 10   
+      \end{array}
+      \qquad\Rightarrow\qquad
+      x=
+      \frac{1}{2}\cdot
+      \begin{pmatrix}
+        -2 \\
+         1 \\
+         1 \\
+         2
+      \end{pmatrix}
+    \end{equation*}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 11.09.2014 -- Aufgabe 2}{[7 Punkte]}
@@ -4094,6 +4167,22 @@ Ist $\det(A)\neq0$, so kann die zu $A$ Inverse Matrix berechnet werden durch
   \quad\text{mit}\quad
   \operatorname{adj}(A)=\left(a_{ij}\right)=(-1)^{i+j}\cdot\det(A_{ji})
 \end{equation*}
+
+% --------------------------------------------------------
+\paragraph{Gram-Schmidtsches Orthogonalisierungsverfahren}\textit{(Nicht im Script)}\par
+% --------------------------------------------------------
+Seien $w_1,\ldots,w_n$ linear unabhängige Vektoren.
+Die Vektoren $v_1,\ldots,v_n$ des Orthogonalsystems berechnen sich dann wie folgt: 
+\begin{equation*}
+  \begin{split}
+    v_1&=w_1\\[1ex]
+    v_2&=w_2-\frac{\langle v_1,w_2\rangle}{\langle v_1,v_1\rangle}v_1\\[1ex]
+    v_3&=w_3-\frac{\langle v_1,w_3\rangle}{\langle v_1,v_1\rangle}v_1-\frac{\langle v_2,w_3\rangle}{\langle v_2,v_2\rangle}v_2\\[1ex]
+       &\vdots\\
+    v_n&=w_n-\sum_{i=1}^{n-1}\frac{\langle v_i,w_n\rangle}{\langle v_i,v_i\rangle}v_i
+  \end{split}
+\end{equation*}
+
 
 % ------------------------------------------------------------------------------
 \end{document}

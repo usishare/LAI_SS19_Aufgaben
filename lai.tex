@@ -22,6 +22,7 @@
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{ifthen}
+\usepackage{scalerel}
 \usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{url}
@@ -3173,6 +3174,60 @@ die die Unterräume $U_1=\langle v_1,v_2,v_3\rangle$ und $U_2=\langle w_1,w_2\ra
   \item Bestimmen Sie eine lineare Gleichung für $U_1$ (d.\,h. $U_1$ soll die Lösungsmenge sein).
   \item Bestimmen Sie eine Basis des Durchschnitts $U_1\cap U_2$ mit einer Methode Ihrer Wahl.
 \end{enumerate}
+\begin{answer}
+  Teilaufbage b)
+  \begin{mytemize}
+    \item alle Vektoren, die sich im Schnitt der beiden Unterräume
+          befinden, müssen sich sowohl als Linearkombination von $\langle
+          v_1,v_2,v_3\rangle$, als auch von $\langle w_1,w_2\rangle$ darstellen
+          lassen, also:
+          \begin{equation*}
+            a\cdot v_1+b\cdot v_2+c\cdot v_3=d\cdot w_1+e\cdot w_2
+            \quad\Rightarrow\quad
+            a\cdot v_1+b\cdot v_2+c\cdot v_3-d\cdot w_1-e\cdot w_2=0
+          \end{equation*}
+    \item dieses Gleichungssystem lässt sich mit 'Gauß' lösen:
+          \begin{equation*}
+            \newcommand{\+}{&{}+{}&}%
+            \renewcommand{\-}{&{}-{}&}%
+            \renewcommand{\=}{&{}={}&}%
+            \renewcommand{\.}{&{}~{}&}%
+            \renewcommand{\|}{\text{\;\;}&}%
+            \setlength{\arraycolsep}{0pt}%
+            \begin{array}{|crcrcrcrcrcr}
+            \|  a \+ 2b \-  c \- 2d \-  e \= 0 \\
+            \| 2a \+  b \+ 2c \-  d \-  e \= 0 \\
+            \| -a \+ 2b \+  c \-  d \- 2e \= 0 \\
+            \| 2a \+  b \+ 2c \- 2d \- 2e \= 0   
+            \end{array}
+            \qquad\Rightarrow\qquad
+            x=t\cdot
+            \begin{pmatrix}
+               1 \\
+               0 \\
+              -1 \\
+               2 \\
+              -2
+            \end{pmatrix}
+            \text{ mit }t\in\mathbb{R}
+          \end{equation*}
+    \item der Schnitt hat also folgende eindimensionale Basis:
+          \begin{equation*}
+            \stretchleftright
+            {\hstretch{2}{\langle}}%
+            {%
+              \begin{pmatrix}
+                 1 \\
+                 0 \\
+                -1 \\
+                 2 \\
+                -2
+              \end{pmatrix}
+            }%
+            {\hstretch{2}{\rangle}}%
+          \end{equation*}
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 11.09.2014 -- Aufgabe 3}{[7 Punkte]}

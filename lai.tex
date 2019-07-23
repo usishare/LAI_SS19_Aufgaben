@@ -3355,6 +3355,44 @@ Wir betrachten das lineare Gleichungssystem über den reellen Zahlen:
   \item Für welche Werte des Parameters $a\in\mathbb{R}$ ist das Gleichungssystem lösbar?
   \item Berechnen Sie die Lösung für den Wert $a=3$.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item da der Parameter $a$ ganz rechts unten in der Matrix steht,
+          muss man die Determinante nicht mit \glqq Laplace\grqq{}
+          entwickeln, sondern kann direkt mit \glqq Gauss\grqq{} die
+          Zeilenstufenform herstellen, die ohnehin in Teilaufgabe b)
+          benötigt wird:
+          \begin{equation*}
+            (A\mid b)=
+            \left(
+            \begin{array}{rrrr|r}
+              1 &  2 &   7 &      4 &  2 \\
+              0 & -3 & -22 &    -12 & -7 \\
+              0 &  0 & -10 &     -9 & -1 \\
+              0 &  0 &   0 & 10a-31 &  1
+            \end{array}
+            \right)
+          \end{equation*}
+    \item unter Berücksichtigung der elementaren Zeilenumformungen gilt
+          für die Determinante:
+          \begin{equation*}
+            \det(A)=-\frac{1}{30}\cdot1\cdot(-3)\cdot(-10)\cdot(10a-31)=31-10a
+          \end{equation*}
+    \item das Gleichungssystem ist also für alle
+          $a\in\mathbb{R}\setminus\left\{\frac{31}{10}\right\}$ lösbar
+  \end{mytemize}
+  Teilaufgabe b)
+  \begin{equation*}
+    x=
+    \begin{pmatrix}
+       1 \\
+      -1 \\
+       1 \\
+      -1
+    \end{pmatrix}
+  \end{equation*}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 10.09.2015 -- Aufgabe 2}{[7 Punkte]}

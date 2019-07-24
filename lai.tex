@@ -3915,6 +3915,49 @@ Zeigen Sie:
             \right\}
           \end{equation*}
   \end{mytemize}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item man könnte $U$ als $\ker(f)$ bestimmen, also $U=\{x\in V\mid f(x)=0\}$
+    \item dann gilt für die drei angegebenen Vektoren $f(u_1)=f(u_2)=f(u_3)=0$
+    \item dieser Ansatz führt auf folgendes Gleichungssystem:
+          \begin{equation*}
+            \newcommand{\+}{&{}+{}&}%
+            \renewcommand{\-}{&{}-{}&}%
+            \renewcommand{\=}{&{}={}&}%
+            \renewcommand{\.}{&{}~{}&}%
+            \renewcommand{\|}{\text{\;\;}&}%
+            \setlength{\arraycolsep}{0pt}%
+            \begin{array}{|crcrcrcrcr}
+            \| 2a \+ 3b \+ 2c \+  d \= 0 \\
+            \| 3a \+ 2b \+  c \+ 2d \= 0 \\
+            \| 2a \+  b \+ 2c \+ 3d \= 0   
+            \end{array}
+          \end{equation*}
+    \item \glqq Gauß\grqq{} liefert:
+          \begin{equation*}
+            \newcommand{\+}{&{}+{}&}%
+            \renewcommand{\-}{&{}-{}&}%
+            \renewcommand{\=}{&{}={}&}%
+            \renewcommand{\.}{&{}~{}&}%
+            \renewcommand{\|}{\text{\;\;}&}%
+            \setlength{\arraycolsep}{0pt}%
+            \begin{array}{|crcrcrcrcr}
+            \| 2a \+ 3b \+ 2c \+  d \= 0 \\
+            \|    \- 5b \- 4c \+  d \= 0 \\
+            \|    \.    \. 8c \+ 8d \= 0   
+            \end{array}
+            \qquad
+            \begin{array}{lclcr}
+              \Rightarrow & \quad{} & a & {}={} & -d \\
+              \Rightarrow & \quad{} & b & {}={} &  d \\
+              \Rightarrow & \quad{} & c & {}={} & -d
+            \end{array}
+          \end{equation*}
+    \item also gilt $f(x)=-dx_1+dx_2-dx_3+dx_4$ und mit der Wahl $d=-1$ ergibt sich:
+          \begin{equation*}
+            f(x)=x_1-x_2+x_3-x_4
+          \end{equation*}
+  \end{mytemize}
 \end{answer}
 
 % ----------------------------------------------------

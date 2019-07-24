@@ -3429,6 +3429,55 @@ Im Vektorraum $\mathbb{R}^4$ seien die folgenden Untervektorräume gegeben:
   \item Begründen Sie (z.\,B. mit der Dimensionsformel), dass die
         Summe $U_1+U_2$ der gesamte Vektorraum $\mathbb{R}^4$ ist
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item Auflösen der Gleichung nach einer der Unbekannten ergibt zum Beispiel:
+          \begin{equation*}
+            x_4=-2x_1-x_2+2x_3
+          \end{equation*}
+    \item also haben alle Vektoren in $U_1$ die Form:
+          \begin{equation*}
+            x=
+            \begin{pmatrix}
+                         x_1 \\
+                         x_2 \\
+                         x_3 \\
+              -2x_1-x_2+2x_3
+            \end{pmatrix}
+          \end{equation*}
+    \item eine mögliche Basis wäre also:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+               1 \\
+               0 \\
+               0 \\
+              -2
+            \end{pmatrix}
+            ,
+            \begin{pmatrix}
+               0 \\
+               1 \\
+               0 \\
+              -1
+            \end{pmatrix}
+            ,
+            \begin{pmatrix}
+              0 \\
+              0 \\
+              1 \\
+              2
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+  \end{mytemize}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item alle Vektoren im Schnitt werden von beiden Basen erzeugt, also:
+  \end{mytemize}
+  Teilaufgabe c)
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 10.09.2015 -- Aufgabe 3}{[7 Punkte]}
@@ -3807,6 +3856,66 @@ Zeigen Sie:
         Bestimmen Sie eine definierende Gleichung für $U$, d.\,h. eine
         lineare Gleichung, deren Lösungsmenge $U$ ist.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item alle Vektoren im Schnitt von $U_1$ und $U_2$ müssen sich als Linearkombination
+          beider Basen darstellen lassen:
+          \begin{equation*}
+            x\in U_1\cap U_2\quad\Rightarrow\quad
+            x=av_1+bv_2=cw_1+dw_2
+          \end{equation*}
+    \item diese Gleichung führt auf folgendes Gleichungssystem:
+          \begin{equation*}
+            \newcommand{\+}{&{}+{}&}%
+            \renewcommand{\-}{&{}-{}&}%
+            \renewcommand{\=}{&{}={}&}%
+            \renewcommand{\.}{&{}~{}&}%
+            \renewcommand{\|}{\text{\;\;}&}%
+            \setlength{\arraycolsep}{0pt}%
+            \begin{array}{|crcrcrcrcr}
+            \|  3a \- 4b \- 5c \- 2d \= 0 \\
+            \|  4a \- 5b \- 7c \- 3d \= 0 \\
+            \| -2a \+ 4b \- 4c \- 2d \= 0   
+            \end{array}
+          \end{equation*}
+    \item \glqq Gauß\grqq{} führt zu folgender Lösung:
+          \begin{equation*}
+            \newcommand{\+}{&{}+{}&}%
+            \renewcommand{\-}{&{}-{}&}%
+            \renewcommand{\=}{&{}={}&}%
+            \renewcommand{\.}{&{}~{}&}%
+            \renewcommand{\|}{\text{\;\;}&}%
+            \setlength{\arraycolsep}{0pt}%
+            \begin{array}{|crcrcrcrcr}
+            \| 3a \- 4b \-  5c \- 2d \= 0 \\
+            \|    \.  b \-   c \-  d \= 0 \\
+            \|    \.    \- 18c \- 6d \= 0   
+            \end{array}
+            \qquad\Rightarrow\qquad
+            x=
+            c\cdot
+            \begin{pmatrix}
+              -3 \\
+              -2 \\
+               1 \\
+              -3
+            \end{pmatrix}
+            \text{ mit }c\in\mathbb{R}
+          \end{equation*}
+    \item als Basisvektor kann man entweder $-3v_1-2v_2$ oder $w_1-3w_2$ wählen:
+          \begin{equation*}
+            B=
+            \left\{
+            \begin{pmatrix}
+              -1 \\
+              -2 \\
+              -2
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 22.09.2016 -- Aufgabe 3}{[7 Punkte]}

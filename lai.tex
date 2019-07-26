@@ -3335,6 +3335,59 @@ die die Unterräume $U_1=\langle v_1,v_2,v_3\rangle$ und $U_2=\langle w_1,w_2\ra
         mit dem Parameter $a\in\mathbb{R}$.
   \item Für welche $a\in\mathbb{R}$ ist die Matrix nicht invertierbar?
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item wegen $\det(A)=\det(A^\text{t})$ kann man den Parameter $a$ nach
+          ganz rechts unten tauschen:
+          \begin{equation*}
+            \begin{split}
+              \det
+              \begin{pmatrix}
+                 2 &  3 &  5 &  2 \\
+                 3 &  2 &  3 & -2 \\
+                 2 &  a &  2 &  2 \\
+                -2 & -3 & -2 & -3
+              \end{pmatrix}
+              &=-\det
+              \begin{pmatrix}
+                 2 &  3 &  5 &  2 \\
+                 3 &  2 &  3 & -2 \\
+                -2 & -3 & -2 & -3 \\
+                 2 &  a &  2 &  2
+              \end{pmatrix}
+              =-\det
+              \begin{pmatrix}
+                2 &  3 & -2 & 2 \\
+                3 &  2 & -3 & a \\
+                5 &  3 & -2 & 2 \\
+                2 & -2 & -3 & 2
+              \end{pmatrix}
+              \\[2ex]
+              &=\det
+              \begin{pmatrix}
+                2 &  3 & -2 & 2 \\
+                2 & -2 & -3 & 2 \\
+                5 &  3 & -2 & 2 \\
+                3 &  2 & -3 & a
+              \end{pmatrix}
+              =-\frac{1}{780}\cdot\det
+              \begin{pmatrix}
+                \num{2} &  \num{3} & \num{-2} &       \num{2} \\
+                \num{0} & \num{-5} & \num{-1} &       \num{0} \\
+                \num{0} &  \num{0} & \num{39} &     \num{-30} \\
+                \num{0} &  \num{0} &  \num{0} & 78a-\num{204}
+              \end{pmatrix}\\[2ex]
+              &=102-39a
+            \end{split}
+          \end{equation*}
+  \end{mytemize}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item die Matrix ist nicht invertierbar, falls $\det(A)=0$
+    \item die Matrix ist also für alle $a\in\mathbb{R}\setminus\left\{\frac{34}{13}\right\}$ invertierbar
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 11.09.2014 -- Aufgabe 5}{[7 Punkte]}

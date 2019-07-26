@@ -3282,6 +3282,41 @@ die die Unterräume $U_1=\langle v_1,v_2,v_3\rangle$ und $U_2=\langle w_1,w_2\ra
         \end{equation*}
         nicht invertierbar ist.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{equation*}
+    \left(
+    \begin{array}{rrrr|rrrr}
+      0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 \\
+      1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 \\
+      0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 \\
+      1 & 1 & 0 & 0 & 0 & 0 & 0 & 1
+    \end{array}
+    \right)
+  \end{equation*}
+  \begin{mytemize}
+    \item mit \glqq Gauß\grqq{} formt man die linke Seite zur Einheitsmatrix um
+    \item auf der rechten Seite steht dann die Inverse:
+  \end{mytemize}
+  \begin{equation*}
+    \frac{1}{3}\cdot
+    \left(
+    \begin{array}{rrrr}
+      \num{-1} &  \num{1} & \num{-1} &  \num{2} \\
+       \num{1} & \num{-1} &  \num{1} &  \num{1} \\
+      \num{-1} &  \num{1} &  \num{2} & \num{-1} \\
+       \num{2} &  \num{1} & \num{-1} & \num{-1}
+    \end{array}
+    \right)
+  \end{equation*}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item man erkennt, dass die erste mit der dritten bzw. die zweite
+          mit der vierten Zeile übereinstimmt
+    \item der Rang der Matrix ist also kleiner als 4, und damit ist $B$
+          nicht invertierbar
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 11.09.2014 -- Aufgabe 4}{[7 Punkte]}

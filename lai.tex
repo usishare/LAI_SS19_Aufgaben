@@ -3427,6 +3427,73 @@ Im Vektorraum $\mathbb{R}^5$ mit dem Standard-Skalarprodukt betrachten wir die V
   \item Geben Sie die orthogonale Projektion $P:\mathbb{R}^5\to\mathbb{R}^5$ auf den
         Unterraum $U$ (ohne nähere Ausrechnung) an und berechnen sie den Wert $P(1,0,0,0,0)$.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item Gram-Schmidtsches Orthogonalisierungsverfahren:
+          \begin{equation*}
+            w_1=v_1
+            \qquad
+            w_2=v_2-\frac{\langle w_1,v_2\rangle}{\langle w_1,w_1\rangle}w_1
+            \qquad
+            w_3=v_3-\frac{\langle w_1,v_3\rangle}{\langle w_1,w_1\rangle}w_1-\frac{\langle w_2,v_3\rangle}{\langle w_2,w_2\rangle}w_2
+          \end{equation*}
+    \item die zugehörige Orthonormalbasis lautet:
+          \begin{equation*}
+            w_1=
+            \frac{1}{4}\cdot
+            \begin{pmatrix}
+               \num{2} \\
+               \num{1} \\
+              \num{-3} \\
+              \num{-1} \\
+              \num{-1}
+            \end{pmatrix}
+            \qquad
+            w_2=
+            \frac{1}{4}\cdot
+            \begin{pmatrix}
+              \num{-2} \\
+               \num{3} \\
+              \num{-1} \\
+               \num{1} \\
+               \num{1}
+            \end{pmatrix}
+            \qquad
+            w_3=
+            \frac{1}{6}\cdot
+            \begin{pmatrix}
+              \num{4} \\
+              \num{3} \\
+              \num{3} \\
+              \num{1} \\
+              \num{1}
+            \end{pmatrix}
+          \end{equation*}
+  \end{mytemize}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item die orthogonale Projektion eines Vektors $v$ auf $U$ lautet:
+          \begin{equation*}
+            P(v)=\langle v,w_1\rangle\cdot w_1
+                +\langle v,w_2\rangle\cdot w_2
+                +\langle v,w_3\rangle\cdot w_3
+          \end{equation*}
+    \item konkret:
+          \begin{equation*}
+            P\left(\begin{pmatrix}1 & 0 & 0 & 0 & 0\end{pmatrix}^\text{t}\right)
+            =\frac{1}{2}w_1-\frac{1}{2}w_2+\frac{2}{3}w_3
+            =\frac{1}{36}
+            \begin{pmatrix}
+              34 \\
+               3 \\
+               3 \\
+              -5 \\
+              -5
+            \end{pmatrix}
+          \end{equation*}
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 11.09.2014 -- Aufgabe 6}{[5 Punkte]}

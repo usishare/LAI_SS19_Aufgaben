@@ -3175,7 +3175,32 @@ die die Unterräume $U_1=\langle v_1,v_2,v_3\rangle$ und $U_2=\langle w_1,w_2\ra
   \item Bestimmen Sie eine Basis des Durchschnitts $U_1\cap U_2$ mit einer Methode Ihrer Wahl.
 \end{enumerate}
 \begin{answer}
-  Teilaufbage b)
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item man könnte $U_1$ als Kern von $f$ bestimmen, also $U_1=\{x\in V\mid f(x)=0\}$
+    \item damit gilt dann $f(v_1)=f(v_2)=f(v_3)=0$
+    \item bzw. als Gleichungssystem:
+          \begin{equation*}
+            \left(
+            \begin{array}{rrrr|r}
+               1 & 2 & -1 & 2 & 0 \\
+               2 & 1 &  2 & 1 & 0 \\
+              -1 & 2 &  1 & 2 & 0
+            \end{array}
+            \right)
+            \quad\Rightarrow\quad
+            \left(
+            \begin{array}{rrrr|r}
+              1 &  2 & -1 &  2 & 0 \\
+              0 & -3 &  4 & -3 & 0 \\
+              0 &  0 & 16 &  0 & 0
+            \end{array}
+            \right)
+          \end{equation*}
+    \item daraus folgt: $x_3=0$, $x_2=-x_4$ und $x_1=0$
+    \item eine mögliche Gleichung lautet also: $x_2-x_4=0$
+  \end{mytemize}
+  Teilaufgabe b)
   \begin{mytemize}
     \item alle Vektoren, die sich im Schnitt der beiden Unterräume
           befinden, müssen sich sowohl als Linearkombination von $\langle

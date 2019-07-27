@@ -3749,7 +3749,7 @@ Im Vektorraum $\mathbb{R}^4$ seien die folgenden Untervektorräume gegeben:
   \end{equation*}
   Teilaufgabe b)
   \begin{mytemize}
-    \item mit \glqq Gauß\grqq{} bringt man die Matrix auf Zeilenstufenform;
+    \item mit \glqq Gauß\grqq{} bringt man die Matrix auf Zeilenstufenform:
           \begin{equation*}
             \begin{pmatrix}
               1 & 1 & 1 & 0 \\
@@ -3869,6 +3869,48 @@ Wir betrachten das lineare Gleichungssystem über den reellen Zahlen:
   \item Für welche Werte des Parameters $a\in\mathbb{R}$ ist das Gleichungssystem lösbar?
   \item Berechnen Sie die Lösung für den Wert $a=-3$.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item das Gleichungssystem ist für die Werte von $a$ lösbar, für die
+          die Determinante nicht Null wird
+    \item da der Parameter $a$ ganz rechts unten steht, bietet es sich an das
+          Gleichungssystem mit \glqq Gauß\grqq{} auf Zeilenstufenform zu bringen:
+          \begin{equation*}
+            \begin{pmatrix}
+              2 & -2 &  3 &   -3 \\
+              0 &  1 &  5 &   -5 \\
+              0 &  0 & -1 &    1 \\
+              0 &  0 &  0 & 4+2a
+            \end{pmatrix}
+            \quad\Rightarrow\quad
+            a\neq-2
+          \end{equation*}
+  \end{mytemize}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item nachdem man die Umformungsschritte auch auf die rechte Seite
+          angewendet hat, ergibt sich folgendes Gleichungssystem:
+          \begin{equation*}
+            \left(
+            \begin{array}{rrrr|r}
+              2 & -2 &  3 & -3 & -1 \\
+              0 &  1 &  5 & -5 & -2 \\
+              0 &  0 & -1 &  1 &  1 \\
+              0 &  0 &  0 & -2 & -4
+            \end{array}
+            \right)
+            \quad\Rightarrow\quad
+            x=
+            \begin{pmatrix}
+              4 \\
+              3 \\
+              1 \\
+              2
+            \end{pmatrix}
+          \end{equation*}
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 09.03.2016 -- Aufgabe 2}{[7 Punkte]}

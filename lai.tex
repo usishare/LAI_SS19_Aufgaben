@@ -3961,6 +3961,77 @@ Im Vektorraum $\mathbb{R}^4$ seien die folgenden Untervektorräume gegeben:
   \item Begründen Sie (z.\,B. mit der Dimensionsformel), dass die Summe
         $U_1+U_2$ \emph{nicht} der gesamte Vektorraum $\mathbb{R}^4$ ist.
 \end{enumerate}
+\begin{answer}
+  Teilaufgabe a)
+  \begin{mytemize}
+    \item $U_1$ wird beschrieben durch ein Gleichungssystem mit 4
+          Unbekannten und 2 Gleichungen:
+          \begin{equation*}
+              \newcommand{\+}{&{}+{}&}%
+              \renewcommand{\-}{&{}-{}&}%
+              \renewcommand{\=}{&{}={}&}%
+              \renewcommand{\.}{&{}~{}&}%
+              \renewcommand{\|}{\text{\;\;}&}%
+              \setlength{\arraycolsep}{0pt}%
+              \begin{array}{|crcrcrcrcr}
+              \| 2x_1 \- 3x_2 \+ 3x_3 \+  x_4 \= 0 \\
+              \| 3x_1 \- 4x_2 \+ 5x_3 \+ 2x_4 \= 0   
+              \end{array}
+              \quad\Leftrightarrow\quad
+              \begin{array}{|crcrcrcrcr}
+              \| 2x_1 \- 3x_2 \+ 3x_3 \+ x_4 \= 0 \\
+              \|      \.  x_2 \+  x_3 \+ x_4 \= 0   
+              \end{array}\\
+              \quad\Leftrightarrow\quad
+              \begin{array}{|crcr}
+              \| x_1 \= -3x_3-2x_4 \\
+              \| x_2 \= -x_3-x_4
+              \end{array}
+          \end{equation*}
+    \item also haben alle Vektoren in $U_1$ die Form:
+          \begin{equation*}
+            x=
+            \begin{pmatrix}
+              -3x_3-2x_4 \\
+                -x_3-x_4 \\
+                     x_3 \\
+                     x_4
+            \end{pmatrix}
+            =x_3\cdot
+            \begin{pmatrix}
+              -3 \\
+              -1 \\
+               1 \\
+               0
+            \end{pmatrix}
+            +x_4\cdot
+            \begin{pmatrix}
+              -2 \\
+              -1 \\
+               0 \\
+               1
+            \end{pmatrix}
+          \end{equation*}
+    \item eine Basis von $U_1$ könnte also lauten:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+              -3 \\
+              -1 \\
+               1 \\
+               0
+            \end{pmatrix}
+            ,
+            \begin{pmatrix}
+              -2 \\
+              -1 \\
+               0 \\
+               1
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+  \end{mytemize}
+\end{answer}
 
 % ----------------------------------------------------
 \exercise{Klausur 09.03.2016 -- Aufgabe 3}{[7 Punkte]}

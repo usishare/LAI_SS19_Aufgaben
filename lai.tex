@@ -4031,6 +4031,79 @@ Im Vektorraum $\mathbb{R}^4$ seien die folgenden Untervektorräume gegeben:
             \right\}
           \end{equation*}
   \end{mytemize}
+  Teilaufgabe b)
+  \begin{mytemize}
+    \item alle Vektoren $x\in U_2$ lassen sich schreiben als $x=aw_1+bw_2$:
+          \begin{equation*}
+            x=a\cdot
+            \begin{pmatrix}
+              4 \\
+              2 \\
+              3 \\
+              2
+            \end{pmatrix}
+            +b\cdot
+            \begin{pmatrix}
+              3 \\
+              2 \\
+              4 \\
+              1
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+              4a+3b \\
+              2a+2b \\
+              3a+4b \\
+               2a+b
+            \end{pmatrix}
+          \end{equation*}
+    \item wenn diese Vektoren zusätzlich noch in $U_1$ liegen sollen, muss gelten:
+          \begin{equation*}
+            \newcommand{\+}{&{}+{}&}%
+            \renewcommand{\-}{&{}-{}&}%
+            \renewcommand{\=}{&{}={}&}%
+            \renewcommand{\.}{&{}~{}&}%
+            \renewcommand{\|}{\text{\;\;}&}%
+            \setlength{\arraycolsep}{0pt}%
+            \begin{array}{|crcrcrcrcr}
+            \| 2(4a+3b) \- 3(2a+2b) \+ 3(3a+4b) \+  (2a+b) \= 0 \\
+            \| 3(4a+3b) \- 4(2a+2b) \+ 5(3a+4b) \+ 2(2a+b) \= 0   
+            \end{array}
+            \qquad\Rightarrow\qquad
+            a=-b
+          \end{equation*}
+    \item also haben alle Vektoren in $U_1\cap U_2$ die Form:
+          \begin{equation*}
+            x=t\cdot(w_1-w_2)\text{ mit }t\in\mathbb{R}
+            \qquad\Rightarrow\qquad
+            x=t\cdot
+            \begin{pmatrix}
+               1 \\
+               0 \\
+              -1 \\
+               1
+            \end{pmatrix}
+          \end{equation*}
+    \item und eine mögliche Basis könnte lauten:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+               1 \\
+               0 \\
+              -1 \\
+               1
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+  \end{mytemize}
+  Teilaufgabe c)
+  \begin{equation*}
+    \begin{split}
+      \dim\langle U_1\cup U_2\rangle&=\dim(U_1)+\dim(U_2)-\dim(U_1\cap U_2) \\
+                                    &=2+2-1 \\
+                                    &=3\neq4=\dim(\mathbb{R}^4)
+    \end{split}
+  \end{equation*}
 \end{answer}
 
 % ----------------------------------------------------

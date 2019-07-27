@@ -3656,9 +3656,59 @@ Im Vektorraum $\mathbb{R}^4$ seien die folgenden Untervektorräume gegeben:
   \end{mytemize}
   Teilaufgabe b)
   \begin{mytemize}
-    \item alle Vektoren im Schnitt werden von beiden Basen erzeugt, also:
+    \item alle Vektoren in $U_2$ werden von der Basis $\{w_1,w_2\}$
+          erzeugt, haben also folgende Form:
+          \begin{equation*}
+            x=aw_1+bw_2=
+            a\cdot
+            \begin{pmatrix}
+              2 \\
+              2 \\
+              2 \\
+              1
+            \end{pmatrix}
+            +b\cdot
+            \begin{pmatrix}
+              1 \\
+              3 \\
+              2 \\
+              2
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+               2a+b \\
+              2a+3b \\
+              2a+2b \\
+               a+2b
+            \end{pmatrix}
+          \end{equation*}
+    \item diese Komponenten setzt man jetzt in die Gleichung ein, die $U_1$ definiert:
+          \begin{equation*}
+              2\cdot(2a+b)+(2a+3b)-2\cdot(2a+2b)+(a+2b)=0
+              \quad\Rightarrow\quad
+              a=-b
+          \end{equation*}
+    \item damit werden alle Vektoren im Schnitt durch folgende Linearkombination erzeugt:
+          \begin{equation*}
+            tw_1-tw_2=t\cdot(w_1-w_2)\text{ mit }t\in\mathbb{R}
+          \end{equation*}
+    \item eine mögliche Basis wäre also:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+               1 \\
+              -1 \\
+               0 \\
+              -1
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
   \end{mytemize}
   Teilaufgabe c)
+  \begin{equation*}
+    \dim\langle U_1\cup U_2\rangle=\dim(U_1)+\dim(U_2)-\dim(U_1\cap U_2)
+    =3+2-1=4=\dim\left(\mathbb{R}^4\right)
+  \end{equation*}
 \end{answer}
 
 % ----------------------------------------------------

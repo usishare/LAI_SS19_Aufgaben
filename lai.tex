@@ -5030,6 +5030,74 @@ Vielfachheit der Eigenwerte an.
   \end{pmatrix}
 \end{equation*}
 Sind diese Matrizen diagonalisierbar?
+\begin{answer}
+  Matrix $A$:
+  \begin{mytemize}
+    \item der Ansatz $\det(A-\lambda I)$ liefert für die erste Matrix:
+          \begin{equation*}
+            \det(A-\lambda I)=-\lambda^3+3\lambda^2-3\lambda+1
+          \end{equation*}
+    \item \glqq konzentriertes Anschauen\grqq{} der Gleichung liefert den Eigenwert $\lambda=1$
+    \item durch Polynomdivision kann man den Grad des Polynoms auf 2 reduzieren:
+          \begin{equation*}
+            (-\lambda^3+3\lambda^2-3\lambda+1):(\lambda-1)=-\lambda^2+2\lambda-1=-(\lambda-1)^2
+          \end{equation*}
+    \item das charakteristische Polynom lautet also:
+          \begin{equation*}
+            \det(A-\lambda I)=-(\lambda-1)^3
+          \end{equation*}
+    \item $\lambda=1$ ist also der einzige Eigenwert dieser Matrix
+    \item der Ansatz $(A-1\cdot I)\cdot x=0$ liefert eine Basis für den Eigenraum:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+              1 \\
+              0 \\
+              1
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+    \item damit ist 3 die algebraische Vielfachheit des Eigenwerts $\lambda=1$
+          und 1 ist seine geometrische Vielfachheit (Dimension des Eigenraums)
+  \end{mytemize}
+  Matrix $B$:
+  \begin{mytemize}
+    \item der Ansatz $\det(B-\lambda I)$ liefert für die zweite Matrix
+          direkt das charakteristische Polynom:
+          \begin{equation*}
+            \det(B-\lambda I)=(1-\lambda)^2(-1-\lambda)
+          \end{equation*}
+    \item es gibt also die beiden Eigenwerte $\lambda_1=1$ und $\lambda_2=-1$
+    \item der Ansatz $(B-1\cdot I)\cdot x=0$ liefert eine Basis für den Eigenraum zu $\lambda_1=1$:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+              1 \\
+              0 \\
+              0
+            \end{pmatrix}
+            ,
+            \begin{pmatrix}
+               0 \\
+               1 \\
+              -1
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+    \item der Eigenwert $\lambda_1=1$ besitzt also eine algebraische und geometrische Vielfachheit von 2
+    \item der Ansatz $(B-(-1)\cdot I)\cdot x=0$ liefert eine Basis für den Eigenraum zu $\lambda_2=-1$:
+          \begin{equation*}
+            \left\{
+            \begin{pmatrix}
+               1 \\
+               0 \\
+              -1
+            \end{pmatrix}
+            \right\}
+          \end{equation*}
+    \item der Eigenwert $\lambda_2=-1$ besitzt also eine algebraische und geometrische Vielfachheit von 1
+  \end{mytemize}
+\end{answer}
 
 % -------------------------------------------------------
 \exercise{Klausur (ohne Datum) -- Aufgabe 6}{[11 Punkte]}

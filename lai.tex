@@ -4957,6 +4957,13 @@ Welche der folgenden reellen Matrizen sind diagonalisierbar? Begründen Sie Ihre
     31 & 79 & 16 & 4
   \end{pmatrix}
 \end{equation*}
+\begin{answer}
+  \begin{mytemize}
+    \item Eine Matrix $A$ ist genau dann diagonalisierbar, wenn es
+          eine invertierbare Matrix $S$ gibt, so dass $S^{-1}AS$
+          eine Diagonalmatrix ist.
+  \end{mytemize}
+\end{answer}
 
 % -------------------------------------------------------
 \exercise{Klausur (ohne Datum) -- Aufgabe 5}{[12 Punkte]}
@@ -5130,6 +5137,18 @@ Die Vektoren $v_1,\ldots,v_n$ des Orthogonalsystems berechnen sich dann wie folg
     v_n&=w_n-\sum_{i=1}^{n-1}\frac{\langle v_i,w_n\rangle}{\langle v_i,v_i\rangle}v_i
   \end{split}
 \end{equation*}
+
+% --------------------------------------------------------------
+\paragraph{Definition: Diagonalisierbarkeit}\textit{(Folie 172)}\par
+% --------------------------------------------------------------
+Eine lineare Abbildung $\varphi:V\to V$ heißt diagonalisierbar falls $V$
+eine Basis aus Eigenvektoren von $\varphi$ besitzt.
+
+% ----------------
+\paragraph{Satz 46}\textit{(Folie 172)}\par
+% ----------------
+Eine Matrix $A$ ist genau dann diagonalisierbar, wenn es eine invertierbare
+Matrix $S$ gibt, so dass $S^{-1}AS$ eine Diagonalmatrix ist.
 
 % ------------------------------------------------------------------------------
 \end{document}

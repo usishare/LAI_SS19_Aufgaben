@@ -4962,6 +4962,49 @@ Welche der folgenden reellen Matrizen sind diagonalisierbar? Begründen Sie Ihre
     \item Eine Matrix $A$ ist genau dann diagonalisierbar, wenn es
           eine invertierbare Matrix $S$ gibt, so dass $S^{-1}AS$
           eine Diagonalmatrix ist.
+    \item Matrix $A$ ist diagonalisierbar, weil reelle symmetrische
+          Matrizen immer diagonalisierbar sind.
+    \item Matrix $C$ ist diagonalisierbar, denn sie besitzt vier
+          verschiedene Eigenwerte, also auch vier linear unabhängige
+          Eigenvektoren, die dementsprechend eine Basis des $\mathbb{R}^4$
+          bilden.
+    \item Matrix $B$ ist nicht diagonalisierbar, weil ihre Eigenvektoren keine
+          Basis der $\mathbb{R}^4$ bilden:
+          \begin{equation*}
+            \lambda_{1\ldots4}=1:\quad(A-1\cdot I)\cdot x=0
+            \quad\Rightarrow\quad
+            \begin{pmatrix}
+              0 & -2 &  4 &  8 \\
+              0 &  0 & -2 &  4 \\
+              0 &  0 &  0 & -2 \\
+              0 &  0 &  0 &  0
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+              x_1 \\
+              x_2 \\
+              x_3 \\
+              x_4
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+              0 \\
+              0 \\
+              0 \\
+              0
+            \end{pmatrix}
+          \end{equation*}
+    \item alle Eigenvektoren zum Eigenwert $\lambda=1$ haben also die Form:
+          \begin{equation*}
+            v=x_1\cdot
+            \begin{pmatrix}
+              1 \\
+              0 \\
+              0 \\
+              0
+            \end{pmatrix}
+            \text{ mit }x_1\in\mathbb{R}
+          \end{equation*}
   \end{mytemize}
 \end{answer}
 
